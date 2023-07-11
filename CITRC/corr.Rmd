@@ -1,0 +1,107 @@
+---
+title: "CITRC_Apache"
+author: "Jordan Lo"
+date: "2023-06-27"
+output: html_document
+---
+
+```{r}
+# readxl allows us to read excel files
+library("readxl")
+# dplyr gives us data manipulation tools
+library("dplyr")
+# ggally gives us access to a pairs function
+library("GGally")
+```
+
+```{r}
+# reads in biomarker data and APACHE data for CITRC
+biomarkers <- read_excel("B:\\CITRC\\Plasma Biomarker August 2022\\master_data_sheets\\CITRC_Data_Master_20230616.xlsx")
+apache <- read.csv("B:\\CITRC\\Plasma Biomarker August 2022\\master_data_sheets\\apachedata_6.12.23_no_urine.csv")
+
+# renames columns
+colnames(apache)[1] <- "Subject_ID"
+colnames(apache)[2] <- "APACHE"
+
+# adds study identifier to APACHE data
+apache$Subject_ID <- paste("CIT", apache$Subject_ID,
+                           sep = "_")
+
+# subsets data to subject and APACHE score
+apache <- apache[,c("Subject_ID",
+                    "APACHE")]
+
+# merges biomarker and apache dataframes
+master <- merge(biomarkers, apache,
+                by = "Subject_ID")
+```
+
+```{r, warning = FALSE}
+# uses ggpairs to generate a pairs plot
+plot <- master %>% 
+  select("PE_Ang-1_V1",
+         "PE_Ang-1_V2",
+         "PE_Ang-2_V1",
+         "PE_Ang-2_V2",
+         "PE_sTREM-1_V1",
+         "PE_sTREM-1_V2",
+         "PE_TNF-RI_V1",
+         "PE_TNF-RI_V2",
+         "PE_AngPTL4_V1",
+         "PE_AngPTL4_V2",
+         "APACHE") %>%
+  ggpairs(progress = FALSE,
+          lower = list(continuous = wrap("cor", size = 2.8)),
+          upper = list(continuous = "points"),
+          axisLabels = "none",
+          columnLabels = c("Ang-1_V1",
+                           "Ang-1_V2",
+                           "Ang-2_V1",
+                           "Ang-2_V2",
+                           "sTREM1_V1",
+                           "sTREM1_V2",
+                           "TNFRI_V1",
+                           "TNFRI_V2",
+                           "AngPTL4_V1",
+                           "AngPTL4_V2",
+                           "APACHE III")) + 
+  theme(strip.text.x = element_text(size = 7),
+        strip.text.y = element_text(size = 7))
+
+plot
+```
+
+```{r}
+ggsave(plot,
+       file = "plot.png",
+       width = 1000,
+       height = 1000,
+       units = "px",
+       scale = 3)
+```
+
+
+```{r}
+master %>% 
+  select("PE_Ang-1_V1",
+         "PE_Ang-1_V2",
+         "PE_Ang-2_V1",
+         "PE_Ang-2_V2",
+         "PE_sTREM-1_V1",
+         "PE_sTREM-1_V2",
+         "PE_TNF-RI_V1",
+         "PE_TNF-RI_V2",
+         "PE_AngPTL4_V1",
+         "PE_AngPTL4_V2",
+         "APACHE") %>%
+  ggcorr(method = c("pairwise", "pearson"),
+         label = TRUE,
+         angle = 0,
+         hjust = 0.75,
+         vjust = 0,
+         size = 2.5,
+         label_alpha = TRUE,
+         label_round = 3,
+         label_size = 3.5,
+         layout.exp = 1)
+```

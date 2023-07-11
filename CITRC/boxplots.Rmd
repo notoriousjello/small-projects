@@ -1,0 +1,99 @@
+---
+title: "Master_Visit_BoxPlots"
+author: "Jordan Lo"
+date: "2023-07-05"
+output: html_document
+---
+
+```{r}
+# readxl allows us to read in xlsx files
+library(readxl)
+# tidyverse gives us access to data processing tools
+library(tidyverse)
+# dplyr gives us access to data processing tools
+library(dplyr)
+# ggplot2 lets us create plots and figures
+library(ggplot2)
+# skimr gives us dataframe summaries
+library(skimr)
+```
+
+```{r}
+# reads in an excel file as a dataframe
+master <- read_excel("B:\\CITRC\\Plasma Biomarker August 2022\\master_data_sheets\\CITRC_Data_Master_20230616.xlsx")
+# subsets the above file 
+master <- master[, c(1,3:12)]
+colnames(master) <- c("Subject_ID",
+                      "Ang-1_V1",
+                      "Ang-2_V1",
+                      "Ang-1_V2",
+                      "Ang-2_V2",
+                      "sTREM1_V1",
+                      "sTREM1_V2",
+                      "TNFRI_V1",
+                      "TNFRI_V2",
+                      "AngPTL4_V1",
+                      "AngPTL4_V2")
+
+# pivots the dataframe from wide to long and filters for just samples with concentrations
+long_master <- pivot_longer(master,
+                            cols = c("Ang-1_V1",
+                                     "Ang-1_V2",
+                                     "Ang-2_V1",
+                                     "Ang-2_V2",
+                                     "sTREM1_V1",
+                                     "sTREM1_V2",
+                                     "TNFRI_V1",
+                                     "TNFRI_V2",
+                                     "AngPTL4_V1",
+                                     "AngPTL4_V2"),
+                            names_to = "Assay",
+                            values_to = "Concentration") %>%
+  drop_na() %>%
+#  filter(Concentration > 0) %>%
+  group_by(Assay) %>%
+  add_count()
+
+# pivots the dataframe from wide to long and filters for just the values without concentrations
+long_master_empty <- pivot_longer(master,
+                            cols = c("Ang-1_V1",
+                                     "Ang-1_V2",
+                                     "Ang-2_V1",
+                                     "Ang-2_V2",
+                                     "sTREM1_V1",
+                                     "sTREM1_V2",
+                                     "TNFRI_V1",
+                                     "TNFRI_V2",
+                                     "AngPTL4_V1",
+                                     "AngPTL4_V2"),
+                            names_to = "Assay",
+                            values_to = "Concentration") %>%
+  drop_na() %>%
+  filter(Concentration < 0) %>%
+  group_by(Assay) %>%
+  add_count()
+
+master <- pivot_wider(long_master,
+                      id_cols = Subject_ID,
+                      names_from = Assay,
+                      values_from = Concentration)
+
+skim_without_charts(master)
+
+test <- long_master[, c(2,4)]
+```
+
+
+```{r}
+plot <- ggplot(long_master, 
+               mapping = aes(x = Assay,
+                             y = log(Concentration))) +
+  geom_boxplot() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1,
+                                   vjust = 1.05))
+
+plot
+```
+
