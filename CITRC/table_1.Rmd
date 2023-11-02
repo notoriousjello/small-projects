@@ -1,0 +1,142 @@
+---
+title: "CITRC_Data_Summary"
+author: "Jordan Lo"
+date: "2023-07-11"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r}
+# readxl allows us to read in xlsx files
+library(readxl)
+# tidyverse gives us access to data processing tools
+library(tidyverse)
+# dplyr gives us access to data processing tools
+library(dplyr)
+# ggplot2 lets us create plots and figures
+library(ggplot2)
+# skimr gives us dataframe summaries
+library(skimr)
+```
+
+```{r}
+# reads in an excel file as a dataframe
+master <- read_excel("B:\\CLOVERS\\CLOVERS_Data_Master_20230726.xlsx")
+# subsets the above file 
+colnames(master) <- c("Subject_ID",
+                      "Ang-1_V1",
+                      "Ang-2_V1",
+                      "TNFRI_V1")
+
+# finding non-overlapping values
+overlap <- master[, c(1:4)]
+
+# pivots the dataframe from wide to long and filters for just samples with concentrations
+long_master <- pivot_longer(master,
+                            cols = c("Ang-1_V1",
+                                     "Ang-2_V1",
+                                     "TNFRI_V1",),
+                            names_to = "Assay",
+                            values_to = "Concentration") %>%
+  drop_na() %>%
+#  filter(Concentration > 0) %>%
+  group_by(Assay) %>%
+  add_count()
+
+# pivots the dataframe from wide to long and filters for just the values without concentrations
+long_master_empty <- pivot_longer(master,
+                            cols = c("Ang-1_V1",
+                                     "Ang-2_V1",
+                                     "TNFRI_V1"),
+                            names_to = "Assay",
+                            values_to = "Concentration") %>%
+  drop_na() %>%
+  filter(Concentration < 0) %>%
+  group_by(Assay) %>%
+  add_count()
+
+master <- pivot_wider(long_master,
+                      id_cols = Subject_ID,
+                      names_from = Assay,
+                      values_from = Concentration)
+```
+
+
+```{r}
+# subsets the long_master file
+test <- long_master[, c(2,4)]
+
+# takes all distinct values from the test dataframe
+table_1 <- test %>%
+  distinct(Assay,
+           .keep_all = TRUE)
+
+# subsets all the data from long_master that is tagged as being below the LLOD
+llod <- long_master %>%
+  filter(Concentration == -89) %>%
+  # groups by assay and adds a counter
+  group_by(Assay) %>%
+  add_count() %>%
+  distinct(Assay,
+           .keep_all = TRUE)
+# further subsets the dataframe into the needed columns
+llod <- llod[c(2,5)]
+
+# merges the two tables and renames the column
+table_1 <- merge(table_1,
+                 llod,
+                 by = 'Assay',
+                 all.x = TRUE,
+                 all.y = TRUE)
+colnames(table_1)[3] <- "n_below_LLOD"
+
+# does the same as above but for ULOD
+ulod <- long_master %>%
+  filter(Concentration == -99) %>%
+  group_by(Assay) %>%
+  add_count() %>%
+  distinct(Assay,
+           .keep_all = TRUE)
+
+ulod <- ulod[c(2,5)]
+
+table_1 <- merge(table_1,
+                 ulod,
+                 by = 'Assay',
+                 all.x = TRUE,
+                 all.y = TRUE)
+colnames(table_1)[4] <- "n_above_ULOD"
+
+# replaces all NA with 0
+table_1[is.na(table_1)] <- 0
+
+# adds a column of all values within range
+within_range <- long_master[, c(1:3)] %>%
+  filter(Concentration > 0) %>%
+  group_by(Assay) %>%
+  add_count %>%
+  distinct(Assay,
+           .keep_all = TRUE)
+within_range <- within_range[, c(2,4)]
+
+table_1 <- merge(table_1,
+                 within_range,
+                 by = "Assay",
+                 all.x = TRUE,
+                 all.y = TRUE)
+colnames(table_1)[5] <- "n_within_range"
+colnames(table_1)[2] <- "n_total"
+
+# separates assay and visit
+table_1 <- table_1 %>%
+  separate(Assay,
+           into = c("Assay",
+                    "Visit"),
+           sep = "_")
+
+write_csv(table_1, 
+          file = "B:\\CLOVERS\\CLOVERS_Table1.xlsx")
+
+table_1
+```

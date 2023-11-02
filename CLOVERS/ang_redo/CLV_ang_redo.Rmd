@@ -1,0 +1,167 @@
+---
+title: "CLOVERS_PE_Ang1Ang2_Redo_Comp"
+author: "Jordan Lo"
+date: "2023-10-02"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r, include = FALSE}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# readxl allows us to read excel files
+library("readxl")
+# writexl allows us to write to excel files
+library("writexl")
+# ggpubr allows us to make paper ready plots
+library("ggpubr")
+```
+
+```{r, include = FALSE}
+# reads in our two excel files
+redo <- read_excel("B:/CLOVERS/Plasma Biomarker May 2023/Ang1Ang2/2023_09_Remeasure_Ang1/CLV_PE_Ang1Ang2_20230929_PROCESSED.xlsx",
+                   sheet = "WideSampleData")
+redo_raw <- read_excel("B:/CLOVERS/Plasma Biomarker May 2023/Ang1Ang2/2023_09_Remeasure_Ang1/CLV_PE_Ang1Ang2_20230929_PROCESSED.xlsx",
+                      sheet = "RawData") %>%
+  filter(`Sample Group` == "PE") %>%
+  dplyr::select(Sample,
+         `Detection Range`,
+         `Calc. Conc. Mean`,
+         `Assay`)
+colnames(redo_raw) <- c("Sample",
+                        "detection_range_raw",
+                        "calc_conc_mean_raw",
+                        "assay")
+
+original <- read_excel("B:/CLOVERS/Plasma Biomarker May 2023/Ang1Ang2/2023_05_23/CLV_PE_Ang1Ang2_20230710_PROCESSED.xlsx",
+                       sheet = "WideSampleData")
+original_raw <- read_excel("B:/CLOVERS/Plasma Biomarker May 2023/Ang1Ang2/2023_05_23/CLV_PE_Ang1Ang2_20230710_PROCESSED.xlsx",
+                           sheet = "RawData")  %>%
+  filter(`Sample Group` == "PE") %>%
+  dplyr::select(Sample,
+         `Detection Range`,
+         `Calc. Conc. Mean`,
+         `Assay`)
+
+# performs and inner join on the two dataframes
+combined <- merge(redo,
+                  original)
+
+combined <- combined[c(1,4,2,5,3)]
+```
+
+```{r}
+# finds number of occurrences where values stayed the same
+length(
+  which(
+    combined$`PE_Ang-1_V1_Redo` == combined$`PE_Ang-1_V1`
+        )
+      )
+
+length(
+  which(
+    combined$`PE_Ang-1_V1` == -89
+  )
+)
+```
+There were originally 43 Ang-1 and 8 Ang-2 samples that were below fit curve range in the original 18-plate run of CLOVERS. The question is are they actually below fit curve range or is there perhaps something wrong with the assay, protocol, or technique that is causing them to have no values. We re-ran a plate containing the out of range samples along with several In Detection Range controls for a total of n = 76. One sample vial didn’t contain enough volume to run the assay, so the total dropped to 75 samples; it was a control sample.
+<br>
+29 of the Ang-1 samples that were below fit curve range are still below fit curve range which means 14 samples have a concentration value after re-assaying. All 8 samples of Ang-2 that were out of detection range received a concentration in the rerun.
+
+<br>
+
+# Correlation of Control Samples
+```{r}
+# creates a new file of just in detection range samples
+idr <- combined %>%
+  filter(`PE_Ang-1_V1` != -89)
+
+# creates a scatter plot looking at the ang-1_idr controls and how well they correlate between the original and redo
+idr_ang1 <- ggplot(data = idr,
+                   mapping = aes(x = `PE_Ang-1_V1`,
+                                  y = `PE_Ang-1_V1_Redo`))
+
+idr_ang1  + 
+  geom_smooth(method = "lm",
+              se = FALSE) + 
+  geom_point() +
+  stat_cor(method = "pearson") +
+  theme_classic()
+
+# creates a scatter plot looking at the ang-2_idr controls and how well they correlate between the original and redo
+idr_ang2 <- ggplot(data = idr,
+                   mapping = aes(x = `PE_Ang-2_V1`,
+                                  y = `PE_Ang-2_V1_Redo`))
+
+idr_ang2  + 
+  geom_smooth(method = "lm",
+              se = FALSE) + 
+  geom_point() +
+  stat_cor(method = "pearson") +
+  theme_classic()
+```
+<br>
+We see high correlation between the control samples in the original run and redo run in both Ang-1 and Ang-2 (R = 0.99). 
+<br> 
+
+# QCs
+
+
+<br> 
+
+# Samples with New Values
+```{r}
+new <- combined %>%
+  filter(`PE_Ang-1_V1` == -89) %>%
+  filter(`PE_Ang-1_V1` != `PE_Ang-1_V1_Redo`)
+
+new_ang1 <- new %>%
+  dplyr::select(c("Sample",
+           "PE_Ang-1_V1",
+           "PE_Ang-1_V1_Redo"))
+new_ang1
+
+new_ang2 <- new %>%
+  filter(`PE_Ang-2_V1` == -89) %>%
+  filter(`PE_Ang-2_V1` != `PE_Ang-2_V1_Redo`) %>%
+  dplyr::select(c("Sample",
+                  "PE_Ang-2_V1",
+                  "PE_Ang-2_V1_Redo"))
+new_ang2
+
+write_csv(new_ang1,
+          file = "B:/Lab Members/Jordan Lo/projects/CLOVERS/ang_redo/CLV_ang1_data.csv")
+write_csv(new_ang2,
+          file = "B:/Lab Members/Jordan Lo/projects/CLOVERS/ang_redo/CLV_ang2_data.csv")
+```
+
+```{r}
+odr <- combined %>%
+  filter(`PE_Ang-1_V1` == -89) %>%
+  filter(`PE_Ang-1_V1_Redo` != -89)
+```
+
+```{r}
+id_map <- read_excel("B:/CLOVERS/FreezerWorks/CLOVERS EDPL Sample Manifest 20221213 DW_deid FINAL.xlsx")
+new_data <- read_csv("B:/Lab Members/Jordan Lo/projects/CLOVERS/ang_redo/CLV_ang1ang2_new_data.csv")
+
+colnames(id_map) <- c("id",
+                      "referenceid",
+                      "Sample")
+master <- inner_join(id_map,
+                     new_data,
+                     by = "Sample")
+
+colnames(master) <- c("id",
+                      "referenceid",
+                      "Barcode",
+                      "PE_Ang-1_V1",
+                      "PE_Ang-1_V1_Redo",
+                      "PE_Ang-2_V1",
+                      "PE_Ang-2_V1_Redo")
+
+write_csv(master,
+          file = "CLV_ang1ang2_redo.csv")
+```
+
