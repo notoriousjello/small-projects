@@ -1,0 +1,251 @@
+---
+title: "Untitled"
+author: "Jordan Lo"
+date: "2023-11-15"
+output: html_document
+---
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# readxl allows us to read excel files
+library("readxl")
+```
+
+
+```{r}
+# creates a pseudo-master manifest out of everything david has sent
+h12_d5_pull_list <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/THR-184 plasma and urine samples select h12 d5.xlsx",
+                               sheet = "Plasma_h12_d5")
+colnames(h12_d5_pull_list) <- c("Subject",
+                                "Timepoint",
+                                "Label",
+                                "Barcode",
+                                "Row",
+                                "Column",
+                                "Box",
+                                "box count")
+
+alq1_2_initial <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/THR-184 plasma and urine samples selected v2.xlsx",
+                             sheet = "Plasma") %>%
+  dplyr::select("Subject",
+                "Timepoint",
+                "Label",
+                "Barcode",
+                "Row",
+                "Column",
+                "Box",
+                "box count")
+
+alq3 <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/missing_plasma_A1_A2_A3_A4.xlsx",
+                   sheet = "A3_missing_plasma")
+
+colnames(alq3) <- c("Subject",
+                    "Timepoint",
+                    "Label",
+                    "Row",
+                    "Column",
+                    "Box",
+                    "box count",
+                    "Barcode")
+
+alq4 <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/missing_plasma_A1_A2_A3_A4.xlsx",
+                   sheet = "A4_missing_plasma")
+
+colnames(alq4) <- c("Subject",
+                    "Timepoint",
+                    "Label",
+                    "Row",
+                    "Column",
+                    "Box",
+                    "box count",
+                    "Barcode")
+
+full_manifest <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/THR-184 plasma and urine samples select h12 d5.xlsx",
+                          sheet = "Plasma_h12_d5")
+
+colnames(full_manifest) <- c("Subject",
+                             "Timepoint",
+                             "Label",
+                             "Barcode",
+                             "Row",
+                             "Column",
+                             "Box",
+                             "box count")
+
+
+master <- rbind(alq1_2_initial,
+                alq3)
+master <- rbind(master,
+                alq3)
+master <- rbind(master,
+                full_manifest)
+
+# queries master manifest for missing samples
+missing <- read_csv("B:/Lab Members/Jordan Lo/projects/THRASOS/missing_plasma_final.csv") %>%
+  unite(Subject,
+        Subject, Timepoint,
+        sep = "_")
+
+master_unite <- master %>%
+  unite(Subject,
+        Subject, Timepoint,
+        sep = "_") %>%
+  filter(Label != "NA")
+
+write_csv(master,
+          file = "B:/Lab Members/Jordan Lo/projects/THRASOS/fullish_plasma_locations.csv")
+
+missing_locations <- master_unite %>%
+  filter(Subject %in% missing$Subject) %>%
+  separate("Subject",
+           into = c("Subject",
+                    "Timepoint"),
+           sep = "_")
+
+write_csv(missing_locations,
+          file = "B:/Lab Members/Jordan Lo/projects/THRASOS/remaining_samples_to_pull_EOD20231116.csv")
+```
+
+```{r}
+alq1_2 <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/THR-184 plasma and urine samples selected v2.xlsx",
+                     sheet = "Plasma") %>%
+  dplyr::select("Barcode",
+                "Label")
+
+colnames(alq1_2) <- c("barcode",
+                      "label")
+
+alq3 <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/missing_plasma_A1_A2_A3_A4.xlsx",
+                   sheet = "A3_missing_plasma") %>%
+  dplyr::select("Barcode_3",
+                "Sample Label_3") %>%
+  filter(Barcode_3 != "NA")
+
+colnames(alq3) <- c("barcode",
+                      "label")
+
+label_master <- rbind(alq1_2,
+                      alq3)
+
+alq4 <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/missing_plasma_A1_A2_A3_A4.xlsx",
+                   sheet = "A4_missing_plasma") %>%
+  dplyr::select("Barcode_4",
+                "Sample Label_4") %>%
+  filter(Barcode_4 != "NA")
+
+colnames(alq4) <- c("barcode",
+                      "label")
+
+label_master <- rbind(label_master,
+                      alq4)
+
+master <- read_csv("B:/Lab Members/Jordan Lo/projects/THRASOS/manifests/plasma_shipping_manifest_hmc.csv")
+```
+
+```{r}
+# creates pullbox positions
+master$timepoint_id <- 0
+
+master$timepoint_id[grepl("1Hr", master$label.x)] <- 1
+master$timepoint_id[grepl("6Hrs", master$label.x)] <- 2
+master$timepoint_id[grepl("24Hr", master$label.x)] <- 3
+master$timepoint_id[grepl("D2", master$timepoint)] <- 4
+master$timepoint_id[grepl("D3", master$timepoint)] <- 5
+master$timepoint_id[grepl("D7", master$timepoint)] <- 6
+master$timepoint_id[grepl("D30", master$timepoint)] <- 7
+master$timepoint_id[grepl("D90", master$timepoint)] <- 8
+
+write_csv(master,
+          file = "B:/Lab Members/Jordan Lo/projects/THRASOS/plasma_shipping_manifest_V2.csv")
+```
+
+```{r}
+# creates list of needed sample ids
+chicken <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/THR-184 plasma and urine samples selected v2.xlsx",
+                      sheet = "Plasma") %>%
+  distinct(Subject,
+           .keep_all = TRUE)
+
+write_csv(chicken,
+          file = "B:/Lab Members/Jordan Lo/projects/THRASOS/all_sample_ids.csv")
+```
+
+```{r}
+# finds missing D5/H12 samples
+missing_d5_12h <- read_csv("B:/Lab Members/Jordan Lo/projects/THRASOS/missing_plasma_final.csv") %>%
+  unite(Subject,
+        Subject:Timepoint,
+        sep = "_")
+
+full_manifest <- read_csv("B:/Lab Members/Jordan Lo/projects/THRASOS/Thrasos-184 plasma with location.csv") %>%
+  unite(Subject,
+        Subject:Timepoint,
+        sep = "_")
+
+missing_locations <- full_manifest  %>%
+  filter(Subject %in% missing_d5_12h$Subject)
+
+write_csv(missing_locations,
+          file = "B:/Lab Members/Jordan Lo/projects/THRASOS/remaining_D5_12H.csv")
+```
+
+```{r}
+# find urine samples missing timepoints
+urine_9tp <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/THR-184 plasma and urine samples selected v2.xlsx",
+                        sheet = "Urine") %>%
+  unite("Subject",
+        Subject, Timepoint,
+        sep = "_") %>%
+  dplyr::select("Subject",
+                "Label",
+                "Barcode")
+
+urine_2tp <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/THR-184 plasma and urine samples select h12 d5.xlsx",
+                        sheet = "Urine_h12_d5") %>%
+  unite("Subject",
+        Subject, Timepoint,
+        sep = "_") %>%
+  distinct(Subject,
+           .keep_all = TRUE)
+
+colnames(urine_2tp) <- c("Subject",
+                         "Label",
+                         "Barcode")
+
+urine_master <- rbind(urine_9tp,
+                      urine_2tp)
+
+urine_master <- urine_master %>%
+  separate(Subject,
+           into = c("Subject",
+                    "Timepoint"),
+           sep = "_")
+
+library(stringr)
+count(urine_master, 
+      Subject)
+
+urine_master %>%
+  filter(Subject == "045-015") %>%
+  count(Timepoint)
+```
+
+```{r}
+# final olink manifest
+box8_9 <- read_excel("B:/Lab Members/Jordan Lo/projects/THRASOS/AZ_PO.D5 plasma.xlsx")
+colnames(box8_9) <- c("Barcode",
+                      "pull_box",
+                      "pull_box_position")
+
+fullish_plasma_manifest <- read_csv("B:/Lab Members/Jordan Lo/projects/THRASOS/fullish_plasma_locations.csv")
+
+box8_9$Sample <- str_sub(box8_9$Sample, end = -2)
+
+box_8_9_full <- merge(fullish_plasma_manifest,
+                      box8_9,
+                      all.y = TRUE)
+
+write_csv(box_8_9_full,
+          "B:/Lab Members/Jordan Lo/projects/THRASOS/manifests/box_8_9.csv")
+```
+

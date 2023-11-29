@@ -1,0 +1,12 @@
+Subject,Timepoint,Label,Barcode,Row,Column,Box,box count,aliquot
+028-003,D5,Plasma Biomarker Alq 1,A012GJ7I0,E,5,12,41,1
+028-005,D5,Plasma Biomarker Alq 1,A012GJ9J9,A,7,18,7,1
+044-002,D5,Plasma Biomarker Alq 1,A012HICLD,B,3,22,12,1
+044-002,D1,Plasma Biomarker 24Hr Post-Surg Alq 2,A012HICJR,A,9,39,9,2
+044-002,D3,Plasma Biomarker Alq 2,A012HICKQ,B,2,39,11,2
+044-002,D2,Plasma Biomarker Alq 2,A012HICKD,B,4,39,13,2
+044-002,PRE,Plasma Biomarker Alq 2,A012HICHU,B,5,39,14,2
+044-002,D5,Plasma Biomarker Alq 2,A012HICLE,A,8,39,8,2
+044-002,PO,Plasma Biomarker 12Hr Post-Surg Alq 2,A012HICJ4,A,7,39,7,2
+043-013,D3,Plasma Biomarker Alq 2,A012KW9KG,A,7,50,7,2
+040-020,D1,Plasma Biomarker 24Hr Post-Surg Alq 2,A012JJI73,G,6,55,60,2

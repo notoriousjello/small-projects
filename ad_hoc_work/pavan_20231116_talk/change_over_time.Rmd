@@ -1,0 +1,57 @@
+---
+title: "Untitled"
+author: "Jordan Lo"
+date: "2023-11-15"
+output:
+  word_document: default
+  html_document: default
+---
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# readxl allows us to read excel files
+library("readxl")
+# writexl allows us to write to excel files
+library("writexl")
+```
+
+
+```{r}
+raw <- read_excel("B:/CITRC/Plasma Biomarker August 2022/AngPTL4/2023_03_30/AngPTL4_All_Plates_Data.xlsx",
+                  sheet = "RawData")
+
+raw$`Conc. (ng/mL)` <- as.numeric(raw$`Conc. (ng/mL)`)
+raw <- raw %>%
+  drop_na(`Conc. (ng/mL)`)
+
+colnames(raw)[3] ="Concentration"
+
+raw <- raw %>%
+  group_by(Sample) %>%
+  filter(n()>1)
+
+plot <- ggplot(data = raw,
+               mapping = aes(x = Visit,
+                             y = Concentration,
+                             group = Sample))
+plot +
+  geom_point() +
+  geom_line() +
+  theme_classic()
+
+
+plot <- ggplot(data = raw,
+               mapping = aes(x = Visit,
+                             y = log2(Concentration)))
+plot + geom_boxplot() +
+  theme_classic() +
+  labs(y = "Log2(AngPTL4 Conc. ng/mL)")
+
+plot <- ggplot(data = raw,
+               mapping = aes(x = Visit,
+                             y = Concentration))
+plot + geom_boxplot() +
+  theme_classic() +
+  labs(y = "AngPTL4 Conc. (ng/mL)")
+```
+

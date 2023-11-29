@@ -1,0 +1,106 @@
+barcode,subject,timepoint,aliquot,row,column,bow,box_position,pull_box,pull_box_position,label,timepoint_id
+A012GIIS0,004-013,D5,0,H,4,4,67,8,1,Plasma Biomarker Alq 3,0
+A012GIIEU,004-013,PO,0,I,8,4,80,8,2,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GJJ4U,016-014,D5,0,G,4,4,58,8,3,Plasma Biomarker Alq 3,0
+A012GJCFB,025-008,D5,0,I,2,7,74,8,4,Plasma Biomarker Alq 3,0
+A012GJC1E,025-008,PO,0,D,6,7,33,8,5,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012H7EN9,042-002,D5,0,A,9,7,9,8,6,Plasma Biomarker Alq 3,0
+A012H7EKZ,042-002,PO,0,B,4,7,13,8,7,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HTB3S,031-001,PO,0,I,4,9,76,8,8,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HVB2P,038-024,D5,0,C,2,12,20,8,9,Plasma Biomarker Alq 3,0
+A012HVAYX,038-024,PO,0,A,4,12,4,8,10,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GHGT3,007-001,PO,0,G,9,16,63,8,11,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HKWC1,016-021,D5,0,B,1,16,10,8,12,Plasma Biomarker Alq 3,0
+A012HKW9R,016-021,PO,0,A,9,16,9,8,13,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HKWI5,016-022,D5,0,B,2,18,11,8,14,Plasma Biomarker Alq 3,0
+A012HKWFV,016-022,PO,0,C,8,18,26,8,15,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012J3M3C,038-033,D5,0,B,7,18,16,8,16,Plasma Biomarker Alq 3,0
+A012J3LZV,038-033,PO,0,D,2,18,29,8,17,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012IFYN2,001-026,D5,0,E,9,20,45,8,18,Plasma Biomarker Alq 3,0
+A012GIVNV,008-008,D5,0,A,5,22,5,8,19,Plasma Biomarker Alq 3,0
+A012GIVB2,008-008,PO,0,F,7,22,52,8,20,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012I8CL7,004-028,D5,0,D,9,23,36,8,21,Plasma Biomarker Alq 3,0
+A012I8CE9,004-028,PO,0,E,2,23,38,8,22,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GIXQD,008-010,D5,0,G,7,23,61,8,23,Plasma Biomarker Alq 3,0
+A012GIXDT,008-010,PO,0,C,1,23,19,8,24,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012H9EAR,036-003,PO,0,I,5,23,77,8,25,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JQZL2,004-029,D5,0,C,5,25,23,8,26,Plasma Biomarker Alq 3,0
+A012JQZGU,004-029,PO,0,B,3,25,12,8,27,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JQZWD,004-030,D5,0,E,7,25,43,8,28,Plasma Biomarker Alq 3,0
+A012JQZS5,004-030,PO,0,F,3,25,48,8,29,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HTD8R,031-006,D5,0,E,6,25,42,8,30,Plasma Biomarker Alq 3,0
+A012HTD71,031-006,PO,0,G,3,25,57,8,31,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HNZW5,041-001,PO,0,I,1,26,73,8,32,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JJZ36,016-028,D5,0,D,5,27,32,8,33,Plasma Biomarker Alq 3,0
+A012JJYSA,016-028,PO,0,E,2,27,38,8,34,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HNZYF,041-001,D5,0,A,4,27,4,8,35,Plasma Biomarker Alq 3,0
+A012IXW4S,025-018,PO,0,G,6,29,60,8,36,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JYZCM,038-044,D5,0,E,1,29,37,8,37,Plasma Biomarker Alq 3,0
+A012JYZAH,038-044,PO,0,E,7,29,43,8,38,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012J4XA3,019-003,D5,0,F,7,32,52,8,39,Plasma Biomarker Alq 3,0
+A012J4X5B,019-003,PO,0,D,9,32,36,8,40,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012KFTVG,NA,NA,0,NA,NA,NA,NA,8,41,NA,0
+A012KFTLQ,NA,NA,0,NA,NA,NA,NA,8,42,NA,0
+A012JK1QS,016-032,D5,0,G,2,35,56,8,43,Plasma Biomarker Alq 3,0
+A012KVTQV,045-015,D5,0,A,9,39,9,8,44,Plasma Biomarker Alq 3,0
+A012KVTNQ,045-015,PO,0,A,8,39,8,8,45,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012L0WSF,045-016,PO,0,C,4,39,22,8,46,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GJBAC,NA,NA,0,NA,NA,NA,NA,8,47,NA,0
+A012GJAY9,027-007,PO,0,D,8,40,35,8,48,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012L0WU5,045-016,D5,0,C,3,40,21,8,49,Plasma Biomarker Alq 3,0
+A012L0WYR,045-017,D5,0,B,5,40,14,8,50,Plasma Biomarker Alq 3,0
+A012L0WX1,045-017,PO,0,D,5,40,32,8,51,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012L6IUJ,001-043,D5,0,E,4,45,40,8,52,Plasma Biomarker Alq 3,0
+A012LB05P,008-021,PO,0,H,7,47,70,8,53,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012LARCD,009-025,D5,0,E,6,48,42,8,54,Plasma Biomarker Alq 3,0
+A012LARAN,009-025,PO,0,E,1,48,37,8,55,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012L9EAB,001-046,D5,0,G,6,49,60,8,56,Plasma Biomarker Alq 3,0
+A012L9E8L,001-046,PO,0,F,3,49,48,8,57,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012LB07E,008-021,D5,0,A,3,49,3,8,58,Plasma Biomarker Alq 3,0
+A012GIHKD,001-011,D5,0,G,5,1,59,8,59,Plasma Biomarker Alq 3,0
+A012GIHDL,001-011,PO,0,G,6,1,60,8,60,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GJD42,016-009,PO,0,H,1,1,64,8,61,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GIKNN,001-015,PO,0,I,2,2,74,8,62,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GIH28,004-010,D5,0,C,1,2,19,8,63,Plasma Biomarker Alq 3,0
+A012GIGW7,004-010,PO,0,C,5,2,23,8,64,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GJDIB,016-009,D5,0,A,9,2,9,8,65,Plasma Biomarker Alq 3,0
+A012GIKSG,001-015,D5,0,G,4,3,58,8,66,Plasma Biomarker Alq 3,0
+A012GJIPX,NA,NA,0,NA,NA,NA,NA,8,67,NA,0
+A012GVMJ1,001-021,D5,0,B,5,8,14,8,68,Plasma Biomarker Alq 3,0
+A012GVMGR,001-021,PO,0,D,3,8,30,8,69,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GJ7Q7,026-003,D5,0,E,2,8,38,8,70,Plasma Biomarker Alq 3,0
+A012GJ7C9,026-003,PO,0,B,1,8,10,8,71,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HICFB,044-001,D5,0,C,2,13,20,8,72,Plasma Biomarker Alq 3,0
+A012HICD1,044-001,PO,0,C,6,13,24,8,73,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GXWGB,040-003,PO,0,A,7,14,7,8,74,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012HWEW4,004-022,D5,0,I,5,15,77,8,75,Plasma Biomarker Alq 3,0
+A012HWEPI,004-022,PO,0,G,4,15,58,8,76,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GILF3,003-023,D5,0,B,9,17,18,8,77,Plasma Biomarker Alq 3,0
+A012GIL74,003-023,PO,0,C,6,17,24,8,78,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012I89HQ,004-024,D5,0,A,5,19,5,8,79,Plasma Biomarker Alq 3,0
+A012I897P,004-024,PO,0,A,1,19,1,8,80,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GXX5S,040-007,PO,0,A,2,19,2,8,81,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012IFYJK,001-026,PO,0,B,5,21,14,9,1,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012IFYXC,001-027,D5,0,B,4,21,13,9,2,Plasma Biomarker Alq 3,0
+A012IFYTW,001-027,PO,0,B,6,21,15,9,3,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012J4WS2,019-002,PO,0,A,4,31,4,9,4,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012KFSD2,038-047,PO,0,A,9,33,9,9,5,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012IIPA8,043-007,D5,0,D,6,33,33,9,6,Plasma Biomarker Alq 3,0
+A012IIP6N,043-007,PO,0,E,6,33,42,9,7,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JK1MN,016-032,PO,0,E,9,36,45,9,8,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012L6ISJ,001-043,PO,0,D,6,44,33,9,9,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JJHSZ,040-018,PO,0,E,7,44,43,9,10,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012L0U0X,031-011,PO,0,F,2,50,47,9,11,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JJI6S,040-020,PO,0,I,9,50,81,9,12,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012JJI8H,040-020,D5,0,C,2,52,20,9,13,Plasma Biomarker Alq 3,0
+A012JR1KF,004-032,D5,0,B,4,38,13,9,14,Plasma Biomarker Alq 4,0
+A012JR1B8,004-032,PO,0,C,2,38,20,9,15,Plasma Biomarker 12Hr Post-Surg Alq 4,0
+A012JR25Q,004-033,D5,0,E,4,38,40,9,16,Plasma Biomarker Alq 4,0
+A012JR1ZG,004-033,PO,0,E,1,38,37,9,17,Plasma Biomarker 12Hr Post-Surg Alq 4,0
+A012KZ5NA,038-052,PO,0,G,8,42,62,9,18,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012KW9L6,043-013,D5,0,G,5,42,59,9,19,Plasma Biomarker Alq 3,0
+A012KW9J1,043-013,PO,0,D,6,42,33,9,20,Plasma Biomarker 12Hr Post-Surg Alq 3,0
+A012GJ7I0,028-003,D5,0,E,5,12,41,9,21,Plasma Biomarker Alq 1,0
+A012HICJ4,044-002,PO,0,A,7,39,7,9,22,Plasma Biomarker 12Hr Post-Surg Alq 2,0
+A012GJ9J9,028-005,D5,0,A,7,18,7,9,23,Plasma Biomarker Alq 1,0
+A012HICLD,044-002,D5,0,B,3,22,12,9,24,Plasma Biomarker Alq 1,0
