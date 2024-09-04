@@ -1,0 +1,67 @@
+---
+title: "missing_ucr_merges"
+author: "Jordan Lo"
+date: "2024-07-11"
+output: html_document
+---
+
+```{r}
+# reads in the pull lists
+missing_ucr <- read.xlsx("C:/Users/notjello/Downloads/Missing_Ucr_7.10.24.xlsx",
+                         sheet = "citrc1_citrc2_ids_missing_v1_v2")
+
+citrc1 <- read.xlsx("C:/Users/notjello/Downloads/Missing_Ucr_7.10.24.xlsx",
+                    sheet = "CITRC1") %>%
+  unite(`SubjectID.-.2`,
+        `SubjectID.-.2`,`Visit.code`,
+        sep = "_")
+
+citrc2 <- read.xlsx("C:/Users/notjello/Downloads/Missing_Ucr_7.10.24.xlsx",
+                    sheet = "CITRC2") %>%
+  unite(`Participant.Study.ID`,
+        `Participant.Study.ID`, `Visit.ID`,
+        sep = "_")
+```
+
+```{r}
+# pivots missing table to long format
+missing_ucr_long <- missing_ucr %>%
+  pivot_longer(cols = starts_with("ucre_mg_dl_"),
+               names_to = "visit",
+               names_prefix = "ucre_mg_dl_",
+               values_to = "ucr_measurement",
+               values_drop_na = FALSE) %>%
+  unite(citrc_id,
+        citrc_id, visit,
+        sep = "_")
+
+# removes samples that do not have a physical sample
+missing_ucr_long_v1 <- missing_ucr_long %>%
+  filter(grepl("_V1", citrc_id) == TRUE) %>%
+  filter(v1_urine == 1) %>%
+  filter(is.na(ucr_measurement) == TRUE)
+
+missing_ucr_long_v2 <- missing_ucr_long %>%
+  filter(grepl("_V2", citrc_id) == TRUE) %>%
+  filter(v2_urine == 1) %>%
+  filter(is.na(ucr_measurement) == TRUE)
+
+# binds the v1 and v2 tables into one
+missing_ucr_final <- rbind(missing_ucr_long_v1,
+                           missing_ucr_long_v2)
+
+# renames the id column to something the same as the pull list and merges
+citrc1_pull <- missing_ucr_final %>%
+  rename("SubjectID.-.2" = citrc_id)
+
+citrc1_pull <- merge(citrc1_pull,
+                     citrc1)
+
+citrc2_pull <- missing_ucr_final %>%
+  rename("Participant.Study.ID"  = citrc_id) 
+
+citrc2_pull <- merge(citrc2_pull,
+                     citrc2, 
+                     by = "Participant.Study.ID")
+```
+

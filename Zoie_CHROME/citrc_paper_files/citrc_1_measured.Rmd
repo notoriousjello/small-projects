@@ -1,0 +1,87 @@
+---
+title: "citrc1_merging"
+author: "Jordan Lo"
+date: "2024-01-24"
+output: html_document
+---
+
+```{r}
+library(readxl)
+library(tidyverse)
+```
+
+```{r}
+manifest <- read_csv("B:/CITRC/manifest.csv")
+urine <- read_csv("B:/CITRC/urine.csv")
+plasma_sodium <- read_csv("B:/CITRC/plasma.sodium.csv")
+```
+
+```{r}
+colnames(manifest)[5] <- "urine_id"
+colnames(manifest)[6] <- "plasma_id"
+
+colnames(plasma_sodium)[1] <- "plasma_id"
+
+colnames(urine)[1] <- "urine_id"
+
+master <- merge(manifest,
+                urine,
+                by = "urine_id")
+
+master <- merge(master,
+                plasma_sodium,
+                by = "plasma_id")
+
+colnames(master)
+master_reduced <- master[, c("SubjectID",
+                             "SubjectCode",
+                             "VisitLabelCode",
+                             "UrineCREATININEmgdL",
+                             "UrineALBUMINmgdL",
+                             "UrineNAmmolL",
+                             "PlasmaALBUMINgdL",
+                             "PlasmaCREATININEmgdL",
+                             "PlasmaCYSCmgL",
+                             "PlasmaNAmmolL")]
+
+write_csv(master_reduced,
+          file = "B:/CITRC/urine_with_creatinine.csv")
+```
+
+```{r}
+cit_us_pull <- read_xlsx("B:/CITRC/Urine Biomarker Nov 2022/Creatinine/CIT US pull.xlsx") %>%
+  unite(col = Subject,
+        ProjectCode:SubjectID,
+        sep = "_") %>%
+  unite(col = Subject,
+        Subject, `Visit code`,
+        sep = "_")
+
+write_csv(cit_us_pull,
+          file = "B:/CITRC/Urine Biomarker Nov 2022/Creatinine/test.csv")
+
+master_reduced$SubjectID <- paste0("CIT_", 
+                                   master_reduced$SubjectID)
+
+master_reduced <- master_reduced %>%
+  unite(col = Subject,
+        SubjectID, VisitLabelCode,
+        sep = "_")
+
+pull_list <- full_join(master_reduced,
+                       cit_us_pull,
+                       by = "Subject")
+
+return_list <- inner_join(cit_us_pull,
+                          master_reduced)
+
+write_csv(return_list,
+          file = "B:/CITRC/Urine Biomarker Nov 2022/Creatinine/cit_1_return_list.csv")
+
+pull_list_reduced <- pull_list %>%
+  filter(is.na(UrineCREATININEmgdL))
+
+write_csv(pull_list_reduced,
+          file = "B:/CITRC/Urine Biomarker Nov 2022/Creatinine/cit_1_us_pull.csv")
+```
+

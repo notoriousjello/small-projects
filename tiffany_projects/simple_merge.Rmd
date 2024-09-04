@@ -1,0 +1,32 @@
+---
+title: "ang2_df_qc_check"
+author: "Jordan Lo"
+date: "2024-07-17"
+output: html_document
+---
+
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# qpcR for side by side data frame merging
+library("qpcR")
+# openxlsx for managing excel workbooks
+library("openxlsx")
+# ggpubr for adding useful things to graphs
+library("ggpubr")
+
+`%notin%` <- Negate(`%in%`)
+```
+
+```{r}
+xlsx_1 <- read.xlsx("C:/Users/notjello/Downloads/CITRC.aliquot.numbers.xlsx")
+xlsx_2 <- read.csv("C:/Users/notjello/Downloads/CriticalIllnessTrans_DATA_2024-08-12_1228.infection.blood.csv")
+
+master <- merge(xlsx_1,
+                xlsx_2,
+                by = "study_id")
+
+write_csv(master,
+          "B:/Lab Members/Jordan Lo/projects/tiffany_projects/CITRC_number_aliquots.csv")
+```
+

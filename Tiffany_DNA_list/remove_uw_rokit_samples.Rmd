@@ -1,0 +1,127 @@
+---
+title: "Untitled"
+author: "Jordan Lo"
+date: "2024-06-12"
+output: html_document
+---
+
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# qpcR for side by side data frame merging
+library("qpcR")
+# openxlsx for managing excel workbooks
+library("openxlsx")
+
+`%notin%` <- Negate(`%in%`)
+```
+
+```{r}
+# reads in excel sheets 
+rokit <- read_xlsx("B:/ROKIT/DNA_Extraction_092023/DNA Pull List/DNA_Pull_List.xlsx",
+                   sheet = "ROKIT_UW")
+citrc_1 <- read_xlsx("B:/ROKIT/DNA_Extraction_092023/DNA Pull List/DNA_Pull_List.xlsx",
+                     sheet = "CITRC_1")
+citrc_2 <- read_xlsx("B:/ROKIT/DNA_Extraction_092023/DNA Pull List/DNA_Pull_List.xlsx",
+                     sheet = "CITRC_2")
+purified <- read_xlsx("B:/ROKIT/DNA_Extraction_092023/ROKIT_DNA_Concentrations_2024.xlsx")
+
+crosswalk <- read_csv("B:/CITRC/Patient Tracking Forms/CITRC_ROKIT_Patient_Sample_Numbers/CITRC_CITRC2_crosswalk.csv")
+```
+
+```{r}
+# cuts dataframe to just the list ids
+purified_ids <- purified %>%
+  subset(select = `Sample ID`) %>%
+  rename(r_id = `Sample ID`) %>% 
+  separate(col = r_id,
+           into = c("r_id",
+                    "visit_code",
+                    "redo")) %>%
+  subset(select = r_id) %>%
+  # filteers out the samples that need to be redone
+  filter(r_id %notin% c("003", "041", "090", "092", "0103", "139"))
+
+# converts to numeric format to remove leading zeros
+purified_ids$r_id <- as.numeric(purified_ids$r_id)
+```
+
+```{r}
+# removes non-rokit samples from crosswalk
+rokit_crosswalk <- crosswalk %>% 
+  filter((rokit) == TRUE) 
+
+# merges purified dna list with crosswalk on sample_id
+citrc2_samples_already_ran <- merge(rokit_crosswalk, purified_ids) 
+
+# checks which samples didn't make it into the above dateframe
+# anti_join(rokit_crosswalk, purified_ids)
+```
+
+# Question
+
+1.  Where are r_id/citrc_ID 31/677 - might be in citrc2 boxes 82/806 - might be in citrc2 boxes 147/932 - might be in citrc2 boxes 150/940 - might be in citrc2 boxes 153/948 - might be in citrc2 boxes 139/917 - is unenrolled and should be destroyed
+
+```{r}
+# adds in visit code
+citrc2_samples_already_ran$citrc_id <- paste(citrc2_samples_already_ran$citrc_id,
+                                             "V1",
+                                              sep = "_")
+
+# removes all columns except the citrc_id
+uw_rokit_remove_list <- citrc2_samples_already_ran %>%
+  subset(select = citrc_id) %>%
+  rename(`Participant Study ID` = citrc_id)
+
+# joins study id and visit code in citrc2 file 
+citrc_2_joined <- citrc_2 %>%
+  unite("Participant Study ID",
+        c(`Participant Study ID`, `Visit ID`),
+        sep = "_")
+
+# removes the already run ROKIT UW samples from the citrc 2 list
+citrc2_rokit_removed <- anti_join(citrc_2_joined,
+                                  uw_rokit_remove_list)
+
+# removes the already run ROKIT UW samples from the citrc 1 list
+citrc_1_joined <- citrc_1 %>%
+  unite(SubjectID,
+        c(`SubjectID`, `Visit code`),
+        sep = "_")
+
+uw_rokit_remove_list <- uw_rokit_remove_list %>%
+  rename(SubjectID = `Participant Study ID`)
+
+citrc1_rokit_removed <- anti_join(citrc_1_joined,
+                                  uw_rokit_remove_list)
+```
+
+```{r}
+# citrc_2_joined <- citrc_2_joined %>%
+#   rename(SubjectID = `Participant Study ID`) %>%
+#   subset(select = SubjectID)
+# 
+# citrc_1_joined <- citrc_1_joined %>%
+#   subset(select = SubjectID)
+# 
+# citrc_total <- rbind(citrc_1_joined,
+#                      citrc_2_joined)
+# 
+# citrc_rokit_removed <- merge(citrc_total,
+#                              uw_rokit_remove_list)
+# 
+# test <- (citrc_rokit_removed,
+#                   uw_rokit_remove_list)
+```
+777_V1 is missing
+
+```{r}
+output <- list(citrc_1 = citrc1_rokit_removed,
+               citrc_2 = citrc2_rokit_removed)
+
+write.xlsx(output,
+           file = "B:/ROKIT/DNA_Extraction_092023/DNA Pull List/DNA_Pull_List_UW_rokit_removed.xlsx",
+           colWidths = "auto",
+           firstRow = TRUE)
+```
+

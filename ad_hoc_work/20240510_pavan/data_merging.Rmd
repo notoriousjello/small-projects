@@ -1,0 +1,162 @@
+---
+title: "Untitled"
+author: "Jordan Lo"
+date: "2024-05-09"
+output: html_document
+---
+
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# readxl allows us to read excel files
+library("readxl")
+# writexl allows us to write to excel files
+library("writexl")
+# qpcR lets us merge data frames side by side
+library("qpcR")
+
+library("data.table")
+```
+
+```{r}
+# reads in all of our files
+df <- read_excel("B:/KPMP.R01/AKI.analysis.JS.PB.4.18.24.xlsx")
+df <- df[-c(32:35),]
+df_id <- subset(df,
+                select = 1)
+names(df_id)[names(df_id) == "ID"] <- "study_id"
+
+scr_base <- read_excel("B:/KPMP.R01/baseline_scr.xlsx") 
+scr_base <- subset(scr_base,
+                   select = -c(3)) %>%
+  rename(
+    `Baseline SCr` = baseline_scr_coalesce
+  )
+
+scr_other <- read_excel("B:/KPMP.R01/DATA-IR024_Schaub_egfr-scr_20230723V1.xlsx")
+```
+
+```{r}
+# merges the scr_base and df to get the baseline scr values
+df_master <- merge(df_id, scr_base,
+                   all.x = TRUE)
+
+# gets admit sCR and adds it to the df master
+admit <- filter(scr_other,
+                scrSource == "ah_scr_admit")
+admit <- subset(admit,
+                select = c("study_id",
+                           "scr_nbr"))
+df_master <- merge(df_master, admit,
+                   all.x = TRUE)
+names(df_master)[names(df_master) == "scr_nbr"] <- "Admit SCr (ah_scr_admit)"
+
+
+# gets max sCR and adds it to the df master
+max_scr <- filter(scr_other,
+                scrSource == "ah_scr_peak")
+max_scr <- subset(max_scr,
+                select = c("study_id",
+                           "scr_nbr"))
+df_master <- merge(df_master, max_scr,
+                   all.x = TRUE)
+names(df_master)[names(df_master) == "scr_nbr"] <- "Peak SCr During Hospitalization (ah_scr_peak)"
+
+# gets biopsy sCR and adds it to the df master
+biopsy_scr <- filter(scr_other,
+                scrSource == "ah_scr_d0")
+biopsy_scr <- subset(biopsy_scr,
+                select = c("study_id",
+                           "scr_nbr"))
+df_master <- merge(df_master, biopsy_scr,
+                   all.x = TRUE)
+names(df_master)[names(df_master) == "scr_nbr"] <- "Biopsy SCr (ah_scr_d0)"
+
+# gets discharge sCR and adds it to the df master
+discharge_scr <- filter(scr_other,
+                scrSource == "ah_scr_disch")
+discharge_scr <- subset(discharge_scr,
+                select = c("study_id",
+                           "scr_nbr"))
+df_master <- merge(df_master, discharge_scr,
+                   all.x = TRUE)
+names(df_master)[names(df_master) == "scr_nbr"] <- "Discharge SCr (ah_scr_disch)"
+
+# finds min/max/med on 3-month follow-up and merges
+scr_summary <- scr_other %>%
+  filter(redcap_event_name == "3 months - AKI-Only") %>%
+  group_by(study_id) %>%
+  summarize("3 month follow up (column B), max" = max(scr_nbr),
+            "3 month follow up (column B), min" = min(scr_nbr),
+            "3 month follow up (column B), median" = median(scr_nbr))
+df_master <- merge(df_master, scr_summary,
+                   all.x = TRUE)
+
+# finds min/max/med on 12-month follow-up and merges
+scr_summary_12 <- scr_other %>%
+  filter(redcap_event_name == "12 months") %>%
+  group_by(study_id) %>%
+  summarize("12 month follow up (column B), max" = max(scr_nbr),
+            "12 month follow up (column B), min" = min(scr_nbr),
+            "12 month follow up (column B), median" = median(scr_nbr))
+df_master <- merge(df_master, scr_summary_12,
+                   all.x = TRUE)
+
+# adds in discharge creatinine
+discharge <- scr_other %>%
+  filter(scrSource == "ah_scr_disch")
+discharge <- subset(ach,
+              select = c("study_id",
+                         "scr_nbr"))
+df_master <- merge(df_master, discharge,
+                   all.x = TRUE)
+```
+
+
+```{r}
+# hospitalization,3 month and 12 month recovery determination
+ach <- subset(df_master,
+              select = c("study_id",
+                         "scr_nbr")) %>%
+  mutate(recov_det = 1.25*df_master$`Baseline SCr`) %>%
+  mutate("aki_recovery_discharge" = ifelse(scr_nbr <= recov_det, 1, 0))
+
+recovery <- subset(ach,
+                      select = c("study_id",
+                                 "aki_recovery_discharge"))
+
+three_month <- subset(df_master,
+                      select = c("study_id",
+                                 "3 month follow up (column B), median")) %>%
+  rename("median" = "3 month follow up (column B), median") %>%
+  mutate(recov_det = 1.25*df_master$`Baseline SCr`) %>%
+  drop_na(median) %>%
+  mutate("aki_recovery_3month(1=yes 0=no)" = ifelse(median <= recov_det, 1, 0))
+
+recovery <- merge(recovery, three_month,
+                  all.x = TRUE, all.y = TRUE)
+
+twelve_month <- subset(df_master,
+                      select = c("study_id",
+                                 "12 month follow up (column B), median")) %>%
+  rename("median" = "12 month follow up (column B), median") %>%
+  mutate(recov_det = 1.25*df_master$`Baseline SCr`) %>%
+  drop_na(median) %>%
+  mutate("aki_recovery_12month(1=yes 0=no)" = ifelse(median <= recov_det, 1, 0))
+
+recovery <- merge(recovery, twelve_month,
+                  all.x = TRUE)
+recovery <- subset(recovery,
+                   select = c("study_id",
+                              "aki_recovery_discharge",
+                              "aki_recovery_3month(1=yes 0=no)",
+                              "aki_recovery_12month(1=yes 0=no)"))
+
+df_master <- merge(df_master, recovery,
+                   all.x = TRUE, 
+                   all.y = TRUE)
+
+write_csv(df_master,
+          file = "B:/KPMP.R01/AKI_analysis_JL.csv")
+```
+

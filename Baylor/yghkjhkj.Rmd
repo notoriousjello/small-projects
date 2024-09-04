@@ -1,0 +1,38 @@
+---
+title: "Baylor_manifest"
+author: "Jordan Lo"
+date: "2024-02-14"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+
+`%notin%` <- Negate(`%in%`)
+```
+
+```{r}
+baylor <- read_excel("B:/Non Bhatraju Lab Studies/Baylor_Ang_Li/2024/baylor_manifest.xlsx")
+
+baylor$visit_code = NA
+
+baylor$visit_code[baylor$Visit == "Baseline"] <- "D0"
+baylor$visit_code[baylor$Visit == "Day +15"] <- "D15"
+baylor$visit_code[baylor$Visit == "Day +30"] <- "D30"
+baylor$visit_code[baylor$Visit == "Day +45"] <- "D45"
+baylor$visit_code[baylor$Visit == "Day +60"] <- "D60"
+baylor$visit_code[baylor$Visit == "Day +90"] <- "D90"
+
+baylor <- baylor %>%
+  mutate(`vial_id` = `Sample ID`)
+
+baylor <- baylor %>%
+  unite(sample_id,
+        `Sample ID`:visit_code,
+        sep = "_")
+
+write_csv(baylor,
+          file = "B:/Non Bhatraju Lab Studies/Baylor_Ang_Li/2024/baylor_plate_list.csv")
+```
+

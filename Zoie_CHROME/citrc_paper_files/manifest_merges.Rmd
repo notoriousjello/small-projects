@@ -1,0 +1,95 @@
+---
+title: "citrc2_rokit_overlap"
+author: "Jordan Lo"
+date: "2024-02-02"
+output: html_document
+---
+
+```{r}
+library(readxl)
+library(tidyverse)
+```
+
+```{r}
+citrc2 <- read_excel("B:/CITRC/Urine Biomarker Nov 2022/Creatinine/CIT US pull.xlsx",
+                     sheet = "Manifest_CITRC2") %>%
+  subset(select = -c(`Freezerworks Patient ID`,
+                     `Aliquot Status`)) %>%
+  unite(Subject,
+        `Participant Study ID`, `Visit ID`,
+        sep = "_")
+citrc2$Subject <- paste("CIT",
+                       citrc2$Subject,
+                       sep = "_")
+
+
+rokit <- read_excel("B:/Lab Members/Jordan Lo/projects/Zoie_CHROME/citrc_paper_files/Overlapping CITRC-ROKIT IDs.xlsx")
+
+colnames(rokit) <- c("Subject",
+                     "Visit",
+                     "sample_type",
+                     "type")
+rokit$Visit <- "V1"
+rokit$Subject <- paste("CIT",
+                      rokit$Subject,
+                      sep = "_")
+rokit <- rokit %>%
+  unite(Subject,
+        `Subject`, `Visit`,
+        sep = "_")
+
+master <- inner_join(citrc2,
+                     rokit)
+
+# write_csv(master,
+#           "B:/Lab Members/Jordan Lo/projects/Zoie_CHROME/citrc_paper_files/citrc2_return_list.csv")
+```
+
+```{r}
+citrc <- read_excel("B:/CITRC/Urine Biomarker Nov 2022/Creatinine/CIT US pull.xlsx") %>%
+  unite(col = Subject,
+        ProjectCode:SubjectID,
+        sep = "_") %>%
+  unite(col = Subject,
+        Subject, `Visit code`,
+        sep = "_")
+
+citrc <- citrc[, c("Subject",
+                   "Unique Aliquot ID",
+                   "Aliquot Type",
+                   "Pull Box",
+                   "Position")]
+
+colnames(citrc2)
+citrc2 <- citrc2[, c("Subject",
+                     "Unique Aliquot ID",
+                     "Aliquot Type",
+                     "Pull Box",
+                     "Pull Pos.")]
+colnames(citrc2)[5] = "Position"
+
+master <- master[, c("Subject",
+                     "Unique Aliquot ID",
+                     "Aliquot Type",
+                     "Pull Box",
+                     "Pull Pos.")]
+colnames(master)[5] = "Position"
+
+citrc_master <- rbind(citrc,
+                      citrc2)
+
+remove_list <- master$Subject
+
+`%notin%` <- Negate(`%in%`)
+
+master_manifest <- citrc_master %>%
+  filter(Subject %notin% remove_list)
+
+write_csv(master_manifest,
+          file = "B:/CITRC/Urine Biomarker Nov 2022/Creatinine/feb_2024_manifest_del.csv")
+```
+
+```{r}
+
+```
+

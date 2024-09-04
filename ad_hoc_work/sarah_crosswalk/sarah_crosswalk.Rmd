@@ -1,0 +1,49 @@
+---
+title: "crosswalk_sarah"
+author: "Jordan Lo"
+date: "2024-08-20"
+output: html_document
+---
+
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# qpcR for side by side data frame merging
+library("qpcR")
+# openxlsx for managing excel workbooks
+library("openxlsx")
+# ggpubr for adding useful things to graphs
+library("ggpubr")
+
+`%notin%` <- Negate(`%in%`)
+```
+
+```{r}
+urine_crosswalk <- read.xlsx("C:/Users/notjello/Downloads/urine sample crosswalk.xlsx")
+pavan_manifest <- read.xlsx("C:/Users/notjello/Downloads/Manifest Pavan KPMP Urine 7-16-2024.xlsx",
+                            startRow = 2) %>%
+  subset(select = 1:6)
+
+first_crosswalk <- merge(urine_crosswalk,
+                         pavan_manifest)
+
+first_crosswalk <- first_crosswalk %>%
+   subset(select = 2:7)
+
+return_manifest <- read.xlsx("C:/Users/notjello/Downloads/Q-13433_Return_Sample_manifest.xlsx") %>%
+  subset(select = 1:5)
+
+second_crosswalk <- merge(urine_crosswalk,
+                          return_manifest)
+
+# second_crosswalk <- second_crosswalk %>%
+#   subset(select = 2:5)
+
+master <- merge(first_crosswalk,
+                second_crosswalk,
+                by = "Kit.ID")
+
+write.csv(master,
+          file = "B:/Lab Members/Jordan Lo/projects/ad_hoc_work/sarah_crosswalk.csv")
+```
+

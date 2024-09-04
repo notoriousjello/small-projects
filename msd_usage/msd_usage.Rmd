@@ -1,0 +1,43 @@
+---
+title: "msd_google_sheets"
+author: "Jordan Lo"
+date: "2024-06-14"
+output: html_document
+---
+
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# qpcR for side by side data frame merging
+library("qpcR")
+# openxlsx for managing excel workbooks
+library("openxlsx")
+# googlesheets4 for accessing google sheets files
+library("googlesheets4")
+
+`%notin%` <- Negate(`%in%`)
+```
+
+```{r}
+raw <- read_sheet("https://docs.google.com/spreadsheets/d/1cdjGibTQBLd5Y3-_d2t9h9uejXxxeW7e82bLknJorJE/edit?resourcekey=&gid=758468583#gid=758468583") %>%
+  rename(plates = `How many plates did you run? (If partial plates are run, enter in decimal format e.g. 1/2 -> 0.5)`,
+         PI = `Who is your PI?`)
+```
+```{r}
+usage <- raw %>%
+  group_by(PI) %>%
+  mutate(count = sum(plates)) %>%
+  ungroup(PI) %>%
+  mutate(percentage = count/sum(plates))
+
+raw %>%
+  group_by(PI) %>%
+  mutate(count = sum(plates)) %>%
+  ungroup(PI) %>%
+  mutate(percentage = count/sum(plates)) %>% 
+  subset(select = c(PI,
+                    percentage)) %>%
+  distinct(PI,
+           .keep_all = TRUE)
+```
+

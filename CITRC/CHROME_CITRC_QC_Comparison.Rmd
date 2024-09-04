@@ -4,7 +4,40 @@ author: "Jordan Lo"
 date: "2023-12-14"
 output: html_document
 ---
+```{r}
+# tidyverse allows us to do our data processing
+library("tidyverse")
+# readxl allows us to read excel files
+library("readxl")
+# writexl allows us to write to excel files
+library("writexl")
+# qpcR lets us merge data frames side by side
+library("qpcR")
+```
+
+
 
 ```{r setup, include=FALSE}
+citrc <- read_excel("B:/CITRC/Urine Biomarker Nov 2022/Ang1Ang2/CIT_URN_Ang1Ang2_12112023_PROCESSED.xlsx",
+                    sheet = "RawData") %>% 
+  filter(Sample == "QC") %>%
+  filter(Assay == "Ang-2")
 
+chrome <- read_excel("B:/CHROME/Urine_Biomarker_V1/Ang-2_sFAS_2022-04/Ang-2_Data/CHR_US_V1__2022128_JL_REDO.xlsx") %>%
+  filter(Sample == "QC")
+
+chrome$`Calc. Conc. pg/ml` <- as.numeric(chrome$`Calc. Conc. pg/ml`)
 ```
+
+```{r}
+summary(citrc$`Calc. Concentration`)
+summary(chrome$`Calc. Conc. pg/ml`)
+
+d <- c
+
+res <- t.test(citrc$`Calc. Concentration`,
+              chrome$`Calc. Conc. pg/ml`,
+              paired = FALSE)
+res
+```
+

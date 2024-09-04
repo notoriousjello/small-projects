@@ -41,83 +41,8 @@ chr_urn_new <- read_excel("B:\\CHROME\\Urine_Biomarker_V1\\Ang-2_sFAS_2022-04\\A
                           sheet = "RawData")
 ```
 
-```{r}
-# plots the plate from the old CHROME run to find the plate that was higher than all the others
-plot <- ggplot(data = chr_urn_old,
-               mapping = aes(x = `Plate Name`,
-                             y = log(`Calc. Concentration`))) +
-  geom_boxplot()
-plot
-
-# filters out said plate
-chr_urn_old <- chr_urn_old %>%
-  filter(`Plate Name` != "Plate1b_23L0EAV560")
-```
-
-```{r}
-# merges the old chr data with the re-run plate 1
-
-chr_data <- merge(chr_urn_old,
-                  chr_urn_new,
-                  all.x = TRUE,
-                  all.y = TRUE)
-
-# subsets the dataframe into the required columns
-chr_data_conc <- chr_data[,c("Plate Name",
-                             "Sample", 
-                             "Calc. Conc. Mean")]
-
-# converts columns to numeric and drops the resultant NA values
-chr_data_conc$Sample <- as.numeric(chr_data_conc$Sample)
-#sum(is.na(chr_data_conc$Sample))
-chr_data_conc$`Calc. Conc. Mean` <- as.numeric(chr_data_conc$`Calc. Conc. Mean`)
-colnames(chr_data_conc) <- c("plate_name",
-                             "study_id",
-                             "ang2_concentration")
-
-# removes duplicate samples in the data
-chr_data_conc <- chr_data_conc %>%
-  distinct(study_id,
-           .keep_all = TRUE)
-
-# imputes a value for values below LLOD (1/2 LLOD of Ang-2 Assay)
-chr_data_conc$ang2_concentration[is.nan(chr_data_conc$ang2_concentration)] <- 5
-
-# removes remaining NA values
-chr_data_conc <- na.omit(chr_data_conc)
-
-# reads in Leila's provided clinical data set
-clinical <- read_csv("chrome_clinical_aki_data_for_jordan_zoie_2023_09_05.csv")
-
-# creates a separate dataframe of the CHROME/CITRC data and recodes the study_ID to the appropriate CHROME ID
-chr_conc_citrc  <- chr_data_conc %>%
-  filter(study_id > 522)
-colnames(chr_conc_citrc)[2] <- "citrc_studyid" 
-chr_conc_citrc <- merge(chr_conc_citrc,
-                        clinical)
-chr_conc_citrc <- chr_conc_citrc[, c(2,4,3)]
-
-# combines the CHROME/CITRC data with the original biomarker dataframe
-chr_conc_clinical <- rbind(chr_conc_citrc,
-                           chr_data_conc)
-
-# merges the clinical and biomarker dataframes
-chr_conc_clinical <- merge(chr_conc_clinical,
-                           clinical)
-```
-
 <br>
 There are 201 patients that remain after merging the two datasets and filtering out those with clinical data and Ang-2 biomarker data available
-
-```{r}
-# creates a log2 column
-chr_conc_clinical <- chr_conc_clinical %>%
-                     mutate(ang2_concentration_log2 = log2(ang2_concentration)) %>%
-  relocate(244, 
-           .after = 3)
-```
-
-<br>
 
 ```{r, include = TRUE}
 # creates a histogram of the ang-2 concentrations
@@ -191,56 +116,7 @@ clinical_lab_msd <- left_join(clinical_lab_msd,
    mutate(ucr_norm_ngal = (ungal_concentration/(ucr_mg_dL*(1/100))))
 ```
 
-```{r}
-# # creates a histogram of the normalized ang-2 concentrations
-# clinical_lab_msd_no_outlier <- clinical_lab_msd %>%
-#   filter(study_id != 278)
-#   
-# histogram <- ggplot(data = clinical_lab_msd,
-#                     mapping = aes(x = ucr_norm_ang2)) +
-#   geom_histogram()
-# histogram
-# 
-# histogram <- ggplot(data = clinical_lab_msd_no_outlier,
-#                     mapping = aes(x = ucr_norm_ang2)) +
-#   geom_histogram()
-# histogram
-# 
-# clinical_lab_msd$aki_hosp <- as.character(clinical_lab_msd$aki_hosp)
-# # boxplot of normalized ang-2 concentrations and AKI within 7 days
-# ang_hosp_aki <- ggplot(data = clinical_lab_msd,
-#                      mapping = aes(x = aki_hosp,
-#                                    y = log2(ucr_norm_ang2))) + 
-#   geom_boxplot()
-# ang_hosp_aki
-# 
-# clinical_lab_msd$dialysis_study <- as.character(clinical_lab_msd$dialysis_study)
-# # boxplot of normalized ang-2 conc and dialysis within 7 days
-# ang_7d_dialysis <- ggplot(data = clinical_lab_msd,
-#                           mapping = aes(x = dialysis_study,
-#                                         y = log2(ucr_norm_ang2))) +
-#   geom_boxplot()
-# ang_7d_dialysis
-```
 
-```{r, include = TRUE}
-# # Correlation plot of ucr_norm_ang2 to Kim1 for Zoie to look at
-# norm_ang2_kim1 <- ggplot(data = clinical_lab_msd,
-#                          mapping = aes(
-#                            y = log2(ucr_norm_kim1),
-#                            x = log2(ucr_norm_ang2)))
-# 
-# norm_ang2_kim1 + 
-#   geom_smooth(method = "lm",
-#               se = FALSE) + 
-#   geom_point() +
-#   stat_regline_equation() +
-#   stat_cor(label.y = 15,
-#            aes(label = ..r.label..)) +
-#   theme_classic() +
-#   labs(x = "Log2(Normalized uAng-2)",
-#        y = "Log2(Normalized uKim-1)")
-```
 Looking into the data by tertiles based on Ang-2 normalized to urine creatinine levels
 ```{r}
 # splitting data into tertiles on ucr_norm_ang2
@@ -249,46 +125,6 @@ clinical_lab_msd$ucr_norm_ang2_tertile <- as.numeric(cut_number(clinical_lab_msd
 clinical_lab_msd %>% count(ucr_norm_ang2_tertile)
 # clinical_lab_msd$ucr_norm_ang2_tertile <- as.factor(clinical_lab_msd$ucr_norm_ang2_tertile)
 # clinical_lab_msd$aki_hosp <- as.factor(clinical_lab_msd$aki_hosp)
-```
-
-```{r, include = TRUE}
-# # Looks at the 7 day aki split by normalized ang-2 tertiles
-# aki_norm_ang2 <- ggplot(data = clinical_lab_msd,
-#                         mapping = aes(fill = ucr_norm_ang2_tertile,
-#                                       x = aki_hosp))
-# aki_norm_ang2 + 
-#   geom_bar(position = "dodge")
-# 
-# # Looks at the 7 day dialysis split by normalized ang-2 tertiles
-# dialysis_norm_ang2 <- ggplot(data = clinical_lab_msd,
-#                              mapping = aes(fill = ucr_norm_ang2_tertile,
-#                                            x = dialysis_study))
-# dialysis_norm_ang2 +
-#   geom_bar(position = "dodge")
-# 
-# boxes_norm_ang2 <- ggplot(data = clinical_lab_msd,
-#                           mapping = aes(x = ucr_norm_ang2_tertile,
-#                                         y = log2(ucr_norm_ang2)))
-# boxes_norm_ang2 + geom_boxplot()
-```
-
-```{r, include = TRUE}
-# # 10/5/2023
-# # generates a scatterplot of ngal vs normalized ang2
-# ngal_uang2 <- ggplot(data = clinical_lab_msd,
-#                      mapping = aes(x = log2(ucr_norm_ang2),
-#                                    y = log2(ucr_norm_ngal)))
-# 
-# ngal_uang2  + 
-#   geom_smooth(method = "lm",
-#               se = FALSE) + 
-#   geom_point() +
-#   stat_regline_equation(label.y = 23) +
-#   stat_cor(label.y = 22,
-#            aes(label = ..r.label..)) +
-#   theme_classic() +
-#   labs(x = "Log2(Normalized uAng-2)",
-#        y = "Log2(Normalized uNGAL)")
 ```
 
 Plasma-Urine Ang-2 Plot
@@ -365,29 +201,6 @@ pe_uang2_aki  +
        y = "Log2(Plasma Ang-2)")
 ```
 
-```{r, include = TRUE, echo = TRUE}
-# # finds overlap between ang2 and normalized ang 2 tertiles
-# ang2_tertile <- clinical_lab_msd %>%
-#   dplyr::select(c("study_id",
-#                   "ang2_tertile")) %>%
-#   filter(ang2_tertile == 3)
-# 
-# norm_ang2_tertile <- clinical_lab_msd %>%
-#   dplyr::select(c("study_id",
-#                   "ucr_norm_ang2_tertile")) %>%
-#   filter(ucr_norm_ang2_tertile == 3)
-# 
-# tertile_overlap <- inner_join(ang2_tertile,
-#                               norm_ang2_tertile,
-#                               by = "study_id")
-# 
-# length(tertile_overlap$study_id)
-```
-<br>
-We see very high overlap between the highest Ang-2 Concentration tertiles and the highest normalized Ang-2 tertiles. 
-53/64 patients are in the highest tertiles for both.
-<br>
-
 ```{r}
 # table 1 data finding
 colnames(clinical_lab_msd)
@@ -430,45 +243,6 @@ counter <- function(tertile) {
 
 lapply(tertile,
        counter)
-```
-
-```{r}
-# # odds ratio
-# # splits out data into individual tertiles
-# or_lt <- clinical_lab_msd %>%
-#   filter(ucr_norm_ang2_tertile == 1)
-# or_mt <- clinical_lab_msd %>%
-#   filter(ucr_norm_ang2_tertile == 2)
-# or_ht <- clinical_lab_msd %>%
-#   filter(ucr_norm_ang2_tertile == 3)
-# 
-# # new variable establishing lowest tertile as a reference 
-# or_lt$tertile_or <- 0
-# or_mt$tertile_or <- 1
-# or_ht$tertile_or <- 1
-# 
-# # binds together the tertiles for analysis
-# or_mt_lt <- rbind(or_lt,
-#                  or_mt)
-# or_ht_lt <- rbind(or_lt,
-#                   or_ht)
-# or_mt_ht <- rbind(or_mt,
-#                   or_ht)
-# 
-# # runs a binomial regression with several variables for covariate adjustment 
-# result <- glm(aki_hosp ~ tertile_or + age + male, 
-#               data = or_mt_lt,
-#               family = "binomial")
-# 
-# summary(result)
-# exp(cbind(coef(result), confint.default(result)))
-# 
-# result <- glm(aki_hosp ~ tertile_or + age + male, 
-#               data = or_ht_lt,
-#               family = "binomial")
-# 
-# summary(result) 
-# exp(cbind(coef(result), confint.default(result)))
 ```
 
 ```{r}
@@ -640,75 +414,6 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 ```
 
-
-```{r}
-# # rr by SD
-# # filters out the high outlier
-# clinical_lab_msd_no_outlier <- clinical_lab_msd %>%
-#   filter(study_id != 278)
-# 
-# # standard scales the data
-# clinical_lab_msd_no_outlier$ucr_norm_ang2_scaled <- scale(clinical_lab_msd_no_outlier$ucr_norm_ang2)
-# clinical_lab_msd$ucr_norm_ang2_scaled <- scale(clinical_lab_msd$ucr_norm_ang2)
-# 
-# # Hospital AKI
-# # unadjusted model
-# result <- glm(aki_hosp ~ ucr_norm_ang2_scaled, 
-#               data = clinical_lab_msd_no_outlier,
-#               family = "poisson")
-# 
-# model_parameters(result,
-#                  exponentiate = TRUE,
-#                  vcov = "HC",
-#                  vcov_args = list(type = "HC0"))
-# 
-# result <- glm(aki_hosp ~ ucr_norm_ang2_scaled, 
-#               data = clinical_lab_msd,
-#               family = "poisson")
-# 
-# model_parameters(result,
-#                  exponentiate = TRUE,
-#                  vcov = "HC",
-#                  vcov_args = list(type = "HC0"))
-# 
-# # adjusted model
-# result <- glm(aki_hosp ~ ucr_norm_ang2_scaled + age + male + bmi + mv + covid_confirmed + myrace, 
-#               data = clinical_lab_msd_no_outlier,
-#               family = "poisson")
-# 
-# model_parameters(result,
-#                  exponentiate = TRUE,
-#                  vcov = "HC",
-#                  vcov_args = list(type = "HC0"))
-# 
-# result <- glm(aki_hosp ~ ucr_norm_ang2_scaled + age + male + bmi + mv + covid_confirmed + myrace, 
-#               data = clinical_lab_msd,
-#               family = "poisson")
-# 
-# model_parameters(result,
-#                  exponentiate = TRUE,
-#                  vcov = "HC",
-#                  vcov_args = list(type = "HC0"))
-```
-
-```{r, include = TRUE}
-# # creates a histogram of the log2 transformed indexed uAng-2 data
-# historgram <- ggplot(data = clinical_lab_msd,
-#                      mapping = aes(x = log2(ucr_norm_ang2)))
-# 
-# historgram + geom_histogram() +
-#   labs(x = "Log2(Indexed uAng-2)")
-```
-
-```{r, include = TRUE}
-# # grubbs test for outlier
-# library(outliers)
-# 
-# grubbs.test(clinical_lab_msd$ucr_norm_ang2, 
-#             two.sided = FALSE)
-```
-CHR_287 is an outlier according to the grubbs test (p-value < 2.2 e-16)
-
 ```{r}
 # NGAL Relative Risk
 
@@ -742,7 +447,10 @@ rr_ht_lt <- rbind(rr_lt,
                   rr_ht)
 rr_mt_ht <- rbind(rr_mt,
                   rr_ht)
+```
 
+
+```{r}
 # regressions
 
 # aki_hosp
@@ -1037,19 +745,6 @@ model_parameters(result,
                  exponentiate = TRUE,
                  vcov = "HC",
                  vcov_args = list(type = "HC0"))
-```
-
-
-```{r}
-# # counter function for Table 1
-# counter <- function(tertile) {
-#    clinical_lab_msd_ngal %>%
-#    filter(ucr_norm_kim1_tertile == tertile) %>%
-#    count(aki_hosp)
-# }
-# 
-# lapply(tertile,
-#        counter)
 ```
 
 Model Validation in CITRC
