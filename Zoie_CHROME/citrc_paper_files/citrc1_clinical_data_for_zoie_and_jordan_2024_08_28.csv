@@ -1,0 +1,590 @@
+study_id,age,ethnicity,race,sex,height_cm,weight_kg,pressors,sofa_total_d1,bl_cr,bl_cr_source,aki_7d,tt_aki_7d,max_aki_stage_7d,aki_28d,tt_aki_28d,max_aki_stage_28d,death,tt_death,dialysis,tt_dialysis,acearb,diabetes,htn,chf,mv,adm_source,adm_ards,bmi
+1,56,Non Hispanic,Black,Male,187,NA,0,2,1.1,Prior outpt creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,0,1,ER,0,NA
+2,71,Non Hispanic,White,female,161,53,0,4,0.72,Prior outpt creatinine,0,2,0,0,2,0,0,2,0,2,1,0,1,0,1,Transfer,0,20.446742023841672
+3,51,Non Hispanic,White,female,158,83,1,9,1.42,Day 1 creatinine,0,7,0,0,18,0,0,18,0,18,0,0,0,1,0,Other,0,33.247876942797625
+4,62,Non Hispanic,White,female,167,87,0,7,0.54,Day 0 creatinine,0,7,0,0,17,0,0,17,0,17,0,0,0,0,1,Transfer,0,31.1950948402596
+5,67,Non Hispanic,White,Male,175,74,1,8,1.48,Day 0 creatinine,0,6,0,0,6,0,0,6,0,6,1,0,1,0,1,OR,0,24.163265306122447
+6,75,Non Hispanic,Black,Male,185,98,1,13,2.51,Day 0 creatinine,1,3,1,1,3,1,0,13,0,13,1,1,1,0,1,Transfer,0,28.634039444850252
+7,54,Non Hispanic,White,Male,177,NA,0,1,0.45,Day 0 creatinine,0,5,0,0,5,0,0,6,0,6,1,0,1,0,0,ER,0,NA
+8,46,Non Hispanic,Asian,Male,182,NA,1,4,0.39,Prior outpt creatinine,0,3,0,0,3,0,0,48,0,48,0,0,0,0,0,Other,0,NA
+9,62,Non Hispanic,White,Male,178,86,0,0,0.92,Day 0 creatinine,0,7,0,0,27,0,0,42,0,42,0,0,1,0,0,Transfer,0,27.143037495265748
+10,80,Non Hispanic,White,Male,173,73,0,2,0.72,Day 0 creatinine,0,6,0,0,12,0,0,8,0,8,0,0,1,0,0,Transfer,0,24.3910588392529
+11,60,Non Hispanic,White,female,168,75,1,7,0.86,Day 0 creatinine,0,6,0,0,22,0,0,26,0,26,0,0,0,0,1,Transfer,0,26.573129251700685
+12,21,Non Hispanic,Asian,Male,175,NA,0,3,0.91,Day 0 creatinine,0,6,0,0,6,0,0,7,0,7,0,0,0,0,1,OR,0,NA
+13,57,Non Hispanic,Native American,Male,177,133,0,3,1.1,Prior outpt creatinine,0,6,0,0,6,0,0,6,0,6,0,0,0,0,0,ER,0,42.45267962590571
+14,66,Non Hispanic,White,Male,185,72,0,0,0.83,Day 0 creatinine,0,4,0,0,4,0,0,4,0,4,0,0,0,0,0,ER,0,21.0372534696859
+15,38,Non Hispanic,Pacific Islander / Native Hawaiian,Male,182,75,1,8,2.08,Day 0 creatinine,0,7,0,0,21,0,0,22,0,22,0,1,0,0,1,OR,0,22.6421929718633
+16,23,Non Hispanic,White,female,172,67,1,4,0.41,Day 0 creatinine,1,3,2,1,3,2,0,20,0,20,0,0,0,0,0,OR,0,22.647376960519203
+17,46,Non Hispanic,White,female,170,106,1,10,3.06,Day 0 creatinine,0,7,0,0,28,0,1,34,0,34,1,0,1,0,0,Transfer,1,36.67820069204153
+18,56,Non Hispanic,White,Male,182,168,1,12,1.42,Day 0 creatinine,1,1,1,1,1,1,0,27,0,27,0,1,0,0,1,Transfer,0,50.71851225697379
+19,42,Non Hispanic,Black,Male,190,72,0,12,2.31,Day 1 creatinine,1,1,3,1,1,3,0,13,1,2,0,0,0,0,0,ER,0,19.94459833795014
+20,36,Non Hispanic,White,female,167,151,0,0,0.62,Prior outpt creatinine,0,2,0,1,18,1,0,6,0,6,0,0,0,0,0,ER,0,54.14321058481839
+21,28,Non Hispanic,White,Male,170,NA,0,1,0.89,Day 0 creatinine,0,7,0,0,17,0,0,21,0,21,0,0,0,0,0,Transfer,0,NA
+22,45,NA,NA,Male,180,NA,0,1,0.98,Day 0 creatinine,0,3,0,0,3,0,0,18,0,18,0,0,0,0,0,Inpatient,0,NA
+23,63,Non Hispanic,White,female,165,119,0,5,2.46,Day 0 creatinine,1,1,1,1,1,1,0,10,0,10,0,1,1,1,0,ER,0,43.70982552800735
+24,64,Non Hispanic,White,Male,172,54,0,2,0.63,Day 1 creatinine,0,7,0,0,12,0,0,15,0,15,0,0,0,0,0,Transfer,0,18.25310978907518
+26,87,Non Hispanic,White,female,157,61,1,1,1.42,Prior outpt creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,1,0,ER,0,24.747454257779218
+27,56,Non Hispanic,White,Male,178,64,0,1,0.7,Prior outpt creatinine,0,7,0,0,28,0,0,30,0,30,0,0,0,0,1,ER,0,20.199469763918696
+30,30,Non Hispanic,White,Male,185,51,0,2,1,Prior outpt creatinine,0,7,0,0,10,0,0,10,0,10,0,0,0,0,0,ER,0,14.901387874360847
+31,25,Non Hispanic,Black,Male,182,NA,0,4,1.16,Day 1 creatinine,0,2,0,0,2,0,0,3,0,3,0,0,0,0,0,ER,0,NA
+32,21,Non Hispanic,Black,female,168,NA,0,1,0.54,Day 0 creatinine,0,3,0,0,12,0,0,3,0,3,0,0,0,0,0,ER,0,NA
+33,26,Non Hispanic,White,female,174,76,1,16,1.62,Day 0 creatinine,1,2,1,1,2,1,0,34,0,34,0,0,0,0,1,OR,0,25.102391333069097
+34,63,Non Hispanic,White,Male,172,126,0,9,2.58,Day 0 creatinine,1,4,3,1,4,3,1,12,1,6,1,0,1,0,0,Transfer,0,42.59058950784208
+35,48,Non Hispanic,Black,female,162,80,0,3,0.67,Day 0 creatinine,0,5,0,0,5,0,0,7,0,7,0,0,1,0,1,ER,0,30.48315805517451
+36,48,NA,NA,female,158,67,1,6,0.8,Prior outpt creatinine,0,5,0,0,28,0,0,11,0,11,0,1,0,0,1,ER,0,26.83864765261977
+37,68,Non Hispanic,White,female,176,94,1,15,0.7,Prior outpt creatinine,1,1,3,1,1,3,0,22,0,22,0,0,0,0,1,ER,1,30.34607438016529
+38,62,Non Hispanic,White,female,170,103,1,13,1,Prior outpt creatinine,1,1,2,1,1,2,1,1,0,1,0,1,0,0,1,Transfer,0,35.6401384083045
+39,42,Non Hispanic,White,Male,190,NA,0,4,NA,NA,NA,NA,NA,NA,NA,NA,0,3,0,3,0,0,0,0,0,ER,0,NA
+41,56,Non Hispanic,Black,Male,180,70,0,6,11.5,Prior outpt creatinine,NA,NA,NA,NA,NA,NA,0,6,NA,NA,1,0,1,0,0,ER,0,21.604938271604937
+42,60,Non Hispanic,White,Male,184,131,1,9,0.83,Day 0 creatinine,1,1,3,1,1,3,0,38,0,38,0,0,1,0,1,OR,0,38.693289224952736
+43,42,Non Hispanic,White,female,165,145,1,9,1.99,Day 0 creatinine,0,7,0,0,13,0,0,13,0,13,1,0,1,0,1,Transfer,1,53.25987144168963
+44,64,Non Hispanic,White,Male,149,50,0,2,1.2,Prior outpt creatinine,0,5,0,1,18,3,0,5,0,5,0,1,0,0,0,ER,0,22.52150804017837
+45,56,Non Hispanic,White,female,168,NA,0,0,0.9,Day 1 creatinine,0,7,0,0,12,0,0,12,0,12,1,1,1,0,0,Transfer,0,NA
+47,56,Non Hispanic,Black,female,158,57,1,13,7.75,Prior outpt creatinine,NA,NA,NA,NA,NA,NA,0,12,NA,NA,0,0,1,0,0,ER,0,22.832879346258608
+48,58,Non Hispanic,White,female,173,123,0,4,0.54,Prior outpt creatinine,1,2,3,1,2,3,0,22,0,22,1,0,0,0,1,Inpatient,0,41.09726352367269
+49,67,Non Hispanic,White,Male,181,NA,0,3,0.97,Day 1 creatinine,0,7,0,0,11,0,0,13,0,13,0,0,1,0,0,Transfer,0,NA
+50,76,Non Hispanic,White,female,157,54,1,14,1.01,Day 0 creatinine,1,2,1,1,2,1,0,16,0,16,0,0,1,0,1,Transfer,0,21.907582457706194
+51,84,Non Hispanic,White,female,165,83,0,4,0.8,Day 0 creatinine,0,7,0,0,13,0,0,14,0,14,1,0,1,1,1,OR,0,30.48668503213958
+52,60,Non Hispanic,White,female,172,95,1,10,0.8,Prior outpt creatinine,0,7,0,0,25,0,0,19,0,19,1,0,1,0,1,ER,0,32.11195240670633
+53,55,Non Hispanic,White,Male,172,124,1,12,1.2,Prior outpt creatinine,1,1,1,1,1,1,0,37,0,37,1,1,1,1,1,Transfer,1,41.914548404543
+54,52,Non Hispanic,White,Male,175,98,0,8,1.1,Prior outpt creatinine,0,7,0,1,8,2,1,9,0,9,0,0,1,0,1,ER,0,32
+56,61,Non Hispanic,Black,Male,178,68,0,8,2.13,Prior outpt creatinine,1,1,1,1,1,1,0,7,0,7,0,1,1,1,1,Other,1,21.461936624163616
+57,32,Non Hispanic,White,female,167,NA,0,5,0.54,Prior outpt creatinine,1,1,3,1,1,3,0,7,0,7,0,0,1,0,0,ER,0,NA
+58,62,Non Hispanic,White,female,163,140,0,2,0.64,Day 1 creatinine,0,7,0,0,8,0,0,10,0,10,0,0,0,0,0,Transfer,0,52.69298806880199
+59,50,Non Hispanic,White,female,173,66,0,5,1.22,Day 0 creatinine,0,7,0,0,14,0,0,14,0,14,0,0,0,0,1,OR,0,22.052190183434128
+60,63,Unknown,Native American,Male,NA,NA,1,7,1.47,Day 0 creatinine,0,7,0,1,27,1,0,138,0,138,1,0,1,0,1,OR,0,NA
+61,54,Non Hispanic,White,Male,173,158,1,12,1.15,Day 0 creatinine,1,4,1,1,4,1,0,39,0,39,0,0,0,0,1,OR,0,52.791606802766545
+62,34,Non Hispanic,White,Male,187,NA,0,1,0.92,Day 1 creatinine,0,4,0,0,4,0,0,4,0,4,1,1,1,0,0,Transfer,0,NA
+63,57,Non Hispanic,White,Male,180,93,0,1,1.42,Prior outpt creatinine,0,7,0,1,10,1,0,15,0,15,0,1,0,0,0,OR,0,28.703703703703702
+64,58,Non Hispanic,Black,Male,175,NA,0,2,0.59,Day 0 creatinine,0,6,0,0,8,0,0,14,0,14,1,1,1,0,0,ER,0,NA
+65,57,Non Hispanic,White,Male,178,NA,0,2,0.92,Day 0 creatinine,0,1,0,0,1,0,0,2,0,2,0,0,0,0,0,ER,0,NA
+66,38,Non Hispanic,White,Male,182,122,1,14,0.86,Prior outpt creatinine,1,1,2,1,1,2,0,7,0,7,1,1,1,1,1,ER,0,36.8313005675643
+67,52,Non Hispanic,White,female,162,NA,0,1,0.69,Day 0 creatinine,0,7,0,0,10,0,0,14,0,14,0,0,1,0,0,Transfer,0,NA
+68,37,Non Hispanic,White,Male,193,98,0,2,1.18,Day 0 creatinine,0,7,0,0,15,0,0,15,0,15,0,0,0,0,1,OR,0,26.309431125667803
+69,51,Non Hispanic,White,Male,180,73,1,6,0.75,Day 1 creatinine,0,5,0,0,5,0,0,5,0,5,0,0,0,0,1,ER,0,22.530864197530864
+70,59,Non Hispanic,White,female,180,94,0,3,0.7,Prior outpt creatinine,1,2,2,1,2,2,0,8,0,8,0,0,0,0,0,OR,0,29.012345679012345
+71,62,Non Hispanic,White,Male,177,NA,1,11,2.2,Day 0 creatinine,0,7,0,0,10,0,0,10,0,10,0,0,1,0,1,OR,0,NA
+72,80,Non Hispanic,White,Male,194,103,0,2,0.83,Day 0 creatinine,0,7,0,0,14,0,0,14,0,14,1,0,1,0,0,OR,0,27.367414177914764
+73,47,Hispanic,Unknown,Male,172,107,0,1,0.89,Day 0 creatinine,0,4,0,0,4,0,0,4,0,4,1,0,1,0,0,OR,0,36.168199026500815
+74,64,Non Hispanic,Asian,Male,178,86,1,12,1.49,Day 0 creatinine,1,3,1,1,3,1,0,50,0,50,1,1,1,0,1,OR,0,27.143037495265748
+76,72,Non Hispanic,White,female,162,81,1,10,1.15,Day 0 creatinine,0,7,0,0,18,0,0,18,0,18,1,0,1,0,1,OR,0,30.864197530864192
+77,26,Non Hispanic,White,Male,184,80,1,11,2.28,Day 0 creatinine,0,5,0,0,5,0,1,10,0,10,0,0,0,0,1,Transfer,0,23.629489603024574
+79,50,Non Hispanic,White,female,162,72,0,8,1,Prior outpt creatinine,0,7,0,0,13,0,0,701,0,701,0,0,0,0,1,Inpatient,0,27.43484224965706
+80,70,Non Hispanic,Black,Male,175,NA,0,3,1.01,Day 0 creatinine,0,4,0,0,4,0,0,10,0,10,1,0,1,0,0,OR,0,NA
+81,22,Non Hispanic,White,female,160,50,0,1,1.27,Prior outpt creatinine,0,6,0,0,28,0,0,14,0,14,0,0,0,0,0,ER,0,19.531249999999996
+82,43,Hispanic,White,Male,NA,NA,0,4,0.9,Day 0 creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,0,0,ER,0,NA
+83,58,Non Hispanic,White,Male,175,61,0,5,0.65,Day 0 creatinine,0,4,0,0,24,0,0,4,0,4,0,0,0,0,0,ER,0,19.918367346938776
+84,51,Non Hispanic,White,Male,185,148,0,12,1.54,Day 0 creatinine,1,2,3,1,2,3,1,9,1,3,0,1,0,0,1,ER,1,43.24324324324324
+85,61,Non Hispanic,White,female,167,100,1,12,1.16,Day 0 creatinine,1,1,1,1,1,1,1,10,0,10,0,1,0,0,1,OR,0,35.8564308508731
+86,54,Non Hispanic,White,Male,186,140,1,12,1.77,Day 0 creatinine,0,6,0,0,17,0,0,18,0,18,0,1,0,0,1,OR,0,40.46710602381778
+87,30,Non Hispanic,White,Male,173,NA,0,6,1.08,Day 0 creatinine,0,5,0,0,5,0,0,5,0,5,0,0,0,0,1,OR,0,NA
+89,38,Non Hispanic,White,Male,180,NA,0,6,0.92,Day 0 creatinine,0,7,0,0,15,0,0,17,0,17,0,0,0,0,1,OR,0,NA
+90,55,Unknown,Black,Male,187,71,0,4,1.61,Day 1 creatinine,0,4,0,0,16,0,0,2,0,2,0,0,0,0,0,ER,0,20.303697560696612
+91,43,Non Hispanic,White,Male,NA,98,1,16,3.77,Day 0 creatinine,1,1,3,1,1,3,1,1,1,0,0,0,0,0,1,ER,0,NA
+92,49,NA,NA,female,165,104,0,4,0.52,Prior outpt creatinine,0,7,0,1,19,3,0,31,0,31,0,0,0,0,0,ER,0,38.200183654729116
+93,67,Non Hispanic,White,Male,182,64,1,12,0.6,Prior outpt creatinine,1,1,3,1,1,3,1,19,0,19,0,1,0,1,1,OR,0,19.32133800265668
+94,58,Non Hispanic,White,Male,178,NA,0,3,0.78,Day 0 creatinine,0,6,0,0,6,0,0,6,0,6,0,0,1,0,1,OR,0,NA
+95,34,Non Hispanic,Black,Male,165,76,1,7,0.9,Prior outpt creatinine,1,7,1,1,7,1,0,47,0,47,0,0,0,0,0,OR,0,27.915518824609737
+96,74,Non Hispanic,White,female,170,86,0,2,0.78,Day 0 creatinine,0,2,0,0,14,0,0,5,0,5,0,0,1,0,0,Transfer,0,29.75778546712803
+97,59,Non Hispanic,White,female,168,104,0,5,0.71,Day 1 creatinine,1,3,1,1,3,1,0,7,0,7,1,1,1,1,0,Transfer,0,36.84807256235828
+98,57,Unknown,White,female,165,87,1,16,2.04,Day 0 creatinine,1,1,3,1,1,3,0,51,1,1,0,1,0,0,1,Transfer,0,31.95592286501378
+99,32,Non Hispanic,White,Male,175,76,0,1,0.81,Prior outpt creatinine,0,7,0,1,19,1,0,49,0,49,0,0,0,0,0,Inpatient,0,24.816326530612244
+100,56,Non Hispanic,White,Male,183,NA,0,7,0.94,Day 0 creatinine,1,2,3,1,2,3,0,38,0,38,1,1,1,0,1,OR,0,NA
+101,65,Non Hispanic,Asian,Male,172,94,0,4,0.82,Day 1 creatinine,0,3,0,0,3,0,0,4,0,4,0,0,1,0,1,ER,0,31.77393185505679
+102,58,Unknown,White,Male,171,61,0,4,1.01,Day 0 creatinine,0,7,0,1,15,3,0,10,0,10,1,0,1,0,0,Other,0,20.86111966075032
+104,69,Non Hispanic,Black,Male,177,84,0,2,0.8,Prior outpt creatinine,0,5,0,0,5,0,0,5,0,5,0,1,0,0,0,ER,0,26.812218711098343
+105,49,Unknown,White,Male,188,NA,1,5,1.02,Day 0 creatinine,0,7,0,0,17,0,0,11,0,11,0,0,0,0,0,OR,0,NA
+106,34,Non Hispanic,White,Male,184,72,0,7,0.7,Day 0 creatinine,0,7,0,0,9,0,0,9,0,9,0,0,0,0,1,Transfer,0,21.266540642722116
+107,47,Non Hispanic,White,female,173,100,0,2,0.72,Prior outpt creatinine,0,7,0,0,28,0,0,27,0,27,0,0,0,0,0,OR,0,33.41240936883958
+109,65,Unknown,White,Male,180,58,0,6,0.73,Day 0 creatinine,1,3,2,1,3,3,1,30,0,30,0,0,0,0,0,Inpatient,0,17.901234567901234
+110,55,Unknown,White,female,165,105,0,3,1.28,Day 1 creatinine,0,2,0,0,2,0,0,8,0,8,1,1,1,0,0,OR,0,38.567493112947666
+111,47,Non Hispanic,White,female,183,129,0,4,0.42,Prior outpt creatinine,1,1,3,1,1,3,0,10,0,10,1,1,1,0,0,ER,0,38.520111081250555
+112,45,Non Hispanic,White,Male,173,102,0,0,0.91,Day 0 creatinine,0,4,0,0,14,0,0,4,0,4,1,1,1,1,1,OR,0,34.08065755621638
+113,48,Unknown,White,Male,191,148,1,9,0.97,Day 0 creatinine,0,7,0,0,9,0,0,7,0,7,0,0,0,0,1,OR,1,40.56906334804419
+114,50,Non Hispanic,White,Male,186,NA,0,0,1.02,Day 1 creatinine,0,7,0,0,23,0,0,23,0,23,0,1,1,0,0,Transfer,0,NA
+115,56,Non Hispanic,White,female,173,217,1,9,1.14,Day 0 creatinine,0,7,0,0,28,0,0,49,0,49,0,0,0,0,1,ER,0,72.5049283303819
+116,61,Unknown,Pacific Islander / Native Hawaiian,Male,179,101,1,3,1.71,Day 0 creatinine,0,7,0,0,28,0,0,30,0,30,0,1,0,0,1,OR,0,31.522112293623795
+117,24,Hispanic,Unknown,Male,175,NA,1,2,0.92,Day 0 creatinine,0,7,0,0,16,0,0,10,0,10,0,0,0,0,0,Transfer,0,NA
+118,34,Non Hispanic,White,Male,177,77,0,4,1.15,Day 0 creatinine,0,7,0,1,13,1,0,26,0,26,0,0,0,1,1,ER,0,24.577867151840145
+119,44,Non Hispanic,White,Male,177,139,1,8,0.89,Day 0 creatinine,0,7,0,1,8,1,0,190,0,190,1,1,1,0,1,Transfer,0,44.367838105269875
+120,29,Non Hispanic,White,Male,183,NA,1,6,0.93,Day 0 creatinine,0,5,0,0,5,0,0,5,0,5,0,0,0,0,1,ER,0,NA
+122,70,Hispanic,White,Male,178,99,1,10,4.67,Day 0 creatinine,NA,NA,NA,NA,NA,NA,0,12,NA,NA,0,1,1,1,1,Transfer,0,31.246054791061734
+123,54,Non Hispanic,White,female,179,69,1,12,0.31,Day 0 creatinine,0,7,0,0,20,0,0,21,0,21,0,0,0,0,1,Transfer,0,21.534908398614277
+124,57,Non Hispanic,White,Male,178,101,1,7,1.06,Day 0 creatinine,0,7,0,0,26,0,0,60,0,60,0,1,1,0,1,OR,0,31.877288221184195
+125,73,Non Hispanic,Black,Male,178,156,1,9,6.63,Day 0 creatinine,NA,NA,NA,NA,NA,NA,1,56,NA,NA,0,1,1,0,0,Transfer,0,49.23620754955182
+126,66,Non Hispanic,Black,Male,183,69,1,20,6.91,Day 1 creatinine,1,1,3,1,1,3,1,NA,1,1,1,0,1,0,1,ER,0,20.603780345785182
+127,42,Non Hispanic,White,Male,177,210,1,14,3.01,Day 0 creatinine,1,1,3,1,1,3,0,30,1,1,0,1,0,0,1,Transfer,0,67.03054677774585
+129,60,Non Hispanic,White,Male,175,110,0,6,1.25,Day 1 creatinine,0,3,0,0,3,0,0,5,0,5,1,0,1,1,1,ER,1,35.91836734693877
+130,43,Non Hispanic,White,Male,169,69,0,4,0.76,Day 0 creatinine,0,7,0,0,28,0,0,49,0,49,0,0,0,0,1,OR,0,24.158817968558527
+132,50,Non Hispanic,Native American,Male,168,56,0,3,1.56,Day 1 creatinine,1,1,1,1,1,1,0,13,0,13,0,0,0,0,0,ER,0,19.841269841269845
+133,34,Non Hispanic,White,Male,168,NA,0,1,0.9,Day 1 creatinine,0,1,0,0,1,0,0,147,0,147,0,0,0,0,0,ER,0,NA
+134,65,Non Hispanic,White,female,159,56,1,8,0.37,Day 0 creatinine,1,5,1,1,5,1,0,10,0,10,0,0,1,0,1,ER,0,22.151022507021082
+135,50,Non Hispanic,White,female,165,82,0,2,0.6,Prior outpt creatinine,0,7,0,0,27,0,0,36,0,36,0,0,0,0,0,OR,0,30.119375573921033
+136,31,Non Hispanic,White,Male,175,NA,0,0,0.88,Day 0 creatinine,0,5,0,0,5,0,0,5,0,5,0,0,0,0,0,ER,0,NA
+137,42,Non Hispanic,Native American,female,168,84,1,6,0.54,Day 0 creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,0,0,ER,0,29.761904761904766
+138,54,Non Hispanic,White,Male,168,96,1,3,0.6,Prior outpt creatinine,1,1,3,1,1,3,0,5,0,5,1,0,1,0,0,ER,0,34.013605442176875
+139,63,Non Hispanic,White,Male,186,220,1,12,2.45,Day 0 creatinine,0,7,0,0,28,0,0,84,0,84,0,1,0,0,1,OR,0,63.591166608856504
+140,73,Non Hispanic,White,Male,180,96,0,2,1.71,Day 0 creatinine,0,7,0,0,12,0,0,13,0,13,0,0,1,0,0,Transfer,0,29.629629629629626
+141,55,Non Hispanic,Black,Male,182,84,0,10,4.06,Day 1 creatinine,1,1,3,1,1,3,0,49,1,2,1,1,1,0,0,ER,0,25.359256128486894
+142,35,Non Hispanic,White,female,158,61,1,10,0.88,Day 0 creatinine,0,7,0,0,26,0,0,10,0,10,0,0,0,0,1,ER,0,24.435186668803073
+144,32,Non Hispanic,Black,female,151,52,0,2,0.69,Prior outpt creatinine,0,7,0,0,28,0,0,37,0,37,0,0,0,0,1,Transfer,0,22.806017279943863
+145,47,Non Hispanic,White,Male,188,NA,0,0,0.82,Day 0 creatinine,0,5,0,0,13,0,0,7,0,7,0,0,0,0,0,OR,0,NA
+146,43,Non Hispanic,White,Male,NA,110,0,0,0.63,Day 0 creatinine,0,2,0,0,13,0,0,8,0,8,1,1,1,0,0,OR,0,NA
+147,34,Non Hispanic,White,female,172,162,0,4,0.98,Day 1 creatinine,1,3,3,1,3,3,0,16,0,16,0,0,0,0,0,ER,0,54.75932936722553
+148,59,Non Hispanic,White,female,165,101,0,5,1.17,Day 0 creatinine,0,5,0,0,5,0,0,5,0,5,1,0,1,0,0,Transfer,0,37.09825528007347
+149,62,Non Hispanic,White,Male,160,85,1,11,2.36,Day 0 creatinine,0,6,0,0,20,0,0,21,0,21,0,1,0,0,1,OR,0,33.20312499999999
+150,45,Non Hispanic,White,female,158,63,1,10,0.4,Day 1 creatinine,1,2,1,1,2,1,0,48,0,48,0,0,0,0,1,Transfer,0,25.236340330075304
+151,28,Non Hispanic,White,female,167,66,0,2,0.67,Day 1 creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,0,0,ER,0,23.66524436157625
+152,61,Non Hispanic,Native American,Male,180,150,0,6,2.29,Day 0 creatinine,0,7,0,0,27,0,0,28,0,28,1,1,1,0,1,OR,0,46.29629629629629
+153,60,Non Hispanic,Black,Male,184,89,0,8,1.27,Prior outpt creatinine,0,7,0,0,22,0,0,22,0,22,1,1,1,1,1,Other,0,26.287807183364837
+155,57,Non Hispanic,Asian,Male,175,49,0,0,1.06,Prior outpt creatinine,0,7,0,0,27,0,0,83,0,83,0,0,1,0,0,Inpatient,0,16
+156,65,Non Hispanic,White,Male,172,NA,0,4,1.93,Day 0 creatinine,0,7,0,0,7,0,0,12,0,12,1,1,1,0,0,OR,0,NA
+157,76,Non Hispanic,White,female,162,156,1,7,1.01,Day 0 creatinine,0,7,0,0,22,0,0,22,0,22,1,1,1,0,1,OR,1,59.442158207590296
+158,45,Hispanic,White,Male,176,95,0,1,1.22,Day 0 creatinine,0,7,0,0,10,0,0,12,0,12,0,1,0,0,0,OR,0,30.668904958677686
+159,48,Non Hispanic,Native American,female,152,NA,1,1,0.58,Day 0 creatinine,0,7,0,0,15,0,0,15,0,15,0,0,0,0,0,Transfer,0,NA
+160,60,Non Hispanic,White,Male,188,108,0,3,1.12,Day 0 creatinine,0,1,0,0,1,0,0,4,0,4,1,0,1,0,0,Transfer,0,30.556813037573566
+161,26,Non Hispanic,Black,Male,188,79,1,5,2.26,Day 1 creatinine,1,2,3,1,2,3,0,14,0,14,0,0,0,0,1,OR,0,22.351742870076958
+162,48,Non Hispanic,White,Male,175,68,0,5,1.1,Prior outpt creatinine,1,1,3,1,1,3,0,27,0,27,0,0,0,0,0,OR,0,22.20408163265306
+163,49,Non Hispanic,White,Male,183,79,0,2,0.55,Day 1 creatinine,0,2,0,0,28,0,0,12,0,12,0,0,0,0,0,ER,0,23.589835468362743
+164,78,Non Hispanic,White,female,163,NA,0,2,1.45,Day 0 creatinine,0,7,0,0,20,0,0,20,0,20,0,0,1,0,0,OR,0,NA
+165,63,Non Hispanic,White,female,174,130,1,11,2.93,Day 0 creatinine,0,7,0,0,18,0,0,18,0,18,1,1,1,0,1,OR,0,42.938300964460296
+166,78,Non Hispanic,White,female,170,96,1,9,0.75,Day 0 creatinine,0,7,0,0,21,0,0,12,0,12,0,1,1,0,1,OR,0,33.21799307958478
+168,58,Non Hispanic,Native American,Male,180,86,0,4,0.95,Prior outpt creatinine,1,1,1,1,1,1,0,6,0,6,0,0,1,0,0,Inpatient,0,26.54320987654321
+169,40,Non Hispanic,White,Male,180,331,0,3,1.16,Day 0 creatinine,0,7,0,0,12,0,0,13,0,13,1,1,1,0,0,Transfer,0,102.1604938271605
+170,74,Non Hispanic,White,female,172,74,0,1,0.7,Prior outpt creatinine,0,3,0,0,3,0,0,3,0,3,0,0,1,1,0,Transfer,0,25.013520822065985
+173,35,Non Hispanic,Asian,Male,NA,NA,0,5,0.54,Day 0 creatinine,0,4,0,0,4,0,0,4,0,4,0,0,0,0,1,OR,0,NA
+174,32,Non Hispanic,Native American,female,158,72,0,4,2.14,Day 0 creatinine,1,1,3,1,1,3,0,17,1,4,0,0,0,0,0,OR,0,28.841531805800347
+175,34,Non Hispanic,White,female,170,95,1,8,0.54,Day 0 creatinine,0,7,0,1,15,3,0,11,0,11,0,0,0,0,1,OR,0,32.871972318339104
+176,76,Non Hispanic,White,Male,190,102,1,12,0.85,Prior outpt creatinine,1,1,3,1,1,3,0,26,1,3,0,1,1,0,1,OR,0,28.254847645429365
+177,51,Non Hispanic,White,Male,171,102,1,8,1,Prior outpt creatinine,0,7,0,0,28,0,0,43,0,43,1,0,1,0,1,OR,0,34.88252795732021
+178,57,Non Hispanic,White,Male,177,69,0,0,0.82,Day 1 creatinine,1,7,1,1,7,1,0,17,0,17,1,1,1,0,0,ER,0,22.024322512687924
+179,44,Non Hispanic,White,Male,180,233,0,2,1.19,Day 1 creatinine,0,3,0,0,3,0,0,5,0,5,0,0,0,0,0,ER,0,71.91358024691358
+180,31,Non Hispanic,White,female,170,65,1,16,2.69,Day 1 creatinine,0,7,0,0,28,0,0,38,0,38,0,0,0,0,1,Transfer,1,22.49134948096886
+181,62,Non Hispanic,White,Male,180,79,0,6,0.94,Day 0 creatinine,0,7,0,0,28,0,0,28,0,28,1,1,1,0,0,OR,0,24.382716049382715
+182,59,Non Hispanic,Native American,Male,175,100,1,3,0.92,Day 0 creatinine,0,6,0,0,6,0,0,8,0,8,0,0,0,0,0,OR,0,32.6530612244898
+183,60,Non Hispanic,White,Male,183,82,1,8,1.7,Day 0 creatinine,1,2,1,1,2,1,0,71,0,71,0,0,0,0,1,Transfer,0,24.48565200513601
+184,39,Non Hispanic,White,Male,182,92,0,5,0.92,Prior outpt creatinine,0,6,0,0,19,0,0,9,0,9,0,0,0,0,0,Inpatient,0,27.77442337881898
+185,72,Non Hispanic,Pacific Islander / Native Hawaiian,Male,171,60,1,14,6.92,Day 0 creatinine,NA,NA,NA,NA,NA,NA,1,NA,NA,NA,1,0,1,0,1,OR,0,20.519134092541297
+186,66,Non Hispanic,White,Male,182,120,0,4,2.78,Day 0 creatinine,0,7,0,0,27,0,0,16,0,16,0,1,0,0,0,Inpatient,0,36.22750875498128
+187,65,Non Hispanic,White,Male,167,68,0,1,0.77,Day 0 creatinine,0,7,0,1,20,1,0,38,0,38,0,1,1,0,0,OR,0,24.38237297859371
+188,38,Non Hispanic,White,Male,176,NA,0,6,1.3,Prior outpt creatinine,0,7,0,0,23,0,0,42,0,42,0,0,0,0,1,OR,0,NA
+189,40,Non Hispanic,White,Male,176,NA,0,0,1.01,Day 0 creatinine,NA,NA,NA,NA,NA,NA,0,1,0,1,0,0,0,0,0,ER,0,NA
+190,76,Non Hispanic,White,Male,183,NA,0,3,1.32,Prior outpt creatinine,1,1,1,1,1,1,0,9,0,9,1,0,1,0,0,OR,0,NA
+192,62,Non Hispanic,White,Male,190,135,1,12,2.17,Day 0 creatinine,0,7,0,0,12,0,1,NA,0,NA,0,0,0,0,1,Transfer,0,37.39612188365651
+193,59,Non Hispanic,White,female,172,110,0,8,1,Prior outpt creatinine,0,7,0,0,22,0,0,23,0,23,0,0,0,0,0,ER,0,37.182260681449435
+195,42,Non Hispanic,Asian,female,162,62,0,0,0.58,Day 0 creatinine,0,7,0,0,28,0,0,11,0,11,0,0,0,0,0,ER,0,23.624447492760247
+196,56,Non Hispanic,White,Male,174,77,1,11,1.5,Prior outpt creatinine,1,1,3,1,1,3,0,11,0,11,0,1,1,1,1,OR,0,25.43268595587264
+197,51,Non Hispanic,White,female,170,67,1,10,0.6,Prior outpt creatinine,0,7,0,0,27,0,0,27,0,27,0,0,0,0,1,OR,0,23.18339100346021
+200,57,Non Hispanic,White,Male,187,183,0,7,1.1,Prior outpt creatinine,1,2,3,1,2,3,0,15,0,15,1,1,1,0,1,OR,0,52.33206554376733
+201,21,Hispanic,White,Male,180,NA,0,4,1.08,Day 0 creatinine,0,7,0,0,28,0,0,18,0,18,0,0,0,0,1,OR,0,NA
+202,65,Non Hispanic,White,Male,185,75,0,5,1.2,Prior outpt creatinine,1,1,2,1,1,2,0,6,0,6,1,1,1,0,0,ER,0,21.913805697589478
+203,54,Non Hispanic,White,Male,193,112,1,6,0.81,Day 0 creatinine,1,2,3,1,2,3,0,28,0,28,0,1,0,0,1,OR,0,30.06792128647749
+204,27,Non Hispanic,Black,Male,180,131,0,1,0.65,Day 0 creatinine,0,7,0,0,10,0,0,11,0,11,0,1,0,0,1,OR,0,40.432098765432094
+205,48,Hispanic,White,Male,190,NA,0,0,0.83,Day 0 creatinine,0,4,0,0,4,0,0,15,0,15,1,1,1,0,0,OR,0,NA
+206,23,Non Hispanic,Asian,Male,172,NA,0,0,1.24,Day 0 creatinine,0,2,0,0,2,0,0,3,0,3,0,1,1,0,0,ER,0,NA
+207,34,Non Hispanic,White,Male,178,NA,0,5,0.62,Day 1 creatinine,0,2,0,0,2,0,0,6,0,6,0,0,0,0,1,OR,0,NA
+208,29,Non Hispanic,Asian,Male,170,53,0,3,0.89,Day 0 creatinine,0,4,0,0,4,0,0,4,0,4,0,1,0,0,0,Transfer,0,18.339100346020764
+209,28,Non Hispanic,White,Male,172,72,1,14,1.63,Day 0 creatinine,0,7,0,1,8,1,0,63,0,63,0,0,0,0,1,OR,0,24.337479718766904
+210,48,Non Hispanic,White,female,166,150,1,12,1.14,Day 0 creatinine,1,1,3,1,1,3,0,71,1,3,0,1,0,0,1,OR,0,54.43460589345334
+211,20,Hispanic,White,female,156,50,0,2,0.35,Day 0 creatinine,1,4,2,1,4,2,0,7,0,7,0,0,0,0,0,ER,0,20.5456936226167
+212,46,Hispanic,White,Male,175,89,0,2,0.9,Prior outpt creatinine,0,7,0,0,19,0,0,23,0,23,0,0,0,0,0,OR,0,29.06122448979592
+213,34,Non Hispanic,White,Male,168,NA,0,4,0.94,Day 0 creatinine,1,1,3,1,1,3,0,6,0,6,0,0,0,0,1,ER,0,NA
+214,64,Non Hispanic,White,female,152,NA,1,10,4.72,Day 0 creatinine,1,1,3,1,1,3,0,NA,1,3,0,1,0,0,1,OR,0,NA
+215,46,Non Hispanic,White,female,154,89,1,5,0.85,Day 0 creatinine,0,7,0,0,13,0,0,14,0,14,0,0,0,0,1,OR,0,37.52740765727779
+216,52,Non Hispanic,White,Male,182,54,0,2,0.61,Prior outpt creatinine,0,5,0,0,5,0,0,5,0,5,0,0,0,0,0,ER,0,16.302378939741576
+217,38,Non Hispanic,White,Male,186,77,0,1,0.7,Day 0 creatinine,0,4,0,0,4,0,0,8,0,8,0,0,0,0,0,OR,0,22.25690831309978
+218,63,Non Hispanic,Black,Male,182,112,0,3,1.28,Day 1 creatinine,0,4,0,0,4,0,0,5,0,5,1,1,1,1,0,ER,0,33.8123415046492
+219,55,Non Hispanic,Native American,female,149,69,0,4,0.63,Day 1 creatinine,0,4,0,0,4,0,0,4,0,4,0,0,0,0,0,ER,0,31.07968109544615
+221,30,Non Hispanic,White,Male,190,83,0,9,7.45,Prior outpt creatinine,NA,NA,NA,NA,NA,NA,0,7,NA,NA,0,0,1,0,1,ER,0,22.991689750692522
+222,61,Non Hispanic,White,Male,185,NA,0,2,0.44,Day 0 creatinine,0,4,0,0,4,0,0,4,0,4,1,1,1,0,1,OR,0,NA
+223,74,Non Hispanic,White,Male,178,NA,0,2,1.44,Day 1 creatinine,0,5,0,0,5,0,0,28,0,28,1,0,1,0,0,Inpatient,0,NA
+224,47,Non Hispanic,Black,female,157,84,0,6,8.3,Prior outpt creatinine,NA,NA,NA,NA,NA,NA,0,13,NA,NA,0,1,1,0,0,OR,0,34.0784616008763
+225,47,Unknown,Unknown,Male,185,137,1,6,2.01,Day 0 creatinine,1,1,1,1,1,1,1,NA,0,NA,0,0,1,0,0,OR,0,40.02921840759678
+226,39,Non Hispanic,White,Male,180,70,1,7,0.57,Day 0 creatinine,0,6,0,0,23,0,0,24,0,24,0,0,0,0,1,OR,0,21.604938271604937
+227,76,Non Hispanic,Native American,Male,170,88,0,2,1.32,Prior outpt creatinine,1,1,1,1,1,1,0,67,0,67,0,1,1,0,0,Inpatient,0,30.449826989619382
+228,61,Non Hispanic,White,Male,190,122,1,11,0.82,Day 0 creatinine,0,7,0,0,28,0,0,41,0,41,1,1,1,0,1,OR,0,33.795013850415515
+229,46,Non Hispanic,Asian,Male,182,130,1,9,1.18,Day 0 creatinine,1,6,1,1,6,1,0,27,0,27,0,0,0,0,1,ER,1,39.24646781789639
+230,34,Hispanic,Asian,Male,177,88,1,8,1,Prior outpt creatinine,0,7,0,0,28,0,0,29,0,29,0,0,0,0,1,OR,0,28.088991030674453
+231,34,Non Hispanic,Pacific Islander / Native Hawaiian,female,152,NA,1,8,0.98,Day 0 creatinine,0,7,0,0,8,0,0,8,0,8,0,0,0,0,0,OR,0,NA
+233,67,Non Hispanic,White,Male,186,73,1,10,1.36,Day 1 creatinine,1,3,1,1,3,1,0,23,0,23,1,1,0,1,1,ER,0,21.10070528384784
+234,55,Non Hispanic,White,Male,188,123,0,0,0.83,Day 0 creatinine,0,5,0,0,5,0,0,6,0,6,0,0,1,0,0,Transfer,0,34.80081484834767
+235,43,Hispanic,Pacific Islander / Native Hawaiian,Male,178,189,1,15,4.19,Day 0 creatinine,1,1,3,1,1,3,0,19,1,1,0,1,0,0,1,OR,0,59.6515591465724
+236,34,Non Hispanic,White,Male,195,188,1,3,1.43,Day 0 creatinine,0,7,0,0,14,0,0,17,0,17,0,0,0,0,1,OR,0,49.44115713346483
+237,66,Non Hispanic,Black,Male,170,71,1,10,1.04,Prior outpt creatinine,1,1,2,1,1,2,0,16,0,16,0,1,0,0,0,ER,0,24.56747404844291
+238,46,Non Hispanic,White,female,158,NA,1,4,0.7,Prior outpt creatinine,0,2,0,0,24,0,0,5,0,5,0,0,0,0,0,OR,0,NA
+239,72,Non Hispanic,White,female,157,100,1,10,2.68,Day 0 creatinine,0,7,0,0,28,0,0,38,0,38,0,1,1,0,1,OR,0,40.56959714390036
+240,38,Non Hispanic,Black,Male,184,67,0,5,0.78,Day 0 creatinine,0,7,0,0,25,0,0,11,0,11,0,0,0,0,0,ER,0,19.78969754253308
+241,26,Non Hispanic,White,Male,170,68,0,1,0.66,Day 1 creatinine,0,5,0,0,22,0,0,5,0,5,0,0,0,0,0,Other,0,23.529411764705884
+242,53,Non Hispanic,White,Male,180,132,1,9,1.35,Prior outpt creatinine,1,1,3,1,1,3,0,27,1,5,0,1,1,1,1,ER,0,40.74074074074074
+243,55,Non Hispanic,White,female,162,62,0,2,0.68,Prior outpt creatinine,0,7,0,0,19,0,0,21,0,21,1,0,1,0,0,OR,0,23.624447492760247
+245,59,Non Hispanic,White,Male,173,79,1,9,0.9,Prior outpt creatinine,1,1,2,1,1,2,0,7,0,7,0,0,0,0,1,ER,1,26.395803401383272
+246,59,Non Hispanic,White,female,168,66,0,5,0.37,Day 0 creatinine,0,7,0,0,28,0,0,34,0,34,0,0,0,0,1,OR,0,23.384353741496604
+247,59,Non Hispanic,White,Male,178,85,1,10,0.8,Day 0 creatinine,1,1,1,1,1,1,0,10,0,10,0,0,0,0,1,OR,0,26.82742078020452
+248,58,Non Hispanic,White,Male,178,NA,0,4,1.62,Day 1 creatinine,0,7,0,0,7,0,0,11,0,11,1,0,1,0,1,OR,0,NA
+249,69,Non Hispanic,White,Male,175,NA,0,1,NA,NA,NA,NA,NA,NA,NA,NA,0,1,0,1,1,1,1,0,0,ER,0,NA
+250,62,Non Hispanic,White,Male,175,65,0,4,0.83,Prior outpt creatinine,1,1,1,1,1,1,0,20,0,20,0,0,1,0,1,OR,0,21.224489795918366
+251,39,Non Hispanic,White,Male,180,90,1,6,0.88,Day 0 creatinine,0,6,0,0,6,0,0,8,0,8,1,1,1,0,0,OR,0,27.777777777777775
+252,74,Non Hispanic,White,Male,162,NA,0,1,0.97,Day 0 creatinine,0,7,0,0,8,0,0,8,0,8,0,0,0,0,0,OR,0,NA
+253,28,Non Hispanic,White,female,162,62,1,5,0.77,Day 0 creatinine,1,2,2,1,2,2,0,24,0,24,0,0,0,0,1,OR,0,23.624447492760247
+254,46,Non Hispanic,White,Male,175,275,0,7,0.72,Day 1 creatinine,0,7,0,1,28,1,0,28,0,28,1,1,1,0,1,Transfer,0,89.79591836734694
+255,30,Non Hispanic,White,Male,195,NA,0,0,0.68,Day 0 creatinine,0,3,0,0,3,0,0,4,0,4,0,0,0,0,0,OR,0,NA
+256,27,Non Hispanic,White,female,167,80,1,18,3.58,Day 0 creatinine,0,7,0,0,28,0,0,18,0,18,0,0,0,0,1,OR,1,28.685144680698485
+257,35,Non Hispanic,White,female,170,77,0,5,0.49,Day 0 creatinine,0,5,0,0,26,0,0,29,0,29,0,0,0,0,1,Transfer,0,26.643598615916957
+258,70,Non Hispanic,White,female,157,72,1,1,0.85,Day 0 creatinine,0,5,0,0,22,0,0,5,0,5,0,0,1,0,0,OR,0,29.21010994360826
+259,27,Non Hispanic,White,Male,177,101,0,4,1.96,Day 1 creatinine,0,7,0,0,26,0,0,13,0,13,0,0,0,0,0,OR,0,32.23850106929682
+260,55,Non Hispanic,White,female,175,NA,1,6,0.74,Prior outpt creatinine,0,7,0,1,9,1,0,12,0,12,0,0,1,0,1,OR,0,NA
+261,66,Non Hispanic,White,Male,186,114,1,9,1.12,Day 0 creatinine,0,7,0,0,18,0,0,18,0,18,1,1,1,0,1,OR,0,32.95178633368019
+262,22,Non Hispanic,White,Male,172,90,1,9,1.4,Day 0 creatinine,0,4,0,0,4,0,0,4,0,4,0,0,0,0,1,Transfer,1,30.42184964845863
+263,42,Non Hispanic,Black,female,168,80,1,12,0.81,Day 0 creatinine,0,7,0,0,26,0,0,36,0,36,0,1,0,0,1,OR,0,28.344671201814062
+265,60,Non Hispanic,Black,Male,198,130,1,13,2.51,Day 1 creatinine,1,1,1,1,1,1,0,43,0,43,1,1,1,0,1,OR,0,33.15988164473013
+266,47,Non Hispanic,White,Male,178,98,0,1,0.75,Prior outpt creatinine,1,2,3,1,2,3,0,11,0,11,0,0,0,0,0,OR,0,30.930438076000502
+267,51,Non Hispanic,White,Male,184,85,1,12,0.77,Prior outpt creatinine,1,1,3,1,1,3,0,9,0,9,1,0,0,1,1,ER,0,25.10633270321361
+268,53,Non Hispanic,White,Male,187,128,1,12,3.73,Day 0 creatinine,1,2,3,1,2,3,1,4,0,4,0,0,0,0,1,OR,0,36.60384912350939
+269,45,Non Hispanic,Native American,female,165,90,0,6,0.37,Day 0 creatinine,1,3,3,1,3,3,0,6,0,6,0,0,0,0,1,ER,0,33.057851239669425
+270,56,Non Hispanic,White,Male,176,82,0,2,0.89,Day 0 creatinine,0,7,0,0,8,0,0,9,0,9,1,0,1,1,0,OR,0,26.47210743801653
+271,45,Non Hispanic,White,Male,195,125,0,3,0.71,Day 0 creatinine,1,2,1,1,2,1,0,16,0,16,1,0,1,0,0,OR,0,32.87310979618672
+273,77,Non Hispanic,White,Male,182,104,1,12,1.14,Day 0 creatinine,1,1,2,1,1,2,1,10,0,10,0,1,0,0,1,OR,0,31.397174254317108
+274,52,Non Hispanic,White,Male,182,100,1,12,1.78,Day 0 creatinine,0,7,0,1,11,1,0,43,0,43,0,1,0,0,1,Transfer,1,30.189590629151066
+275,38,Non Hispanic,White,female,155,47,1,8,0.6,Prior outpt creatinine,1,1,3,1,1,3,0,3,0,3,0,0,0,0,1,ER,0,19.562955254942764
+276,54,Non Hispanic,Pacific Islander / Native Hawaiian,Male,170,92,1,8,3.63,Day 0 creatinine,0,7,0,0,28,0,1,42,0,42,0,0,0,0,1,OR,0,31.83391003460208
+277,48,Non Hispanic,White,Male,177,125,0,10,2.57,Day 0 creatinine,1,1,3,1,1,3,0,40,0,40,0,0,0,0,1,OR,0,39.89913498675348
+278,41,Non Hispanic,White,female,152,41.5,1,2,0.72,Day 0 creatinine,0,2,0,0,2,0,0,5,0,5,0,0,0,0,0,ER,0,17.962257617728532
+279,64,Non Hispanic,White,Male,176,88,0,3,1.13,Day 0 creatinine,0,7,0,0,28,0,0,49,0,49,0,1,1,0,0,OR,0,28.40909090909091
+280,60,Non Hispanic,White,Male,186,101,0,2,0.99,Day 0 creatinine,0,5,0,0,5,0,0,5,0,5,0,0,0,0,0,ER,0,29.194126488611396
+281,26,Non Hispanic,White,Male,185,74,1,14,0.83,Day 0 creatinine,0,7,0,0,27,0,0,29,0,29,0,0,0,0,1,ER,1,21.62162162162162
+282,41,Non Hispanic,Black,Male,170,82,0,3,1.04,Day 0 creatinine,0,1,0,0,1,0,0,2,0,2,0,0,0,0,0,ER,0,28.373702422145332
+283,51,Non Hispanic,White,female,180,190,1,8,1.36,Day 0 creatinine,0,7,0,0,28,0,0,42,0,42,1,1,1,0,1,OR,0,58.641975308641975
+284,47,Non Hispanic,White,female,170,NA,0,3,0.32,Day 0 creatinine,1,4,1,1,4,1,0,13,0,13,0,0,0,0,1,OR,0,NA
+285,56,Non Hispanic,White,Male,180,197,1,9,0.98,Day 0 creatinine,0,7,0,1,8,3,1,22,1,11,0,1,0,0,1,OR,0,60.80246913580247
+286,37,Non Hispanic,White,Male,170,NA,0,1,0.82,Prior outpt creatinine,1,1,1,1,1,2,0,35,0,35,1,1,1,1,0,OR,0,NA
+287,56,Non Hispanic,Black,Male,185,135,0,8,1.2,Prior outpt creatinine,1,2,2,1,2,2,0,4,0,4,0,0,0,0,1,ER,0,39.444850255661066
+289,51,Non Hispanic,White,Male,183,165,0,9,1.49,Day 0 creatinine,0,7,0,0,27,0,0,33,0,33,0,1,1,0,1,Transfer,0,49.26990952252978
+290,21,Non Hispanic,White,Male,175,NA,0,4,1,Day 0 creatinine,0,7,0,0,9,0,0,16,0,16,0,0,0,0,1,ER,0,NA
+291,49,Non Hispanic,White,female,170,67,1,22,0.9,Prior outpt creatinine,1,1,3,1,1,3,1,1,1,1,0,0,0,0,1,ER,1,23.18339100346021
+292,75,Non Hispanic,White,Male,170,NA,0,12,1.12,Day 0 creatinine,1,1,3,1,1,3,1,11,1,1,0,0,1,0,1,ER,0,NA
+293,35,Non Hispanic,White,female,175,NA,1,4,0.77,Day 0 creatinine,0,4,0,0,4,0,0,4,0,4,0,0,0,0,0,ER,0,NA
+294,76,Unknown,White,Male,176,112,0,4,0.95,Day 0 creatinine,0,7,0,0,28,0,0,70,0,70,0,0,0,0,0,ER,0,36.15702479338843
+297,23,Hispanic,White,Male,165,NA,0,8,0.41,Day 0 creatinine,1,1,1,1,1,1,0,8,0,8,0,0,0,0,1,ER,0,NA
+298,22,Non Hispanic,White,Male,177,NA,0,7,1.46,Day 0 creatinine,0,6,0,0,25,0,0,14,0,14,0,0,0,0,1,ER,0,NA
+299,44,Non Hispanic,White,Male,173,84,0,5,0.7,Day 0 creatinine,0,6,0,0,15,0,0,36,0,36,1,1,1,0,1,OR,0,28.06642386982525
+301,44,Hispanic,White,Male,182,115,1,14,2.22,Day 0 creatinine,1,3,1,1,3,1,0,29,0,29,0,0,0,0,1,OR,0,34.71802922352373
+302,54,Hispanic,White,Male,168,71,0,5,1.96,Day 0 creatinine,0,5,0,0,5,0,0,6,0,6,0,0,0,0,1,ER,0,25.15589569160998
+303,60,Non Hispanic,Black,Male,180,172,1,7,14.14,Day 0 creatinine,NA,NA,NA,NA,NA,NA,0,8,NA,NA,0,1,1,0,0,OR,0,53.08641975308642
+304,44,Non Hispanic,Black,female,158,80,0,1,0.8,Prior outpt creatinine,1,2,2,1,2,2,0,34,0,34,0,0,0,0,0,ER,0,32.046146450889275
+306,24,Unknown,White,Male,180,68,1,7,1.14,Day 0 creatinine,0,7,0,0,17,0,0,17,0,17,0,0,0,0,1,Transfer,0,20.98765432098765
+308,54,Non Hispanic,White,female,177,NA,1,3,0.61,Day 0 creatinine,0,5,0,1,12,1,0,20,0,20,0,0,0,0,1,ER,0,NA
+309,40,Hispanic,White,Male,178,98,0,1,0.63,Day 1 creatinine,0,2,0,0,2,0,0,4,0,4,0,0,0,0,0,ER,0,30.930438076000502
+310,55,Non Hispanic,White,female,167,128,0,4,0.58,Prior outpt creatinine,0,7,0,0,28,0,0,37,0,37,0,1,1,1,0,ER,0,45.896231489117575
+311,56,Hispanic,White,female,163,170,0,5,1.2,Prior outpt creatinine,1,1,1,1,1,1,0,6,0,6,0,1,0,1,0,Other,0,63.984342654973844
+312,57,Non Hispanic,White,Male,NA,NA,0,6,1.01,Day 0 creatinine,0,7,0,0,28,0,0,77,0,77,1,1,1,0,1,OR,0,NA
+313,59,Non Hispanic,Pacific Islander / Native Hawaiian,Male,180,85,0,3,0.9,Prior outpt creatinine,0,7,0,0,27,0,0,40,0,40,0,1,0,0,0,OR,0,26.234567901234566
+314,54,Non Hispanic,White,Male,170,76,0,7,0.98,Day 0 creatinine,1,1,2,1,1,2,1,20,0,20,0,0,0,0,1,ER,1,26.29757785467128
+315,57,Non Hispanic,White,Male,182,127,0,6,1.18,Prior outpt creatinine,1,1,3,1,1,3,0,11,0,11,1,1,1,1,0,ER,0,38.340780099021856
+316,43,Hispanic,White,Male,162,101,0,5,0.9,Prior outpt creatinine,0,7,0,0,14,0,0,21,0,21,0,0,0,0,1,OR,0,38.48498704465782
+317,48,Non Hispanic,White,female,180,160,0,3,0.64,Day 0 creatinine,1,4,1,1,4,1,0,25,0,25,0,1,0,0,0,OR,0,49.382716049382715
+318,40,Non Hispanic,White,female,170,72,0,0,0.62,Day 0 creatinine,0,2,0,0,2,0,0,3,0,3,0,0,0,0,0,ER,0,24.913494809688583
+319,61,Non Hispanic,White,female,158,NA,0,1,0.81,Day 0 creatinine,0,7,0,0,26,0,0,40,0,40,0,0,0,0,0,ER,0,NA
+321,56,Unknown,White,Male,178,176,1,13,1.14,Day 0 creatinine,0,7,0,0,14,0,0,14,0,14,1,0,1,0,1,Transfer,1,55.54854185077642
+322,33,Non Hispanic,White,Male,182,90,1,8,0.8,Day 0 creatinine,0,7,0,0,27,0,0,39,0,39,0,0,0,0,1,OR,0,27.17063156623596
+323,86,Non Hispanic,White,Male,182,145,0,8,0.86,Day 0 creatinine,0,7,0,0,15,0,0,15,0,15,1,0,1,1,1,OR,0,43.77490641226905
+324,34,Non Hispanic,White,Male,171,153,0,1,0.73,Day 0 creatinine,1,2,1,1,2,1,0,46,0,46,0,0,0,0,0,OR,0,52.32379193598031
+325,58,Non Hispanic,White,female,168,88,1,12,1.14,Day 0 creatinine,1,1,1,1,1,1,0,5,0,5,1,0,1,0,1,ER,1,31.17913832199547
+326,34,Non Hispanic,White,female,170,54,0,6,1.03,Day 0 creatinine,0,7,0,0,25,0,0,47,0,47,0,0,0,0,1,OR,0,18.68512110726644
+327,37,Non Hispanic,White,Male,177,119,1,8,1.77,Day 0 creatinine,0,7,0,0,28,0,0,34,0,34,0,0,0,0,1,ER,0,37.983976507389315
+328,57,Non Hispanic,White,Male,170,83,0,9,1.01,Day 0 creatinine,0,6,0,0,14,0,0,17,0,17,0,0,0,0,1,ER,0,28.719723183391007
+329,70,Non Hispanic,White,Male,180,131,0,4,3.08,Day 1 creatinine,1,3,3,1,3,3,0,30,0,30,0,1,1,0,0,OR,0,40.432098765432094
+330,35,Non Hispanic,Black,Male,185,137,0,6,1.44,Day 1 creatinine,0,7,0,0,20,0,0,24,0,24,0,1,1,0,1,ER,0,40.02921840759678
+331,67,Non Hispanic,White,Male,167,90,0,1,1.01,Day 0 creatinine,1,2,1,1,2,1,0,11,0,11,0,1,0,0,0,OR,0,32.2707877657858
+333,45,Non Hispanic,White,female,168,80,0,3,3.17,Day 0 creatinine,0,7,0,0,23,0,0,7,0,7,0,0,0,0,1,OR,0,28.344671201814062
+334,28,Non Hispanic,Black,female,174,140,0,1,0.6,Prior outpt creatinine,1,6,1,1,6,1,0,12,0,12,1,1,1,0,0,OR,0,46.241247192495706
+335,42,Non Hispanic,White,female,170,70,0,7,0.65,Day 0 creatinine,0,7,0,0,16,0,0,16,0,16,0,0,0,0,1,ER,0,24.221453287197235
+336,26,Non Hispanic,White,female,170,55,1,16,1.61,Day 0 creatinine,0,7,0,0,22,0,1,22,0,22,0,0,0,0,1,ER,0,19.031141868512112
+337,64,Non Hispanic,White,Male,182,131,1,16,0.78,Prior outpt creatinine,1,1,1,1,1,2,0,15,0,15,0,0,0,1,1,ER,0,39.548363724187894
+338,25,Non Hispanic,White,Male,176,NA,0,3,1.09,Day 0 creatinine,0,3,0,0,3,0,0,6,0,6,0,0,0,0,1,ER,0,NA
+339,50,Non Hispanic,White,Male,181,86.5,0,8,1.8,Day 0 creatinine,1,2,1,1,2,1,0,38,0,38,0,0,0,0,1,ER,1,26.40334544122585
+340,32,Hispanic,White,Male,184,80,1,11,0.99,Day 1 creatinine,0,7,0,0,24,0,0,28,0,28,0,0,0,0,1,ER,0,23.629489603024574
+341,43,Non Hispanic,White,Male,178,137,0,7,1.47,Day 0 creatinine,1,1,3,1,1,3,0,26,1,9,1,1,1,0,1,OR,1,43.23948996338846
+343,54,Non Hispanic,White,Male,165,NA,0,4,0.75,Day 0 creatinine,0,7,0,0,7,0,0,7,0,7,0,0,0,0,1,OR,0,NA
+344,51,Non Hispanic,White,female,175,140,1,15,1.49,Day 0 creatinine,1,1,3,1,1,3,1,8,1,2,1,0,1,0,1,ER,0,45.714285714285715
+346,28,Hispanic,White,Male,165,75,1,4,0.54,Prior outpt creatinine,0,5,0,0,28,0,0,5,0,5,0,0,0,0,0,ER,0,27.548209366391188
+347,37,Non Hispanic,White,Male,185,80,0,0,1.11,Prior outpt creatinine,0,7,0,0,17,0,0,20,0,20,0,0,0,0,0,OR,0,23.37472607742878
+348,47,Hispanic,White,female,148,74,1,11,0.67,Day 1 creatinine,0,7,0,0,28,0,0,30,0,30,0,0,0,0,1,ER,1,33.78378378378378
+350,40,Non Hispanic,Pacific Islander / Native Hawaiian,Male,184,NA,0,1,1,Prior outpt creatinine,0,3,0,0,3,0,0,3,0,3,0,1,0,0,0,ER,0,NA
+351,41,Non Hispanic,White,Male,185,94,0,5,0.53,Day 0 creatinine,0,7,0,0,27,0,0,42,0,42,0,0,0,0,1,OR,0,27.465303140978815
+352,63,Non Hispanic,White,Male,185,131,0,10,1.27,Day 0 creatinine,1,1,2,1,1,2,0,41,0,41,0,0,0,0,1,OR,1,38.276113951789625
+353,70,Non Hispanic,White,Male,185,166,1,12,2.99,Day 0 creatinine,0,7,0,0,28,0,0,47,0,47,1,1,1,0,1,OR,0,48.50255661066471
+354,78,Non Hispanic,White,Male,184,87,1,10,1.61,Day 0 creatinine,1,1,2,1,1,2,1,2,0,2,0,0,0,0,1,OR,0,25.697069943289225
+355,51,Non Hispanic,Native American,Male,179,149,1,11,0.81,Day 0 creatinine,0,7,0,0,10,0,0,16,0,16,1,0,1,0,1,OR,0,46.50291813613807
+356,57,Non Hispanic,White,Male,178,64,0,5,1.17,Prior outpt creatinine,1,7,3,1,7,3,0,25,0,25,0,0,0,0,1,OR,0,20.199469763918696
+357,50,Non Hispanic,White,Male,NA,NA,1,11,0.75,Day 0 creatinine,0,7,0,0,28,0,0,25,0,25,1,1,1,0,1,ER,0,NA
+358,64,Non Hispanic,White,Male,178,86,0,2,0.78,Day 0 creatinine,0,7,0,0,20,0,0,14,0,14,0,0,0,0,0,Inpatient,0,27.143037495265748
+359,70,Non Hispanic,White,Male,180,93,1,5,1.26,Prior outpt creatinine,1,1,1,1,1,1,0,5,0,5,0,1,0,0,0,Inpatient,0,28.703703703703702
+360,35,Hispanic,White,Male,167,78,1,8,0.69,Prior outpt creatinine,0,7,0,0,25,0,0,18,0,18,0,0,0,0,1,OR,1,27.968016063681024
+361,42,Non Hispanic,Pacific Islander / Native Hawaiian,female,165,194,0,2,0.61,Day 1 creatinine,0,4,0,0,4,0,0,4,0,4,0,0,1,0,0,ER,0,71.25803489439853
+362,65,Non Hispanic,White,female,147,65,1,13,0.53,Prior outpt creatinine,1,1,3,1,1,3,1,6,0,6,0,0,0,0,1,ER,0,30.080059234578187
+363,46,Non Hispanic,White,female,180,57,0,5,2.18,Day 0 creatinine,0,7,0,0,10,0,0,10,0,10,0,1,0,0,1,ER,0,17.59259259259259
+364,28,Non Hispanic,White,female,175,NA,1,10,0.89,Day 0 creatinine,0,7,0,0,10,0,0,13,0,13,0,0,0,0,1,OR,0,NA
+365,18,Non Hispanic,White,Male,178,65,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,18,0,18,0,0,0,0,0,Transfer,1,20.515086478979924
+366,72,Non Hispanic,White,Male,180,83,1,11,1.88,Day 0 creatinine,1,2,3,1,2,3,1,12,0,12,1,1,1,1,1,ER,0,25.61728395061728
+367,44,Non Hispanic,White,female,176,NA,0,1,1.95,Prior outpt creatinine,0,3,0,0,18,0,0,3,0,3,0,1,1,1,0,ER,0,NA
+368,23,Non Hispanic,Asian,Male,188,76,0,5,1.11,Day 0 creatinine,1,4,3,1,4,3,0,48,1,6,0,0,0,0,1,OR,0,21.50294250792214
+369,57,Non Hispanic,White,Male,182,NA,0,4,1.49,Prior outpt creatinine,0,3,0,0,3,0,0,4,0,4,0,1,0,0,0,OR,0,NA
+370,58,Non Hispanic,Black,Male,179,70,1,12,0.75,Prior outpt creatinine,1,1,1,1,1,1,0,15,0,15,1,1,1,0,1,ER,0,21.847008520333322
+371,44,Non Hispanic,White,female,160,60,0,2,0.49,Day 0 creatinine,0,7,0,0,19,0,0,20,0,20,1,1,1,0,0,OR,0,23.437499999999996
+372,39,Non Hispanic,White,Male,177,94,0,6,0.8,Day 1 creatinine,0,7,0,0,14,0,0,15,0,15,0,0,0,0,1,ER,0,30.00414951003862
+373,18,Non Hispanic,White,Male,172,105,1,10,1.07,Day 1 creatinine,0,7,0,0,23,0,0,35,0,35,0,0,0,0,1,OR,1,35.49215792320173
+374,29,Non Hispanic,White,Male,180,97,0,2,0.89,Day 1 creatinine,0,2,0,0,2,0,0,10,0,10,0,0,0,0,0,OR,0,29.93827160493827
+375,59,Non Hispanic,White,Male,175,NA,0,5,1.08,Day 0 creatinine,0,6,0,0,20,0,0,31,0,31,0,0,0,0,1,ER,0,NA
+376,59,Non Hispanic,White,Male,162,NA,0,7,7.21,Prior outpt creatinine,NA,NA,NA,NA,NA,NA,0,2,NA,NA,0,1,0,1,0,Inpatient,0,NA
+377,55,Non Hispanic,White,female,163,97,1,5,0.9,Prior outpt creatinine,0,7,0,0,27,0,0,44,0,44,1,1,1,1,0,OR,0,36.50871316195567
+378,55,Unknown,Native American,female,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,20,0,20,0,0,0,0,0,ER,0,NA
+380,65,Non Hispanic,White,Male,180,71,0,3,0.56,Day 0 creatinine,0,7,0,1,10,3,1,11,0,11,0,0,0,0,0,Inpatient,0,21.91358024691358
+381,51,Non Hispanic,White,Male,182,84,1,15,3.53,Day 1 creatinine,1,1,3,1,1,3,0,19,1,7,0,0,0,0,0,ER,0,25.359256128486894
+382,68,Non Hispanic,White,Male,167.7,80,1,9,0.56,Day 0 creatinine,1,1,1,1,1,1,0,38,0,38,0,0,0,0,1,OR,0,28.44617397182194
+383,61,Non Hispanic,White,female,162,77,0,0,0.55,Day 0 creatinine,0,5,0,1,21,1,0,6,0,6,1,1,0,1,0,OR,0,29.340039628105465
+384,47,Non Hispanic,White,Male,183,71,0,5,1.06,Day 0 creatinine,0,2,0,0,2,0,0,9,0,9,0,0,0,0,1,ER,0,21.20099137030069
+385,32,Non Hispanic,White,Male,180,100,0,1,0.62,Day 0 creatinine,0,4,0,1,28,1,0,25,0,25,0,0,0,0,1,OR,0,30.864197530864196
+386,39,Non Hispanic,White,female,161,136,1,14,0.63,Prior outpt creatinine,1,1,1,1,1,1,0,32,0,32,0,1,1,0,1,ER,1,52.46711160834844
+387,61,Non Hispanic,White,Male,181,89,0,6,2.23,Prior outpt creatinine,1,1,1,1,1,1,0,21,0,21,0,1,1,1,1,OR,0,27.16644791062544
+388,57,Non Hispanic,White,Male,176,76,1,12,0.8,Prior outpt creatinine,1,1,1,1,1,1,0,15,0,15,0,0,1,0,1,OR,0,24.535123966942148
+389,71,Non Hispanic,White,Male,181,95,0,8,0.75,Day 0 creatinine,1,2,1,1,2,1,0,35,0,35,0,0,0,0,1,OR,0,28.997893837184456
+390,32,Non Hispanic,White,Male,194,217,1,6,0.9,Prior outpt creatinine,1,1,1,1,1,1,0,14,0,14,1,0,1,0,1,OR,0,57.65756190881071
+391,48,Non Hispanic,White,Male,178,95,1,9,1,Prior outpt creatinine,1,1,3,1,1,3,0,39,1,0,0,0,1,1,0,ER,0,29.983587930816814
+392,29,Non Hispanic,White,Male,177,106,0,4,0.87,Day 0 creatinine,0,7,0,0,11,0,1,9,0,9,0,0,0,0,1,ER,0,33.834466468766955
+393,62,Non Hispanic,White,Male,173,61.5,0,4,0.85,Day 1 creatinine,1,4,1,1,4,1,1,12,0,12,1,1,1,0,1,Inpatient,0,20.548631761836344
+394,47,Non Hispanic,White,Male,184,NA,0,3,0.96,Day 0 creatinine,0,4,0,0,9,0,0,17,0,17,0,0,0,0,0,OR,0,NA
+395,43,Non Hispanic,White,female,182,168,0,3,0.86,Day 0 creatinine,0,7,0,0,7,0,0,7,0,7,0,0,0,0,1,ER,0,50.71851225697379
+396,64,Non Hispanic,Native American,Male,174,74,0,2,0.9,Prior outpt creatinine,0,6,0,0,6,0,0,8,0,8,0,0,1,0,0,ER,0,24.441802087462015
+397,40,Non Hispanic,White,Male,187,111,0,10,1.13,Day 0 creatinine,1,1,3,1,1,3,0,63,1,11,0,0,0,0,1,OR,0,31.742400411793298
+400,58,Non Hispanic,Asian,Male,159,67,1,13,1.4,Prior outpt creatinine,1,1,2,1,1,2,0,66,0,66,1,1,1,0,1,ER,0,26.502116213757365
+401,49,Non Hispanic,White,Male,180,NA,1,5,0.75,Day 0 creatinine,0,7,0,0,16,0,0,21,0,21,1,1,1,0,1,OR,0,NA
+402,40,Non Hispanic,White,Male,190,260,0,1,0.83,Day 0 creatinine,0,1,0,0,1,0,0,12,0,12,0,0,0,0,0,OR,0,72.02216066481995
+404,56,Hispanic,White,Male,179,86,1,NA,1.86,Day 1 creatinine,1,1,3,1,1,3,0,112,1,0,0,1,1,1,0,Transfer,0,26.840610467838083
+406,62,Non Hispanic,White,Male,168,NA,1,5,0.51,Day 0 creatinine,0,6,0,0,16,0,0,28,0,28,0,1,0,0,0,OR,0,NA
+407,61,Non Hispanic,White,Male,175,98,1,7,0.65,Day 1 creatinine,0,7,0,0,17,0,0,20,0,20,1,0,1,0,0,OR,0,32
+408,45,Non Hispanic,White,female,158,54,0,4,0.53,Day 0 creatinine,0,4,0,0,27,0,0,3,0,3,0,0,0,0,0,ER,0,21.63114885435026
+410,46,Non Hispanic,Pacific Islander / Native Hawaiian,female,163,85,0,8,0.61,Day 0 creatinine,1,7,1,1,7,2,1,16,0,16,0,0,1,0,0,ER,0,31.992171327486922
+411,59,Non Hispanic,White,Male,175,84,1,3,0.83,Day 0 creatinine,0,7,0,0,19,0,0,21,0,21,0,1,0,0,0,OR,0,27.428571428571427
+412,58,Non Hispanic,White,Male,178,157,0,4,2.33,Prior outpt creatinine,1,1,1,1,1,1,0,26,0,26,0,1,1,1,0,ER,0,49.55182426461305
+413,51,Non Hispanic,Asian,Male,157,63.5,0,6,1.06,Day 0 creatinine,0,2,0,0,2,0,0,3,0,3,1,0,1,0,1,ER,0,25.76169418637673
+414,63,Non Hispanic,White,Male,180,74,0,4,0.76,Day 0 creatinine,0,7,0,0,20,0,0,20,0,20,0,0,1,0,1,ER,0,22.839506172839506
+415,21,Non Hispanic,White,female,165,77,0,4,0.76,Day 0 creatinine,0,7,0,0,27,0,0,39,0,39,0,0,0,0,1,OR,0,28.282828282828287
+416,40,Non Hispanic,Native American,female,169.5,84,0,2,0.61,Prior outpt creatinine,0,7,0,0,24,0,0,25,0,25,0,1,0,0,0,ER,0,29.23747617928838
+417,36,Non Hispanic,White,Male,169,75,1,5,1.1,Prior outpt creatinine,0,7,0,0,27,0,0,31,0,31,0,0,0,0,1,OR,0,26.25958474843318
+418,61,Non Hispanic,White,Male,177,83,1,7,1,Prior outpt creatinine,1,1,2,1,1,2,0,19,0,19,0,0,0,0,0,OR,0,26.493025631204315
+419,55,Non Hispanic,White,Male,185,NA,1,6,2.53,Day 0 creatinine,1,5,1,1,5,1,0,60,0,60,1,1,1,0,1,ER,0,NA
+420,55,Non Hispanic,Black,Male,172,NA,0,2,0.74,Day 0 creatinine,0,5,0,0,5,0,0,6,0,6,1,1,1,0,0,OR,0,NA
+421,34,NA,White,female,160,88,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,5,0,5,0,1,1,0,0,ER,0,34.37499999999999
+423,52,Non Hispanic,White,female,165,103,1,2,1.13,Day 1 creatinine,0,2,0,0,12,0,0,7,0,7,0,1,0,0,0,ER,0,37.832874196510566
+424,42,Non Hispanic,White,Male,180,61,0,0,0.91,Day 0 creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,0,0,ER,0,18.827160493827158
+425,42,Non Hispanic,White,Male,177,93,0,0,1,Prior outpt creatinine,0,2,0,0,2,0,0,2,0,2,0,0,0,0,0,ER,0,29.68495643014459
+426,79,Non Hispanic,White,female,160,82,1,8,1.61,Day 0 creatinine,1,1,2,1,1,2,0,19,0,19,1,0,1,0,0,OR,0,32.03124999999999
+427,34,Non Hispanic,White,Male,180,95.5,0,3,1.25,Prior outpt creatinine,0,5,0,0,5,0,0,5,0,5,0,1,0,0,0,ER,0,29.475308641975307
+429,64,Non Hispanic,White,Male,165,55,1,9,1.64,Day 0 creatinine,0,7,0,0,21,0,0,8,0,8,1,0,0,1,1,ER,0,20.202020202020204
+430,63,Non Hispanic,Native American,Male,176,95,0,7,1.16,Day 1 creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,0,1,ER,0,30.668904958677686
+431,71,Non Hispanic,White,Male,177.8,86,1,13,1.1,Day 0 creatinine,1,1,1,1,1,1,1,2,0,2,0,0,1,0,1,OR,0,27.204136040925142
+432,58,Non Hispanic,White,Male,180,72.3,0,4,0.9,Prior outpt creatinine,0,7,0,0,9,0,0,9,0,9,0,0,0,0,0,ER,NA,22.314814814814813
+433,77,Non Hispanic,White,female,152,86,1,12,2.86,Day 0 creatinine,1,2,3,1,2,3,0,37,1,2,1,0,1,0,1,OR,1,37.22299168975069
+434,57,Non Hispanic,Native American,Male,176,73,1,17,0.6,Prior outpt creatinine,1,1,3,1,1,3,1,29,1,10,0,0,1,0,1,ER,0,23.56663223140496
+435,25,Non Hispanic,White,Male,180,72,1,2,0.45,Day 0 creatinine,0,5,0,0,5,0,0,12,0,12,0,1,0,0,0,OR,0,22.22222222222222
+436,56,Non Hispanic,White,Male,178,62.5,1,12,1.24,Day 0 creatinine,0,7,0,0,13,0,0,16,0,16,0,1,0,0,1,ER,1,19.72604469132685
+437,31,Hispanic,White,female,170,133,0,3,0.65,Prior outpt creatinine,1,1,1,1,1,1,0,2,0,2,0,1,0,0,1,Inpatient,0,46.02076124567475
+438,59,Non Hispanic,White,Male,172,123,0,5,2.54,Day 0 creatinine,0,7,0,0,13,0,0,13,0,13,0,0,0,0,0,ER,0,41.57652785289346
+439,67,Non Hispanic,Black,female,154,85,1,16,1.23,Prior outpt creatinine,1,1,3,1,1,3,1,7,0,7,1,1,1,0,1,OR,0,35.84078259402935
+440,46,Non Hispanic,White,Male,178,64,0,2,0.7,Prior outpt creatinine,0,5,0,0,5,0,0,5,0,5,0,0,0,0,0,ER,0,20.199469763918696
+441,54,Non Hispanic,White,Male,190,84.2,0,3,0.68,Prior outpt creatinine,0,7,0,0,25,0,0,8,0,8,0,0,0,0,0,ER,0,23.32409972299169
+443,54,Non Hispanic,White,Male,170,77,0,8,1.26,Day 0 creatinine,1,2,2,1,2,2,0,17,0,17,0,0,0,0,1,ER,0,26.643598615916957
+444,45,Non Hispanic,Black,Male,194,85,0,3,1.25,Prior outpt creatinine,0,4,0,0,19,0,0,4,0,4,1,1,1,1,0,ER,0,22.584759273036454
+445,59,Non Hispanic,White,Male,188,103.5,1,10,1.34,Prior outpt creatinine,1,1,2,1,1,2,0,21,0,21,0,1,1,1,1,OR,0,29.283612494341334
+446,68,Non Hispanic,White,Male,180,90,0,9,0.8,Prior outpt creatinine,1,1,1,1,1,1,0,30,0,30,0,0,1,0,1,OR,0,27.777777777777775
+447,64,Non Hispanic,White,female,162.6,86.2,0,6,0.52,Day 1 creatinine,0,7,0,0,22,0,1,22,0,22,0,0,0,0,1,Inpatient,0,32.60364706968103
+448,73,Non Hispanic,White,Male,185.4,73,0,7,0.69,Day 0 creatinine,0,7,0,0,28,0,1,29,0,29,0,0,0,0,1,Inpatient,0,21.23750042184076
+450,69,Non Hispanic,White,Male,170,95,1,8,2.02,Day 0 creatinine,1,1,1,1,1,1,0,18,0,18,0,0,1,1,1,Inpatient,0,32.871972318339104
+451,70,Non Hispanic,White,Male,180,98,0,4,1.15,Prior outpt creatinine,0,4,0,0,20,0,0,4,0,4,0,1,0,0,0,ER,0,30.24691358024691
+452,55,Non Hispanic,Black,Male,170,99,0,4,1.1,Prior outpt creatinine,1,1,1,1,1,1,0,3,0,3,1,1,1,0,0,Inpatient,0,34.256055363321806
+453,39,Non Hispanic,White,female,180,129,1,2,0.59,Day 0 creatinine,0,7,0,0,11,0,0,23,0,23,0,0,0,0,1,Transfer,0,39.81481481481481
+454,54,Hispanic,Other,Male,177,95,0,7,0.94,Day 0 creatinine,0,7,0,0,14,0,0,13,0,13,1,0,1,0,1,Transfer,0,30.323342589932647
+455,74,Non Hispanic,White,Male,179,86.5,1,1,1.04,Prior outpt creatinine,1,1,1,1,1,1,0,2,0,2,0,1,1,0,0,Transfer,0,26.996660528697607
+456,62,Non Hispanic,White,Male,182,105,1,13,1.08,Day 0 creatinine,1,1,1,1,1,1,0,52,0,52,1,1,1,0,1,ER,0,31.69907016060862
+457,68,Non Hispanic,Black,female,162,59,0,1,1.15,Prior outpt creatinine,0,5,0,0,5,0,0,5,0,5,1,0,1,0,0,ER,0,22.481329065691202
+458,61,Non Hispanic,White,Male,180,84,0,7,0.8,Prior outpt creatinine,1,1,3,1,1,3,0,12,0,12,0,0,0,0,0,ER,0,25.925925925925924
+459,63,Non Hispanic,White,female,160,54,1,8,2.75,Day 0 creatinine,0,6,0,0,6,0,0,6,0,6,0,0,1,0,1,ER,0,21.093749999999996
+460,64,Non Hispanic,White,Male,170,88,1,11,1.56,Day 0 creatinine,1,1,3,1,1,3,0,25,1,2,0,0,1,0,1,OR,0,30.449826989619382
+461,67,Non Hispanic,White,female,172,160,0,3,0.83,Day 1 creatinine,0,2,0,0,2,0,0,5,0,5,0,0,0,0,0,Transfer,0,54.083288263926455
+462,39,Non Hispanic,White,Male,181,77,0,1,1.01,Day 0 creatinine,0,5,0,0,15,0,0,16,0,16,0,1,0,0,0,ER,0,23.503556057507403
+463,39,Non Hispanic,White,Male,183,81,1,3,1.17,Day 0 creatinine,0,7,0,0,27,0,0,38,0,38,0,0,0,0,1,OR,0,24.187046492878256
+464,73,Non Hispanic,White,Male,170,94,0,4,1.45,Day 1 creatinine,0,7,0,0,9,0,0,9,0,9,1,0,1,1,0,Transfer,0,32.52595155709343
+465,75,Hispanic,White,Male,175.2,82,0,2,0.69,Prior outpt creatinine,0,7,0,0,28,0,0,49,0,49,1,0,1,0,0,Transfer,0,26.714413794541404
+466,50,Non Hispanic,White,female,176,75,1,18,0.64,Day 0 creatinine,1,1,3,1,1,3,1,5,1,2,0,0,1,0,1,OR,0,24.212293388429753
+467,65,Hispanic,Native American,Male,170,61,1,11,0.78,Prior outpt creatinine,1,1,3,1,1,3,0,16,0,16,1,0,1,0,1,ER,0,21.107266435986162
+468,31,Non Hispanic,White,Male,180,120,1,13,1.22,Day 0 creatinine,0,7,0,1,20,1,0,76,0,76,0,0,0,0,1,OR,0,37.03703703703704
+469,54,Non Hispanic,White,female,167.7,90.5,0,9,0.6,Prior outpt creatinine,1,1,3,1,1,3,0,55,1,2,0,0,0,0,1,Transfer,0,32.17973430562357
+470,50,Non Hispanic,White,female,167,133.5,0,5,1.91,Day 0 creatinine,0,3,0,0,3,0,1,3,0,3,0,0,0,1,1,ER,0,47.8683351859156
+471,34,Non Hispanic,White,Male,168,62.5,0,7,0.71,Prior outpt creatinine,1,1,1,1,1,1,0,12,0,12,0,0,0,0,0,ER,0,22.144274376417236
+472,64,Non Hispanic,White,Male,180.3,103.9,0,2,1.03,Prior outpt creatinine,0,5,0,0,15,0,0,5,0,5,0,0,1,0,0,Transfer,0,31.96127487034765
+473,46,Non Hispanic,White,Male,182,79.5,0,3,0.45,Day 0 creatinine,0,7,0,0,26,0,0,23,0,23,0,0,0,0,0,OR,0,24.000724550175097
+474,70,Non Hispanic,White,Male,169,80,1,11,1.53,Day 0 creatinine,0,7,0,0,20,0,0,20,0,20,0,0,1,0,1,Transfer,0,28.01022373166206
+475,21,Non Hispanic,White,female,175,60.5,0,0,0.57,Prior outpt creatinine,0,1,0,0,1,0,0,1,0,1,0,1,0,0,0,ER,0,19.755102040816325
+476,66,Non Hispanic,White,Male,172,110,1,12,1.34,Day 0 creatinine,1,1,1,1,1,1,0,18,0,18,0,1,1,1,1,ER,0,37.182260681449435
+477,50,Non Hispanic,Asian,Male,162,74.5,0,5,0.8,Day 1 creatinine,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,ER,0,28.387440938881262
+478,34,Hispanic,White,female,162,65,0,9,0.96,Day 0 creatinine,0,7,0,0,28,0,1,43,0,43,0,0,0,0,1,OR,0,24.76756591982929
+479,54,Hispanic,White,female,162.6,178.5,0,2,1.92,Day 0 creatinine,1,2,1,1,2,1,0,22,0,22,0,0,0,0,0,Transfer,0,67.51451278350423
+480,65,Non Hispanic,White,female,172,92.5,1,12,0.83,Prior outpt creatinine,1,1,3,1,1,3,0,7,0,7,1,1,1,0,1,ER,0,31.26690102758248
+481,19,Non Hispanic,White,Male,172.7,64,1,6,1.12,Day 0 creatinine,0,6,0,0,6,0,0,9,0,9,0,0,0,0,1,ER,0,21.458299315782014
+482,49,Non Hispanic,White,Male,178,95.5,0,4,0.9,Prior outpt creatinine,0,2,0,0,2,0,0,5,0,5,0,0,0,0,0,ER,0,30.14139628834743
+483,46,Non Hispanic,White,Male,170,110,0,2,0.68,Day 1 creatinine,0,3,0,0,3,0,0,3,0,3,0,0,1,0,0,ER,0,38.062283737024224
+484,68,Non Hispanic,White,female,160,90,0,6,1.28,Day 0 creatinine,0,7,0,0,7,0,0,7,0,7,0,0,1,0,1,OR,0,35.15624999999999
+485,59,Hispanic,White,female,168,67.4,0,3,0.77,Day 0 creatinine,0,3,0,0,26,0,0,4,0,4,0,0,0,0,0,Inpatient,0,23.88038548752835
+486,26,Non Hispanic,White,female,165,69,0,2,0.58,Day 1 creatinine,0,2,0,0,2,0,0,2,0,2,0,0,0,0,1,OR,0,25.344352617079892
+487,49,Non Hispanic,White,female,164,112,0,1,0.68,Day 0 creatinine,0,3,0,0,3,0,0,3,0,3,0,0,0,0,0,OR,0,41.64187983343249
+488,44,Non Hispanic,Native American,female,162.5,124.5,0,0,0.76,Day 0 creatinine,0,7,0,0,9,0,0,20,0,20,0,1,0,0,0,OR,0,47.14792899408284
+489,55,Non Hispanic,Black,Male,180,64.5,0,3,0.99,Prior outpt creatinine,0,7,0,0,24,0,0,128,0,128,0,1,0,0,1,ER,0,19.907407407407405
+490,53,Non Hispanic,White,female,165,98.5,0,5,1.06,Day 1 creatinine,0,7,0,1,13,3,0,7,0,7,0,1,0,0,0,Other,0,36.179981634527095
+491,39,Non Hispanic,White,Male,188,102.1,0,1,0.84,Day 0 creatinine,0,3,0,0,3,0,0,6,0,6,0,0,0,0,0,ER,0,28.88750565866908
+492,29,Hispanic,White,Male,176,82,0,5,0.75,Day 0 creatinine,0,1,0,0,1,0,0,1,0,1,0,0,0,0,1,ER,0,26.47210743801653
+493,73,Non Hispanic,White,female,170,81,0,2,0.88,Day 0 creatinine,1,2,1,1,2,1,0,13,0,13,0,0,0,0,0,Transfer,0,28.027681660899656
+494,70,Non Hispanic,White,Male,187,109,0,1,1.16,Prior outpt creatinine,1,2,3,1,2,3,0,5,0,5,1,0,1,1,0,Transfer,0,31.170465269238463
+495,50,Hispanic,White,female,180.3,127.3,0,5,0.94,Day 0 creatinine,0,6,0,0,6,0,0,12,0,12,0,0,0,0,0,Transfer,0,39.15948307021421
+496,46,Non Hispanic,Black,female,168,87,0,2,2.8,Prior outpt creatinine,0,4,0,0,11,0,0,6,0,6,0,1,1,0,0,ER,0,30.824829931972793
+497,74,Non Hispanic,White,female,179,111.5,0,6,0.9,Prior outpt creatinine,1,1,2,1,1,2,0,8,0,8,0,0,0,1,1,Inpatient,0,34.799163571673795
+498,52,Non Hispanic,White,female,165,160,1,11,0.84,Day 0 creatinine,0,7,0,1,23,1,0,43,0,43,1,1,1,0,1,Transfer,1,58.76951331496787
+499,60,Non Hispanic,White,Male,170,66,1,5,0.8,Prior outpt creatinine,0,6,0,0,6,0,0,6,0,6,0,0,0,0,0,OR,0,22.837370242214536
+500,51,Non Hispanic,White,Male,167.6,63,0,3,1.08,Prior outpt creatinine,0,6,0,0,28,0,0,6,0,6,0,0,0,0,0,Inpatient,0,22.428101913295095
+501,59,Non Hispanic,White,Male,193,136.6,0,8,0.98,Day 1 creatinine,0,4,0,0,4,0,0,4,0,4,1,0,1,1,1,Transfer,0,36.672125426185936
+502,30,Non Hispanic,White,Male,173,65,1,7,0.76,Day 0 creatinine,0,7,0,0,13,0,0,13,0,13,0,0,0,0,1,Transfer,1,21.71806608974573
+503,65,Non Hispanic,White,female,162,51,0,2,0.61,Day 0 creatinine,0,7,0,0,8,0,0,9,0,9,0,0,0,0,0,OR,0,19.43301326017375
+504,55,Non Hispanic,White,Male,185,102,1,4,1.58,Day 0 creatinine,1,7,1,1,7,1,0,9,0,9,0,0,0,0,1,OR,0,29.802775748721693
+505,58,Non Hispanic,White,Male,180,132,0,0,0.91,Day 1 creatinine,0,2,0,0,2,0,0,3,0,3,1,1,1,0,0,ER,0,40.74074074074074
+506,31,Non Hispanic,Native American,female,167,65,0,2,0.79,Day 0 creatinine,0,7,0,0,16,0,0,29,0,29,0,0,0,0,1,ER,0,23.306680053067517
+507,79,Non Hispanic,White,Male,180.34,64,1,6,1.04,Day 0 creatinine,0,7,0,1,13,1,0,14,0,14,1,0,1,1,0,OR,0,19.678674548779366
+508,58,Non Hispanic,White,Male,185,75,0,1,0.91,Prior outpt creatinine,0,3,0,0,3,0,0,3,0,3,1,0,1,0,0,Transfer,0,21.913805697589478
+509,60,Non Hispanic,White,Male,188,66.5,0,0,0.9,Prior outpt creatinine,0,1,0,0,1,0,0,1,0,1,0,1,0,0,1,ER,0,18.81507469443187
+510,43,Hispanic,White,female,160,106,1,8,0.58,Day 0 creatinine,1,3,1,1,3,1,0,10,0,10,0,0,0,0,1,OR,0,41.40624999999999
+511,58,Non Hispanic,White,Male,183,108,1,10,0.9,Prior outpt creatinine,1,1,1,1,1,1,0,3,0,3,0,0,0,0,1,ER,0,32.249395323837675
+513,61,Non Hispanic,White,Male,177,72.5,0,3,0.64,Day 1 creatinine,1,5,3,1,5,3,0,5,1,5,0,0,1,1,0,Transfer,0,23.14149829231702
+514,61,Non Hispanic,White,female,178,74.5,1,11,2.99,Day 0 creatinine,0,7,0,0,28,0,0,40,0,40,0,0,0,0,1,Transfer,0,23.513445272061606
+515,55,Non Hispanic,White,Male,172.7,64.5,1,5,0.9,Prior outpt creatinine,1,1,1,1,1,1,0,3,0,3,0,1,1,0,0,ER,0,21.62594227918656
+516,68,Non Hispanic,White,Male,178,57,1,10,1.93,Day 0 creatinine,0,7,0,0,25,0,0,25,0,25,0,0,0,0,1,ER,0,17.99015275849009
+517,26,Non Hispanic,Other,Male,176,82.5,0,0,1.06,Day 0 creatinine,0,1,0,0,1,0,0,1,0,1,0,1,0,0,0,ER,0,26.633522727272727
+518,55,Non Hispanic,White,Male,188,108,0,1,1.44,Day 0 creatinine,0,7,0,0,12,0,0,12,0,12,1,1,1,0,0,OR,0,30.556813037573566
+519,58,Non Hispanic,White,Male,178,64,0,5,0.59,Day 1 creatinine,0,7,0,0,7,0,0,7,0,7,1,0,0,1,0,ER,0,20.199469763918696
+520,33,Non Hispanic,Black,Male,178,72.5,0,2,1.44,Day 0 creatinine,0,6,0,0,20,0,0,7,0,7,0,0,0,0,0,ER,0,22.88221184193915
+521,68,Non Hispanic,White,Male,179,79.5,1,15,2.06,Day 1 creatinine,0,7,0,0,14,0,0,14,0,14,1,0,1,1,1,OR,0,24.811959676664273
+522,49,Non Hispanic,Native American,female,160,84,0,3,2.6,Prior outpt creatinine,1,1,1,1,1,1,0,19,0,19,1,1,1,1,0,OR,0,32.81249999999999
+573,27,Hispanic,Asian,female,164,70.5,0,7,1.42,Day 0 creatinine,0,7,0,0,21,0,0,25,0,25,0,0,0,0,1,Transfer,0,26.2120761451517
+574,66,Non Hispanic,White,Male,178,105,1,10,1.88,Day 0 creatinine,0,7,0,0,15,0,0,18,0,18,1,0,1,0,1,ER,0,33.13975508142911
+575,54,Non Hispanic,White,female,177.8,92.7,0,3,0.94,Day 1 creatinine,0,6,0,0,9,0,0,10,0,10,0,0,0,0,0,ER,0,29.323528034811172
+576,42,Hispanic,White,Male,176,151.5,1,1,0.99,Day 0 creatinine,0,7,0,0,25,0,0,25,0,25,1,1,1,0,0,Transfer,0,48.9088326446281
+577,61,Non Hispanic,Black,Male,173,146.8,0,5,1.28,Prior outpt creatinine,0,7,0,0,9,0,0,9,0,9,1,1,1,1,1,ER,0,49.049416953456515
+578,49,Non Hispanic,White,Male,175,80,0,2,0.65,Day 0 creatinine,1,1,1,1,1,1,0,12,0,12,0,0,0,0,0,ER,0,26.122448979591837
+579,63,Non Hispanic,White,female,170,64.5,1,8,0.72,Day 0 creatinine,0,5,0,0,5,0,0,5,0,5,0,0,1,0,1,ER,0,22.318339100346023
+580,56,Non Hispanic,White,female,170,63,1,8,0.94,Day 0 creatinine,0,7,0,0,28,0,0,40,0,40,1,0,1,0,0,ER,0,21.79930795847751
+581,48,Non Hispanic,White,female,172,119,0,1,0.63,Day 1 creatinine,0,3,0,0,3,0,0,4,0,4,0,0,0,0,0,Transfer,0,40.2244456462953
+582,37,Non Hispanic,White,Male,173,85,0,7,1.42,Day 0 creatinine,0,7,0,0,28,0,0,41,0,41,0,0,0,0,1,OR,0,28.40054796351365
+583,35,Non Hispanic,Native American,Male,167,78,0,3,1.09,Day 0 creatinine,0,7,0,0,25,0,0,38,0,38,0,0,0,0,1,OR,0,27.968016063681024
+584,66,Non Hispanic,White,Male,175,106,0,5,0.79,Prior outpt creatinine,1,3,1,1,3,1,0,24,0,24,1,1,1,0,1,ER,0,34.61224489795919
+585,29,Non Hispanic,White,Male,181,96.5,1,9,1.06,Day 0 creatinine,1,1,2,1,1,2,0,28,0,28,0,0,0,0,1,ER,NA,29.455755318824213
+586,59,Non Hispanic,White,female,168,94.5,0,0,0.56,Prior outpt creatinine,0,2,0,0,2,0,0,2,0,2,0,0,0,0,0,ER,0,33.48214285714286
+587,48,Non Hispanic,Pacific Islander / Native Hawaiian,Male,175,91,1,4,1.28,Day 1 creatinine,1,3,1,1,3,1,0,16,0,16,0,1,0,0,0,Transfer,0,29.714285714285715
+588,20,Non Hispanic,White,female,180,113,0,0,0.74,Day 0 creatinine,0,5,0,0,5,0,0,13,0,13,0,0,0,0,0,ER,0,34.876543209876544
+589,52,Non Hispanic,White,female,174,130.5,1,10,0.75,Day 1 creatinine,0,7,0,0,28,0,0,46,0,46,1,1,1,0,1,ER,0,43.10344827586207
+25,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+28,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+29,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,0,NA
+40,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+46,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+55,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,0,NA
+75,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+78,NA,NA,NA,NA,NA,NA,0,NA,0.55,Day 0 creatinine,0,7,0,0,21,0,0,22,0,22,1,0,1,0,1,OR,0,NA
+88,NA,NA,NA,NA,NA,NA,0,NA,3.61,Day 0 creatinine,0,7,0,0,25,0,0,26,0,26,0,1,0,0,0,Other,0,NA
+103,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,NA,NA
+108,NA,NA,NA,NA,NA,NA,0,NA,4.29,Day 1 creatinine,1,1,3,1,1,3,0,64,0,64,0,0,0,0,0,ER,NA,NA
+121,NA,NA,NA,NA,NA,NA,0,NA,0.7,Day 0 creatinine,1,7,1,1,7,2,0,16,0,16,0,0,0,0,0,Transfer,NA,NA
+128,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,1,0,1,0,ER,0,NA
+143,NA,NA,NA,NA,NA,NA,0,NA,1.04,Day 1 creatinine,0,7,0,0,16,0,0,16,0,16,0,0,0,0,0,ER,0,NA
+154,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,OR,0,NA
+167,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,0,NA
+171,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,Transfer,0,NA
+172,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,0,NA
+191,NA,NA,NA,NA,NA,NA,0,NA,4.85,Day 0 creatinine,1,1,3,1,1,3,0,NA,0,NA,0,0,1,0,1,OR,0,NA
+194,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,OR,NA,NA
+198,NA,NA,NA,NA,NA,NA,0,NA,6.34,Day 1 creatinine,1,1,3,1,1,3,0,NA,0,NA,0,0,1,0,1,ER,NA,NA
+220,NA,NA,NA,NA,NA,NA,0,NA,2.48,Day 0 creatinine,1,1,1,1,1,3,0,41,0,41,0,0,1,0,1,ER,1,NA
+232,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,0,NA
+244,NA,NA,NA,NA,NA,NA,0,NA,0.95,Day 0 creatinine,0,1,0,0,1,0,0,NA,0,NA,0,0,1,0,1,Transfer,1,NA
+264,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,OR,0,NA
+272,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,Transfer,NA,NA
+288,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,0,NA
+295,NA,NA,NA,NA,NA,NA,0,NA,1.96,Day 1 creatinine,1,1,1,1,1,1,1,4,0,4,0,0,0,0,1,OR,0,NA
+296,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,1,1,1,0,0,ER,0,NA
+300,NA,NA,NA,NA,NA,NA,0,NA,1.75,Day 0 creatinine,0,7,0,0,28,0,0,NA,0,NA,0,0,0,0,1,ER,0,NA
+305,NA,NA,NA,NA,NA,NA,0,NA,0.7,Prior outpt creatinine,0,5,0,0,12,0,0,17,0,17,0,1,0,0,0,ER,0,NA
+307,NA,NA,NA,NA,NA,NA,0,NA,0.8,Prior outpt creatinine,0,7,0,1,18,2,0,44,0,44,0,0,0,0,0,ER,0,NA
+320,NA,NA,NA,NA,NA,NA,0,NA,1.61,Prior outpt creatinine,1,1,1,1,1,1,0,11,0,11,0,1,0,0,1,Inpatient,1,NA
+332,NA,NA,NA,NA,NA,NA,0,NA,0.7,Prior outpt creatinine,0,7,0,0,27,0,0,46,0,46,0,0,0,0,1,OR,0,NA
+342,NA,NA,NA,NA,NA,NA,0,NA,0.57,Day 0 creatinine,0,7,0,0,27,0,0,NA,0,NA,0,0,0,0,1,ER,NA,NA
+345,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,Transfer,NA,NA
+349,NA,NA,NA,NA,NA,NA,0,NA,1.3,Prior outpt creatinine,0,7,0,0,11,0,0,NA,0,NA,0,0,0,0,1,ER,NA,NA
+379,NA,NA,NA,NA,NA,NA,0,NA,3.82,Day 0 creatinine,1,2,3,1,2,3,0,NA,0,NA,0,0,0,0,1,OR,NA,NA
+398,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,NA,NA
+399,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,OR,NA,NA
+403,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,OR,NA,NA
+405,NA,NA,NA,NA,NA,NA,0,NA,0.77,Prior outpt creatinine,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,NA,NA
+409,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,Transfer,NA,NA
+422,NA,NA,NA,NA,NA,NA,0,NA,0.9,Prior outpt creatinine,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,OR,NA,NA
+428,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,NA,NA
+442,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,NA,NA
+449,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,ER,NA,NA
+512,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,OR,0,NA
+523,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+524,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+525,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+526,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+527,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+528,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+529,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+530,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+531,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+532,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+533,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+534,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+535,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+536,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+537,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+538,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+539,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+540,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+541,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+542,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+543,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+544,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+545,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+546,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+547,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+548,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+549,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+550,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+551,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+552,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+553,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+554,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+555,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+556,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+557,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+558,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+559,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+560,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+561,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+562,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+563,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+564,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+565,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+566,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+567,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+568,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+569,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+570,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+571,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+572,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,NA,0,NA,0,0,0,0,0,NA,NA,NA
+131,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,0,0,ER,NA,NA
+199,NA,NA,NA,NA,NA,NA,0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0,0,0,0,0,OR,0,NA

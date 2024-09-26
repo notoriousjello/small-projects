@@ -1,7 +1,7 @@
 ---
-title: "CLOVERS_Paper"
+title: "Zoie_Paper_CITRC1"
 author: "Jordan Lo"
-date: "2023-09-08"
+date: "2024-09-24"
 output:
   word_document: default
   html_document: default
@@ -31,125 +31,102 @@ library("parameters")
 ```
 
 ```{r}
-chr_urn_old <- read_excel("B:\\CHROME\\Urine_Biomarker_V1\\Ang-2_sFAS_2022-04\\Ang-2_Data\\CHR_US_V1_Ang-2_MSD_Plates1-6_Data_NO_SKS_JH_4-7-2022.xlsx",
-                          sheet = "RawData")
-colnames(chr_urn_old)[15] <- "Calc. Concentration"
-chr_urn_old$Sample <- as.numeric(chr_urn_old$Sample)
-chr_urn_old$`Calc. Concentration` <- as.numeric(chr_urn_old$`Calc. Concentration`)
+# reads in citrc 1 clinical and biomarker data
+citrc1_biomarkers <- read_csv("citrc_paper_files/citrc_biomarker_data_for_zoe_2024_08_30.csv") %>%
+  rename("study_id" = "pid")
+citrc1_clinical <- read_csv("citrc_paper_files/citrc1_clinical_data_for_zoie_and_jordan_2024_08_28.csv")
 
-chr_urn_new <- read_excel("B:\\CHROME\\Urine_Biomarker_V1\\Ang-2_sFAS_2022-04\\Ang-2_Data\\CHR_US_V1_Ang2_Plate1 (redo 12.7.22).xlsx",
-                          sheet = "RawData")
+# imputes several variables based on LLOD
+citrc1_biomarkers$uang2_pg_ml_V1[citrc1_biomarkers$uang2_pg_ml_V1 == -89] <- 5
+
+# joins the biomarker and clinical data 
+citrc1_master <- merge(citrc1_biomarkers,
+                       citrc1_clinical)
+
+citrc1_master <- citrc1_master %>%
+  drop_na(uang2_pg_ml_V1)
 ```
 
 <br>
-There are 201 patients that remain after merging the two datasets and filtering out those with clinical data and Ang-2 biomarker data available
+There are 486 patients in CITRC 1 that remain after merging the two datasets and filtering out those with clinical data and biomarker data available
 
 ```{r, include = TRUE}
 # creates a histogram of the ang-2 concentrations
-histogram <- ggplot(data = chr_conc_clinical,
-                    mapping = aes(x = ang2_concentration)) +
+plot <- ggplot(data = citrc1_master,
+                    mapping = aes(x = uang2_pg_ml_V1)) +
   geom_histogram()
-histogram
+plot
 
-# colnames(chr_conc_clinical)
+# converts several variables into factors
+citrc1_master$aki_28d <- as.factor(citrc1_master$aki_28d)
+citrc1_master$dialysis <- as.factor(citrc1_master$dialysis)
+citrc1_master$death <- as.factor(citrc1_master$death)
 
-chr_conc_clinical$aki_hosp <- as.character(chr_conc_clinical$aki_hosp)
-# boxplot of ang-2 concentrations and AKI within 7 days
-ang_7d_aki <- ggplot(data = chr_conc_clinical,
-                     mapping = aes(x = aki_hosp,
-                                   y = ang2_concentration_log2)) + 
+# boxplot of ang-2 concentrations and AKI within 28d days
+plot <- citrc1_master %>%
+  drop_na(aki_28d) %>%
+  ggplot(mapping = aes(x = aki_28d,
+                       y = log2(uang2_pg_ml_V1))) + 
   geom_boxplot()
-ang_7d_aki
+plot
 
-chr_conc_clinical$dialysis_study <- as.character(chr_conc_clinical$dialysis_study)
-# boxplot of ang-2 conc and dialysis within 7 days
-ang_7d_dialysis <- ggplot(data = chr_conc_clinical,
-                          mapping = aes(x = dialysis_study,
-                                        y = ang2_concentration_log2)) +
-  geom_boxplot()
-ang_7d_dialysis
+citrc1_master %>% drop_na(aki_28d) %>%
+  count(aki_28d)
+
+# boxplot of ang-2 conc and dialysis
+plot <- citrc1_master %>%
+  drop_na(dialysis) %>% 
+  ggplot(mapping = aes(x = dialysis,
+                       y = log2(uang2_pg_ml_V1))) + 
+  geom_boxplot() 
+plot
+
+citrc1_master %>% drop_na(dialysis) %>%
+  count(dialysis)
+
+# boxplot of ang-2 conc and death
+plot <- citrc1_master %>%
+  drop_na(death) %>% 
+  ggplot(mapping = aes(x = death,
+                       y = log2(uang2_pg_ml_V1))) + 
+  geom_boxplot() 
+plot
+
+citrc1_master %>% drop_na(death) %>%
+  count(death)
 ```
+
 
 ```{r}
 # normalizing biomarkers to urine creatinine levels
 
-# reads in lab data for CHROME
-lab <- read_csv(file = "chrome_lab_data_for_jordan_zoie_2023_09_12.csv")
-lab <- lab %>%
-  filter(Visit == "V1") %>%
-  dplyr::select(study_id,
-         ucr_mg_dL,
-         ukim1_pg_mL)
-
-# merges lab data and clinical data
-clinical_lab_msd <- merge(chr_conc_clinical,
-                          lab)
-
-# colnames(clinical_lab_msd)
-
-# splits data into tertiles based on ang-2 concentrations and repositions the column
-clinical_lab_msd$ang2_tertile <- as.numeric(cut_number(clinical_lab_msd$ang2_concentration,
-                                        3))
-clinical_lab_msd <- clinical_lab_msd %>%
-  relocate(244, 
-           .after = 3)
-clinical_lab_msd %>% count(ang2_tertile)
-
-# reads in the urine ngal msd data
-ngal <- read_excel("B:/CHROME/Urine_Biomarker_V1/IL-18_NGAL_2022-03/NGAL_Data/CHR_US_V1_NGAL_MSD_Plates1-6_Data_NO__SKS_3-16-2022.xlsx",
-                   sheet = "WideSampleData") %>%
-  dplyr::select(c("Sample",
-                  "NGAL (pg/mL)"))
-
-# renames columns in ngal dataset and merges with the clinical_lab_msd data
-colnames(ngal) <- c("study_id",
-                    "ungal_concentration")
-clinical_lab_msd <- left_join(clinical_lab_msd,
-                               ngal,
-                               by = "study_id",
-                               all.x = TRUE)
-
 # creates a new variable of the ang-2 concentration normalized to urine creatinine (pg/mg)
- clinical_lab_msd <- clinical_lab_msd %>%
-   mutate(ucr_norm_ang2 = (ang2_concentration/(ucr_mg_dL*(1/100)))) %>% 
-   mutate(ucr_norm_kim1 = (ukim1_pg_mL/(ucr_mg_dL*(1/100)))) %>%
-   mutate(ucr_norm_ngal = (ungal_concentration/(ucr_mg_dL*(1/100))))
-```
+ citrc1_master <- citrc1_master %>%
+   mutate(ucr_norm_ang2 = (uang2_pg_ml_V1/(ucre_mg_dl_V1*(1/100)))) %>% 
+   mutate(ucr_norm_kim1 = (ukim1_pg_ml_v1/(ucre_mg_dl_V1*(1/100)))) %>%
+   mutate(ucr_norm_ngal = (ungal_pg_ml_v1/(ucre_mg_dl_V1*(1/100))))
 
+# Looking into the data by tertiles based on Ang-2 normalized to urine creatinine levels
 
-Looking into the data by tertiles based on Ang-2 normalized to urine creatinine levels
-```{r}
 # splitting data into tertiles on ucr_norm_ang2
-clinical_lab_msd$ucr_norm_ang2_tertile <- as.numeric(cut_number(clinical_lab_msd$ucr_norm_ang2,
+citrc1_master$ucr_norm_ang2_tertile <- as.numeric(cut_number(citrc1_master$ucr_norm_ang2,
                                         3))
-clinical_lab_msd %>% count(ucr_norm_ang2_tertile)
-# clinical_lab_msd$ucr_norm_ang2_tertile <- as.factor(clinical_lab_msd$ucr_norm_ang2_tertile)
-# clinical_lab_msd$aki_hosp <- as.factor(clinical_lab_msd$aki_hosp)
+
+citrc1_tertiles <- citrc1_master %>%
+  drop_na(ucr_norm_ang2_tertile)
+
+citrc1_tertiles %>% count(ucr_norm_ang2_tertile)
 ```
+Obs 1. CIT 120, 227, 338 do not have urine creatinine values but do have urinary Ang-2 values
 
 Plasma-Urine Ang-2 Plot
 ```{r, include = TRUE}
-pang2 <- read_excel("B:/CHROME/Plasma/Ang1Ang2/2023-02-08/CHR_Ang1Ang2_20230209_ALL_PLATES_ANALYZED.xlsx",
-                    sheet = "WideSampleData")
-colnames(pang2) <- c("study_id",
-                     "PE_ang1_v1_concentration",
-                     "PE_ang2_v1_concentration")
-
-clinical_lab_msd <- left_join(clinical_lab_msd,
-                               pang2,
-                               by = "study_id",
-                               all.x = TRUE)
-
-clinical_lab_msd$PE_ang1_v1_concentration <- as.numeric(clinical_lab_msd$PE_ang1_v1_concentration)
-clinical_lab_msd$PE_ang2_v1_concentration <- as.numeric(clinical_lab_msd$PE_ang2_v1_concentration)
-
-
 # plot comparing urinary and plasma ang-2 levels
-peang2_uang2 <- ggplot(data = clinical_lab_msd,
-                     mapping = aes(x = log2(ucr_norm_ang2),
-                                   y = log2(PE_ang2_v1_concentration)))
+plot <- ggplot(data = citrc1_tertiles,
+               mapping = aes(x = log2(uang2_pg_ml_V1),
+                             y = log2(ang2_pg_ml_v1)))
 
-peang2_uang2  +
+plot  +
   geom_smooth(method = "lm",
               se = FALSE) +
   geom_point() +
@@ -157,39 +134,32 @@ peang2_uang2  +
   stat_cor(label.y = 15,
            aes(label = ..r.label..)) +
   theme_classic() +
-  labs(x = "Log2(Normalized uAng-2)",
+  labs(x = "Log2(Urine Ang-2)",
        y = "Log2(Plasma Ang-2)")
 
-# correlation test for the p-value 
-cor.test(log2(clinical_lab_msd$ucr_norm_ang2),
-         log2(clinical_lab_msd$PE_ang2_v1_concentration))
-
-
-# plot comparing urinary and plasma ang-2 levels in patients without aki
-pe_uang2_no_aki <- clinical_lab_msd %>%
-  filter(aki_hosp == 0) %>%
+# plot comparing urinary Ang-2 and NGAL
+plot <- citrc1_tertiles %>%
   ggplot(mapping = aes(x = log2(ucr_norm_ang2),
-                       y = log2(PE_ang2_v1_concentration)))
+                       y = log2(ucr_norm_ngal)))
 
-pe_uang2_no_aki  +
+plot  +
   geom_smooth(method = "lm",
               se = FALSE) +
   geom_point() +
-  stat_regline_equation(label.y = 15.5) +
-  stat_cor(label.y = 15,
+  stat_regline_equation(label.y = 26) +
+  stat_cor(label.y = 25,
            aes(label = ..r.label..)) +
   theme_classic() +
   labs(x = "Log2(Normalized uAng-2)",
-       y = "Log2(Plasma Ang-2)")
+       y = "Log2(Normalized uNGAL)")
   
 
-# plot comparing urinary and plasma ang-2 levels in patients with aki
-pe_uang2_aki <- clinical_lab_msd %>%
-  filter(aki_hosp == 1) %>%
+# plot comparing urinary Ang-2 and KIM-1
+plot <- citrc1_tertiles %>%
   ggplot(mapping = aes(x = log2(ucr_norm_ang2),
-                       y = log2(PE_ang2_v1_concentration)))
+                       y = log2(ucr_norm_kim1)))
 
-pe_uang2_aki  +
+plot  +
   geom_smooth(method = "lm",
               se = FALSE) +
   geom_point() +
@@ -198,65 +168,34 @@ pe_uang2_aki  +
            aes(label = ..r.label..)) +
   theme_classic() +
   labs(x = "Log2(Normalized uAng-2)",
-       y = "Log2(Plasma Ang-2)")
+       y = "Log2(Normalized uKIM-1)")
 ```
 
 ```{r}
 # table 1 data finding
-colnames(clinical_lab_msd)
-
-clinical_lab_msd %>%
+citrc1_tertiles %>%
   group_by(ucr_norm_ang2_tertile) %>%
   summarise_at(vars(age),
                list(mean = mean,
                     sd = sd))
 
-clinical_lab_msd %>%
-  drop_na(sofa_d0) %>%
+citrc1_tertiles %>%
   group_by(ucr_norm_ang2_tertile) %>%
-  summarise_at(vars(sofa_d0),
+  count(dialysis)
+
+citrc1_tertiles %>%
+  drop_na(sofa_total_d1) %>%
+  group_by(ucr_norm_ang2_tertile) %>%
+  summarise_at(vars(sofa_total_d1),
                list(mean = mean,
                     sd = sd))
-
-clinical_lab_msd %>%
-  drop_na(apacheiii_score) %>%
-  group_by(ucr_norm_ang2_tertile) %>%
-  summarise_at(vars(apacheiii_score),
-               list(mean = mean,
-                    sd = sd))
-
-clinical_lab_msd %>%
-  drop_na(bmi) %>%
-  group_by(ucr_norm_ang2_tertile) %>%
-  summarise_at(vars(bmi),
-               list(mean = mean,
-                    sd = sd))
-
-# finds variable breakdown in each tertile
-tertile <- c(1,2,3)
-
-counter <- function(tertile) {
-  clinical_lab_msd %>%
-    filter(ucr_norm_ang2_tertile == tertile) %>%
-    count()
-}
-
-lapply(tertile,
-       counter)
 ```
 
 ```{r}
-# relative risk
-# converts several variables from factor to numeric
-clinical_lab_msd$aki_hosp <- as.numeric(clinical_lab_msd$aki_hosp)
-clinical_lab_msd$dialysis_study <- as.numeric(clinical_lab_msd$dialysis_study)
-
-# # creates a new column that is a combination of dialysis and mortality
-# clinical_lab_msd <- clinical_lab_msd %>%
-#   mutate(death_dialysis = (dialysis_study + death_hospital))
-# 
-# # subtracts 1 from patients who died and had dialysis to create the larger group
-# clinical_lab_msd$death_dialysis[clinical_lab_msd$death_dialysis == 2] <- 1
+# converts adjustment variables and predictors into different classes
+citrc1_tertiles$dialysis <- as.numeric(citrc1_tertiles$dialysis)
+citrc1_tertiles$aki_28d <- as.numeric(citrc1_tertiles$aki_28d)
+citrc1_tertiles$death <- as.numeric(citrc1_tertiles$death)
 ```
 
 
@@ -264,22 +203,20 @@ clinical_lab_msd$dialysis_study <- as.numeric(clinical_lab_msd$dialysis_study)
 # Ang-2 Relative Risk
 
 # splits out data into individual tertiles
-rr_lt <- clinical_lab_msd %>%
+rr_lt <- citrc1_tertiles %>%
   filter(ucr_norm_ang2_tertile == 1)
-# summary(rr_lt$ang2_concentration)
 
-rr_mt <- clinical_lab_msd %>%
+rr_mt <- citrc1_tertiles %>%
   filter(ucr_norm_ang2_tertile == 2)
-# summary(rr_mt$ang2_concentration)
 
-rr_ht <- clinical_lab_msd %>%
+rr_ht <- citrc1_tertiles %>%
   filter(ucr_norm_ang2_tertile == 3)
-# summary(rr_ht$ang2_concentration)
 
 # new variable establishing lowest tertile as a reference for relative risk
 rr_lt$tertile_rr <- 0
 rr_mt$tertile_rr <- 1
 rr_ht$tertile_rr <- 1
+
 
 # binds together the tertiles for analysis
 rr_mt_lt <- rbind(rr_lt,
@@ -290,9 +227,9 @@ rr_mt_ht <- rbind(rr_mt,
                   rr_ht)
 
 # runs a poisson regression with covariate adjustment to find relative risk
-# aki_hosp
+# aki_28d
 # unadjusted model
-result <- glm(aki_hosp ~ tertile_rr, 
+result <- glm(aki_28d ~ tertile_rr, 
               data = rr_mt_lt,
               family = "poisson")
 
@@ -302,7 +239,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/middle tertile with adjustment
-result <- glm(aki_hosp ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace,
+result <- glm(aki_28d ~ tertile_rr + age + sex + bmi + mv,
               data = rr_mt_lt,
               family = "poisson")
 
@@ -312,7 +249,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # unadjusted 
-result <- glm(aki_hosp ~ tertile_rr, 
+result <- glm(aki_28d ~ tertile_rr, 
               data = rr_ht_lt,
               family = "poisson")
 
@@ -322,7 +259,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/highest tertile with adjustment 
-result <- glm(aki_hosp ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
+result <- glm(aki_28d ~ tertile_rr + age + sex + bmi + mv , 
               data = rr_ht_lt,
               family = "poisson")
 
@@ -331,9 +268,9 @@ model_parameters(result,
                  vcov = "HC",
                  vcov_args = list(type = "HC0"))
 
-# dialysis_study
+# dialysis
 # # regression on lowest/middle tertile without adjustment
-result <- glm(dialysis_study ~ tertile_rr, 
+result <- glm(dialysis ~ tertile_rr, 
               data = rr_mt_lt,
               family = "poisson")
 
@@ -343,7 +280,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/middle tertile with adjustment
-result <- glm(dialysis_study ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
+result <- glm(dialysis ~ tertile_rr + age + sex + bmi + mv , 
               data = rr_mt_lt,
               family = "poisson")
 
@@ -353,7 +290,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/highest tertile without adjustment
-result <- glm(dialysis_study ~ tertile_rr, 
+result <- glm(dialysis ~ tertile_rr, 
               data = rr_ht_lt,
               family = "poisson")
 
@@ -363,7 +300,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/highest tertile with adjustment
-result <- glm(dialysis_study ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
+result <- glm(dialysis ~ tertile_rr + age + sex + bmi + mv , 
               data = rr_ht_lt,
               family = "poisson")
 
@@ -372,9 +309,9 @@ model_parameters(result,
                  vcov = "HC",
                  vcov_args = list(type = "HC0"))
 
-# death_hospital
+# death
 # # regression on lowest/middle tertile without adjustment
-result <- glm(death_hospital ~ tertile_rr, 
+result <- glm(death ~ tertile_rr, 
               data = rr_mt_lt,
               family = "poisson")
 
@@ -384,7 +321,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/middle tertile with adjustment
-result <- glm(death_hospital ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
+result <- glm(death ~ tertile_rr + age + sex + bmi + mv , 
               data = rr_mt_lt,
               family = "poisson")
 
@@ -394,7 +331,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/highest tertile without adjustment
-result <- glm(death_hospital ~ tertile_rr, 
+result <- glm(death ~ tertile_rr, 
               data = rr_ht_lt,
               family = "poisson")
 
@@ -404,7 +341,7 @@ model_parameters(result,
                  vcov_args = list(type = "HC0"))
 
 # regression on lowest/highest tertile with adjustment
-result <- glm(death_hospital ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
+result <- glm(death ~ tertile_rr + age + sex + bmi + mv , 
               data = rr_ht_lt,
               family = "poisson")
 
@@ -413,380 +350,3 @@ model_parameters(result,
                  vcov = "HC",
                  vcov_args = list(type = "HC0"))
 ```
-
-```{r}
-# NGAL Relative Risk
-
-# splitting data in to ngal tertiles
-clinical_lab_msd$ucr_norm_ngal_tertile <- as.numeric(cut_number(clinical_lab_msd$ucr_norm_ngal,
-                                        3))
-clinical_lab_msd_ngal <- clinical_lab_msd %>%
-  drop_na(ucr_norm_ngal_tertile)
-clinical_lab_msd_ngal %>% count(ucr_norm_ngal_tertile)
-
-# sets the data for a relative risk analysis
-# splits out data into individual tertiles
-rr_lt <- clinical_lab_msd_ngal %>%
-  filter(ucr_norm_ngal_tertile == 1)
-
-rr_mt <- clinical_lab_msd_ngal %>%
-  filter(ucr_norm_ngal_tertile == 2)
-
-rr_ht <- clinical_lab_msd_ngal %>%
-  filter(ucr_norm_ngal_tertile == 3)
-
-# new variable establishing lowest tertile as a reference for relative risk
-rr_lt$tertile_rr <- 0
-rr_mt$tertile_rr <- 1
-rr_ht$tertile_rr <- 1
-
-# binds together the tertiles for analysis
-rr_mt_lt <- rbind(rr_lt,
-                 rr_mt)
-rr_ht_lt <- rbind(rr_lt,
-                  rr_ht)
-rr_mt_ht <- rbind(rr_mt,
-                  rr_ht)
-```
-
-
-```{r}
-# regressions
-
-# aki_hosp
-# unadjusted model
-result <- glm(aki_hosp ~ tertile_rr, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/middle tertile with adjustment
-result <- glm(aki_hosp ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace,
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# unadjusted 
-result <- glm(aki_hosp ~ tertile_rr, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile with adjustment 
-result <- glm(aki_hosp ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# dialysis_study
-# # regression on lowest/middle tertile without adjustment
-result <- glm(dialysis_study ~ tertile_rr, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/middle tertile with adjustment
-result <- glm(dialysis_study ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile without adjustment
-result <- glm(dialysis_study ~ tertile_rr, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile with adjustment
-result <- glm(dialysis_study ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# death_hospital
-# # regression on lowest/middle tertile without adjustment
-result <- glm(death_hospital ~ tertile_rr, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/middle tertile with adjustment
-result <- glm(death_hospital ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile without adjustment
-result <- glm(death_hospital ~ tertile_rr, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile with adjustment
-result <- glm(death_hospital ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# finds variable breakdown in each tertile
-tertile <- c(1,2,3)
-
-counter <- function(tertile) {
-   clinical_lab_msd_ngal %>%
-   filter(ucr_norm_ngal_tertile == tertile) %>%
-   count(death_hospital)
-}
-
-lapply(tertile,
-       counter)
-```
-
-```{r}
-# KIM-1 Relative Risk
-
-# splitting data in to kim1 tertiles
-clinical_lab_msd$ucr_norm_kim1_tertile <- as.numeric(cut_number(clinical_lab_msd$ucr_norm_kim1,
-                                        3))
-clinical_lab_msd %>% count(ucr_norm_kim1_tertile)
-
-# sets the data for a relative risk analysis
-# splits out data into individual tertiles
-rr_lt <- clinical_lab_msd %>%
-  filter(ucr_norm_kim1_tertile == 1)
-
-rr_mt <- clinical_lab_msd %>%
-  filter(ucr_norm_kim1_tertile == 2)
-
-rr_ht <- clinical_lab_msd %>%
-  filter(ucr_norm_kim1_tertile == 3)
-
-# new variable establishing lowest tertile as a reference for relative risk
-rr_lt$tertile_rr <- 0
-rr_mt$tertile_rr <- 1
-rr_ht$tertile_rr <- 1
-
-# binds together the tertiles for analysis
-rr_mt_lt <- rbind(rr_lt,
-                 rr_mt)
-rr_ht_lt <- rbind(rr_lt,
-                  rr_ht)
-rr_mt_ht <- rbind(rr_mt,
-                  rr_ht)
-
-# regressions
-
-# aki_hosp
-# unadjusted model
-result <- glm(aki_hosp ~ tertile_rr, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/middle tertile with adjustment
-result <- glm(aki_hosp ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace,
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# unadjusted 
-result <- glm(aki_hosp ~ tertile_rr, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile with adjustment 
-result <- glm(aki_hosp ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# dialysis_study
-# # regression on lowest/middle tertile without adjustment
-result <- glm(dialysis_study ~ tertile_rr, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/middle tertile with adjustment
-result <- glm(dialysis_study ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile without adjustment
-result <- glm(dialysis_study ~ tertile_rr, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile with adjustment
-result <- glm(dialysis_study ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# death_hospital
-# # regression on lowest/middle tertile without adjustment
-result <- glm(death_hospital ~ tertile_rr, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/middle tertile with adjustment
-result <- glm(death_hospital ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_mt_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile without adjustment
-result <- glm(death_hospital ~ tertile_rr, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-
-# regression on lowest/highest tertile with adjustment
-result <- glm(death_hospital ~ tertile_rr + age + male + bmi + mv + covid_confirmed + myrace, 
-              data = rr_ht_lt,
-              family = "poisson")
-
-model_parameters(result,
-                 exponentiate = TRUE,
-                 vcov = "HC",
-                 vcov_args = list(type = "HC0"))
-```
-
-Model Validation in CITRC
-```{r}
-# imports CITRC MSD and clinical data
-
-citrc <- read_excel("B:/CITRC/Urine Biomarker Nov 2022/Ang1Ang2/CIT_URN_Ang1Ang2_12112023_PROCESSED.xlsx",
-                    sheet = "RawData") %>% 
-  filter(Assay == "Ang-2") %>%
-  filter(`Sample Group` == "URN")
-
-citrc_clinical <- read_excel("B://CITRC/Analysis/SS.Analysis.Stata/Copy of CITRC1phenotype_11_08_23.xlsx")
-
-
-citrc_msd <- citrc[,c("Sample",
-                      "Calc. Concentration")]
-
-citrc_msd <- citrc_msd %>%
-  separate(Sample,
-           into = c("Study",
-                    "Number",
-                    "Visit"),
-           sep = "_")
-citrc_msd <- citrc_msd %>%
-  unite("Sample",
-        Study:Number,
-        sep = "_")
-
-# pivots long > wide
-citrc_msd <- citrc_msd %>%
-  pivot_wider(names_from = c(`Visit`),
-              values_from = `Calc. Concentration`,
-              names_sep = "_")
-
-# renames data
-colnames(citrc_msd) <- c("Sample",
-                         "ang2_concentration_v1",           
-                         "ang2_concentration_v2")
-
-# merges clinical and msd dfs
-citrc_master <- merge(citrc_msd,
-                      citrc_clinical,
-                      by = "Sample")
-```
-
